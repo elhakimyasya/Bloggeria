@@ -1,0 +1,17 @@
+*:focus {
+  outline: none;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: inherit;
+}
+
+html {
+  line-height: 1.4;
+}

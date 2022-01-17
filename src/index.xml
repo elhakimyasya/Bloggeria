@@ -5,14 +5,26 @@
 <head>
 
 <b:skin><![CDATA[
-[elc:include build/styles/skin-prefixed.min.css]
+[elc:include build/styles/skin.css]
+[elc:include build/styles/normalize.css]
 ]]>]]></b:skin>
 
 <b:if cond="data:view.isLayoutMode">
+<b:template-skin>
+[elc:include build/styles/skin-layout.css]
+</b:template-skin>
+<b:else/>
+<style>
+[elc:include build/styles/global.css]
+</style>
 </b:if>
+
+<script>[elc:include build/scripts/head.js]</script>
 
 </head>
 
-<body></body>
+<body>
+<div class="app"></div>
+</body>
 
 </html>

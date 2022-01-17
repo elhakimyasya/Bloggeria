@@ -6,10 +6,19 @@ const gulpAutoprefixer = require("gulp-autoprefixer");
 const gulpReplace = require("gulp-replace");
 const gulpSass = require('gulp-sass')(require('sass'));
 const gulpCSSMinify = require("gulp-minify-css");
+const gulpBabel = require("gulp-babel");
+const gulpBabelMinify = require("gulp-babel-minify");
+const gulpJSObfuscator = require("gulp-javascript-obfuscator");
 
 const paths = {
+    scripts: {
+        src: "./src/script/*.js"
+    },
     styles: {
-        src: "./src/styles/*.scss"
+        src: [
+            "./src/styles/*.scss",
+            "./src/styles/libraries/*.css"
+        ]
     },
     files: {
         src: "./src/*.xml"
@@ -23,18 +32,15 @@ gulp.task("clean", function () {
 })
 
 gulp.task("styles", function () {
-    return gulp.src("./src/styles/*.scss")
+    return gulp.src(paths.styles.src)
         .pipe(gulpSass())
         .pipe(gulp.dest("./build/styles"))
-})
+});
 
 gulp.task("styles:autoprefixed", function () {
     return gulp.src("./build/styles/*.css")
         .pipe(gulpAutoprefixer({
             cascade: false
-        }))
-        .pipe(gulpRename(function (filename) {
-            filename.basename += "-prefixed"
         }))
         .pipe(gulp.dest("./build/styles"))
 });
@@ -44,10 +50,29 @@ gulp.task("styles:minify", function () {
         .pipe(gulpCSSMinify({
             keepSpecialComments: 0
         }))
-        .pipe(gulpRename(function (filename) {
-            filename.basename += ".min"
-        }))
         .pipe(gulp.dest("./build/styles"))
+});
+
+gulp.task("scripts", function () {
+    return gulp.src("./src/scripts/*.js")
+        .pipe(gulpBabel())
+        .pipe(gulp.dest("./build/scripts"))
+});
+
+gulp.task("scripts:minify", function () {
+    return gulp.src("./build/scripts/*.js")
+        .pipe(gulpBabelMinify({
+            mangle: {
+                keepClassName: true
+            }
+        }))
+        .pipe(gulp.dest("./build/scripts"))
+});
+
+gulp.task("scripts:obfuscate", function () {
+    return gulp.src("./build/scripts/*.js")
+        .pipe(gulpJSObfuscator())
+        .pipe(gulp.dest("./build/scripts"))
 });
 
 gulp.task("start", function () {
@@ -67,6 +92,7 @@ gulp.task("start", function () {
 gulp.task("build:development", gulp.series(
     "clean",
     "styles",
+    "scripts",
     "start"
 ));
 
@@ -75,5 +101,8 @@ gulp.task("build:production", gulp.series(
     "styles",
     "styles:autoprefixed",
     "styles:minify",
+    "scripts",
+    "scripts:minify",
+    "scripts:obfuscate",
     "start"
 ));
