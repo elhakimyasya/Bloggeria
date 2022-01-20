@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' b:templateVersion='2.7' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
+
+<head>
+    <b:skin version='2.7'>
+        <![CDATA[]]>
+    </b:skin>
+
+    <b:if cond='data:view.isLayoutMode'>
+        <b:template-skin></b:template-skin>
+        <b:else />
+        <style></style>
+    </b:if>
+
+    <b:defaultmarkups>
+
+    </b:defaultmarkups>
+</head>
+<b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
+
+<body>
+    <b:section id='hidden' />
+    <b:if cond='!data:view.isPage'>&lt;!--</b:if>
+</body>
+
+<b:if cond='!data:view.isPage'>&lt;/body&gt;--&gt;</b:if>
+
+</html>
