@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' b:templateVersion='2.7' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
 <head>
+<b:include data='blog' name='headContent' />
 <b:skin version='2.7'><![CDATA[
 /*
-<Group description='Default'>
+<Group description="Default" selector="body">
+<Variable name="defaultOptionViewportPinch" description="Viewport Pinch/Zooming (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
 <Variable name="defaultOptionsCustomIcon" description="Custom Icons (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
 <Variable name="body.font" description="Default Fonts" type="font" default="normal 400 $(size) 'Google Sans Text', $(family)" family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" size="16px" value="normal 400 $(size) $(family)" />
 <Variable name="body.background" description="Default Background" type="background" color="#ffffff" default="#ffffff none repeat scroll top left" value="#ffffff none repeat scroll top left"/>
@@ -16,13 +18,19 @@
 <Variable name="defaultColorButtonIconHover" description="Default Button Icon Hover Background Color" type="color" default="#202124" value="#202124" />
 </Group>
 
-<Group description="Header">
+<Group description="Features" selector="body">
+<Variable name="featuresRippleEffect" description="Ripple Effect (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="rippleEffectColor" description="Ripple Effect Color" type="color" default="$(defaultColorText)" value="#202124"/>
+</Group>
+
+<Group description="Header" selector="header">
 <Variable name="headerOptionEdge" description="Header Edge Style (None | Border | Shadow)" type="length" default="3px" min="1px" max="3px" value="3px" />
+<Variable name="headerOptionSearchDesktop" description="Search Bar Visibility on Desktop Visibility (Hidden | Visible)" type="length" default="2px" min="1px" max="2px" value="2px" />
 <Variable name="headerColorBackground" description="Header Background Color" type="color" default="#ffffff" value="#ffffff" />
 <Variable name="headerColorText" description="Header Text Color" type="color" default="#5f6368" value="#5f6368" />
 <Variable name="headerColorBorder" description="Header Border Color" type="color" default="#dadce4" value="#dadce4" />
-<Variable name="headerColorButtonIcon" description="Header Button Color" type="color" default="$(defaultColorButtonIcon)" value="#5f6368" />
-<Variable name="headerColorButtonIconHover" description="Header Button Hover Background Color" type="color" default="$(defaultColorButtonIconHover)" value="#202124" />
+<Variable name="headerColorButtonIcon" description="Header Button Color" type="color" default="#5f6368" value="#5f6368" />
+<Variable name="headerColorButtonIconHover" description="Header Button Hover Background Color" type="color" default="#202124" value="#202124" />
 </Group>
 
 <Variable hideEditor="true" name="body.text.font" description="Text Fonts" type="font" default="$(body.font)" value="$(body.font)" />
@@ -49,6 +57,8 @@
 }
 
 body:not(.--darkmode) {
+--rippleEffectColor: $(rippleEffectColor)2e;
+
 --defaultColorButtonIcon: $(defaultColorButtonIcon);
 --defaultColorButtonIconHover: $(defaultColorButtonIconHover)1f;
 --defaultColorButtonIconHoverActive: $(defaultColorButtonIconHover)2e;
@@ -72,6 +82,7 @@ body:not(.--darkmode) {
 </b:template-skin>
 <b:else/>
 <style>
+<b:if cond='data:skin.vars.featuresRippleEffect == "2px"'>[elc:include ./build/styles/ripple-effect.css]</b:if>
 [elc:include ./build/styles/global.css]
 [elc:include ./build/styles/components.css]
 [elc:include ./build/styles/header.css]
@@ -82,11 +93,17 @@ body:not(.--darkmode) {
 
 <b:defaultmarkups>
 <b:defaultmarkup type="Common">
+<b:includable id='headContent'>
+[elc:include ./src/templates/defaultmarkups/headContent.html]
+</b:includable>
 <b:includable id='defaultIcons'>
 [elc:include ./src/templates/defaultmarkups/defaultIcons.html]
 </b:includable>
 <b:includable id='libraries'>
-<script>[elc:include ./build/scripts/global.js]</script>
+<script>
+<b:if cond='data:skin.vars.featuresRippleEffect == "2px"'>/*<![CDATA[*/[elc:include ./build/scripts/ripple-effect.js]/*]]>*/</b:if>
+[elc:include ./build/scripts/global.js]
+</script>
 </b:includable>
 </b:defaultmarkup>
 <b:defaultmarkup type='Header'><b:includable id='main' var='this'><b:attr name='hidden'/></b:includable></b:defaultmarkup>

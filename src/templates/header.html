@@ -18,6 +18,7 @@
         </b:section>
     </b:tag>
     <b:tag cond='!data:view.isLayoutMode' name='div' class='header_section header_center'>
+        <b:class cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='__search_desktop_hidden' />
         <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : "_blank"'>
             <b:include name='urlParamsAsFormInput' />
             <button class='elcreative_button_icon button_small elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='submit'>
@@ -43,11 +44,14 @@
     </b:tag>
     <b:tag cond='!data:view.isLayoutMode' name='div' class='header_section header_end'>
         <button id='button_toggle_search' class='elcreative_button_icon button_toggle_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='button'>
+            <b:class cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='__search_desktop_hidden' />
             <svg width='24' height='24' viewBox='0 0 24 24'>
                 <b:if cond='data:skin.vars.defaultCustomIcon == "2px"'>
                     <use xlink:href='#icon_magnify' />
+                    <b:tag cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='use' xlink:href='#icon_magnify' />
                     <b:else />
                     <b:include data='{iconId: "icon_magnify"}' name='defaultIcons' />
+                    <b:include cond='data:skin.vars.headerOptionSearchDesktop == "1px"' data='{iconId: "icon_close"}' name='defaultIcons' />
                 </b:if>
             </svg>
         </button>

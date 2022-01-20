@@ -10,6 +10,9 @@
       }
 
       &.header_center {
+        body:not(.--search_active) &.__search_desktop_hidden {
+          display: none;
+        }
         form {
           background-color: var(--headerColorTextTransparent1);
 
@@ -37,7 +40,7 @@
         min-width: 200px;
 
         .elcreative_button_icon {
-          &.button_toggle_search {
+          &:not(.__search_desktop_hidden).button_toggle_search {
             display: none;
           }
         }

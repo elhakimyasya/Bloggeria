@@ -1,0 +1,20 @@
+.elcreative_ripple {
+  .ripple_container {
+    bottom: 0;
+    color: transparent;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    pointer-events: none;
+    right: 0;
+    transform: perspective(0);
+    top: 0;
+
+    i {
+      border-radius: 50%;
+      background-color: var(--rippleEffectColor);
+      position: absolute;
+      transition: opacity 640ms ease 0s, transform 640ms ease 0s;
+    }
+  }
+}
