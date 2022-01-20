@@ -20,10 +20,10 @@ const paths = {
     },
     styles: {
         src: [
-            "./src/styles/*.scss",
-            "./src/styles/libraries/*.css",
-            "./src/styles/partial/*.css",
-            "./src/styles/partial/*.scss"
+            "./src/assets/styles/*.scss",
+            "./src/assets/styles/libraries/*.css",
+            "./src/assets/styles/partial/*.css",
+            "./src/assets/styles/partial/*.scss"
         ]
     },
     files: {
