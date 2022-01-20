@@ -3,6 +3,32 @@
   // Header
   .elcreative_header {
     min-height: 64px;
+
+    .header_section {
+      &.header_start {
+        min-width: 200px;
+      }
+
+      &.header_center {
+        form {
+          background-color: var(--headerColorTextTransparent1);
+
+          &:focus-within {
+            background-color: var(--headerColorTextTransparent2);
+            box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3),
+              0 1px 3px 1px rgba(65, 69, 73, 0.15);
+          }
+
+          input {
+            line-height: 48px;
+          }
+        }
+      }
+
+      &.header_end {
+        min-width: 200px;
+      }
+    }
   }
 }
 
@@ -11,5 +37,15 @@
   // Header
   .elcreative_header {
     min-height: 56px;
+
+    .header_section {
+      &.header_center {
+        form {
+          input {
+            line-height: 40px;
+          }
+        }
+      }
+    }
   }
 }

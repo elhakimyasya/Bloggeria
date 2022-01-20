@@ -11,6 +11,15 @@
   width: 100%;
   z-index: 998;
 
+  &.__header_border {
+    border-bottom: 1px solid var(--headerColorBorder);
+  }
+
+  &.__header_shadow {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0px rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
   .header_primary {
     align-items: center;
     display: flex;
@@ -37,11 +46,74 @@
       margin: 0 8px 0 0;
       max-width: max-content;
       width: 100%;
+
+      .Header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          align-items: center;
+          color: var(--headerColorText);
+          display: inline-flex;
+          font-size: 18px;
+          font-weight: 500;
+          justify-content: center;
+          text-decoration: none;
+        }
+
+        h1 {
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          color: inherit;
+          display: -webkit-box;
+          font-size: inherit;
+          font-weight: inherit;
+          line-height: 1.5;
+          margin: 0;
+          overflow: hidden;
+          position: relative;
+          text-overflow: ellipsis;
+        }
+
+        img {
+          flex: 0 0 auto;
+          max-height: 26px;
+          margin: 0 8px 0 0;
+          overflow: hidden;
+          text-indent: -999px;
+          width: auto;
+        }
+      }
     }
 
     &.header_center {
       justify-content: center;
       width: 100%;
+
+      form {
+        align-items: center;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 780px;
+        width: 100%;
+        transition: box-shadow 280ms ease-in-out;
+
+        input {
+          background-color: transparent;
+          box-sizing: border-box;
+          border: none;
+          color: var(--headerColorText);
+          font-family: inherit;
+          font-size: 14px;
+          margin: 0 4px;
+          outline: none;
+          padding: 0;
+          width: 100%;
+        }
+      }
     }
 
     &.header_end {
