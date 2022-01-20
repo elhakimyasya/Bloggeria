@@ -7,7 +7,8 @@
 <b:skin><![CDATA[
 [elc:include build/styles/skin.css]
 [elc:include build/styles/normalize.css]
-]]>]]></b:skin>
+[elc:include build/styles/sohne-fonts.css]
+]]></b:skin>
 
 <b:if cond="data:view.isLayoutMode">
 <b:template-skin>
@@ -24,7 +25,11 @@
 </head>
 
 <body>
-<div class="app"></div>
+<div class="app">
+[elc:include ./src/template/header.html]
+
+<b:section id="hidden" />
+</div>
 </body>
 
 </html>

@@ -21,7 +21,10 @@ const paths = {
         ]
     },
     files: {
-        src: "./src/*.xml"
+        src: [
+            "./src/*.xml",
+            "./src/*.html"
+        ]
     }
 }
 
@@ -83,7 +86,8 @@ gulp.task("start", function () {
             return replace
         }))
         .pipe(gulpRename({
-            basename: "theme"
+            basename: "theme",
+            extname: ".html"
         }))
 
         .pipe(gulp.dest("./dist"))
@@ -103,6 +107,5 @@ gulp.task("build:production", gulp.series(
     "styles:minify",
     "scripts",
     "scripts:minify",
-    "scripts:obfuscate",
     "start"
 ));
