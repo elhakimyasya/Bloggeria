@@ -1,0 +1,11 @@
+// Header
+.elcreative_header {
+  .header_section {
+    &.header_start {
+      margin: 0 0 0 8px;
+    }
+    &.header_end {
+      margin: 0 8px 0 0;
+    }
+  }
+}

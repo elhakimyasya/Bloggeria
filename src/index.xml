@@ -1,54 +1,86 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' b:templateVersion='2.7' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
-    <head>
-        <b:skin version='2.7'><![CDATA[
-            /*
-            <Variable hideEditor="true" name="body.font" description="Font" type="font" default="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" value="normal 400 14px Arial, sans-serif"/>
-            <Variable hideEditor="true" name="body.background" description="Body Background" type="background" color="#ffffff" default="#ffffff none repeat scroll top left" value="#ffffff none repeat scroll top left"/>
-            <Variable hideEditor="true" name="body.text.color" description="Text Color" type="color" default="$(defaultColorText)" value="#9aa0a6"/>
-            <Variable hideEditor="true" name="body.text.font" description="1" type="font" default="$(body.font)" value="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"/>
-            <Variable hideEditor="true" name="posts.background.color" description="2" type="color" default="transparent" value="transparent"/>
-            <Variable hideEditor="true" name="body.link.color" description="3" type="color" default="$(defaultColorKey)" value="#1a73e8"/>
-            <Variable hideEditor="true" name="tabs.font" description="9" type="font" default="$(body.text.font)" value="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"/>
-            <Variable hideEditor="true" name="tabs.color" description="10" type="color" default="#e5e5e5" value="#e5e5e5"/>
-            <Variable hideEditor="true" name="tabs.selected.color" description="11" type="color" default="#ffffff" value="#ffffff"/>
-            <Variable hideEditor="true" name="tabs.overflow.background.color" description="12" type="color" default="#ffffff" value="#ffffff"/>
-            <Variable hideEditor="true" name="tabs.overflow.color" description="13" type="color" default="$(defaultColorText)" value="#212121"/>
-            <Variable hideEditor="true" name="tabs.overflow.selected.color" description="14" type="color" default="$(defaultColorText)" value="#212121"/>
-            <Variable hideEditor="true" name="posts.title.color" description="15" type="color" default="$(defaultColorText)" value="#212121"/>
-            <Variable hideEditor="true" name="posts.title.font" description="16" type="font" default="$(body.text.font)" value="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"/>
-            <Variable hideEditor="true" name="posts.text.font" description="17" type="font" default="$(body.text.font)" value="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"/>
-            <Variable hideEditor="true" name="posts.text.color" description="18" type="color" default="$(defaultColorText)" value="#212121"/>
-            <Variable hideEditor="true" name="posts.icons.color" description="19" type="color" default="$(defaultColorText)" value="#212121"/>
-            <Variable hideEditor="true" name="labels.background.color" description="20" type="color" default="$(defaultColorKey)" value="#1a73e8"/>
-            */
-            [elc:include ./build/styles/normalize.css]
-            ]]>
-        </b:skin>
+<head>
+<b:skin version='2.7'><![CDATA[
+/*
+<Group description='Default'>
+<Variable name="body.font" description="Default Fonts" type="font" default="normal 400 $(size) 'Google Sans Text', $(family)" family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" size="16px" value="normal 400 $(size) $(family)" />
+<Variable name="body.background" description="Default Background" type="background" color="#ffffff" default="#ffffff none repeat scroll top left" value="#ffffff none repeat scroll top left"/>
+<Variable name="body.text.color" description="Default Text Color" type="color" default="#202124" value="#202124" />
+<Variable name="body.link.color" description="Default Link Color" type="color" default="#1a73e8" value="#1a73e8" />
+</Group>
 
-        <b:if cond='data:view.isLayoutMode'>
-            <b:template-skin><![CDATA[
-            [elc:include ./build/styles/layout-skin.css]
-            ]]>
-            </b:template-skin>
-            <b:else/>
-            <style>
-            [elc:include ./build/styles/global.css]
-            </style>
-        </b:if>
+<Group description="Header">
+<Variable name="headerColorBackground" description="Header Background Color" type="color" default="#ffffff" value="#ffffff" />
+</Group>
 
-        <b:defaultmarkups>
-            <b:includable id="Common">
-            </b:includable>
-        </b:defaultmarkups>
-    </head>
-    <b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
+<Variable hideEditor="true" name="body.text.font" description="Text Fonts" type="font" default="$(body.font)" value="$(body.font)" />
+<Variable hideEditor="true" name="tabs.font" description="Tabs Fonts" type="font" default="$(body.font)" value="$(body.font)" />
+<Variable hideEditor="true" name="tabs.color" description="Tabs Color" type="color" default="#e5e5e5" value="#e5e5e5" />
+<Variable hideEditor="true" name="tabs.selected.color" description="Tabs Color Selected" type="color" default="#ffffff" value="#ffffff" />
+<Variable hideEditor="true" name="tabs.overflow.background.color" description="Tabs Overflow Background" type="color" default="#ffffff" value="#ffffff" />
+<Variable hideEditor="true" name="tabs.overflow.color" description="Tabs Overflow Color" type="color" default="$(body.text.color)" value="#212121" />
+<Variable hideEditor="true" name="tabs.overflow.selected.color" description="Tabs Overflow Selected Color" type="color" default="$(body.text.color)" value="#212121"/>
+<Variable hideEditor="true" name="posts.background.color" description="Post Background" type="color" default="transparent" value="transparent" />
+<Variable hideEditor="true" name="posts.title.font" description="Post Tile Fonts" type="font" default="$(body.font)" value="$(body.font)" />
+<Variable hideEditor="true" name="posts.text.font" description="Post Text Fonts" type="font" default="$(body.font)" value="$(body.font)" />
+<Variable hideEditor="true" name="posts.title.color" description="Post Title Color" type="color" default="$(body.text.color)" value="#212121" />
+<Variable hideEditor="true" name="posts.text.color" description="Post Text Color" type="color" default="$(body.text.color)" value="#212121" />
+<Variable hideEditor="true" name="posts.icons.color" description="Post Icon Color" type="color" default="$(body.text.color)" value="#212121" />
+<Variable hideEditor="true" name="labels.background.color" description="20" type="color" default="$(body.link.color)" value="#1a73e8" />
+*/
+[elc:include ./build/styles/normalize.css]
 
-    <body>
-        <b:section id='hidden' />
-        <b:if cond='!data:view.isPage'>&lt;!--</b:if>
-    </body>
+:root {
+--background: $(body.background);
+--color-text: $(body.text.color);
+--font: $(body.font);
+}
 
-    <b:if cond='!data:view.isPage'>&lt;/body&gt;--&gt;</b:if>
+body:not(.--darkmode) {
+--headerColorBackground: $(headerColorBackground);
+}
+]]>
+</b:skin>
+
+<b:if cond='data:view.isLayoutMode'>
+<b:template-skin><![CDATA[
+[elc:include ./build/styles/layout-skin.css]
+]]>
+</b:template-skin>
+<b:else/>
+<style>
+[elc:include ./build/styles/global.css]
+[elc:include ./build/styles/header.css]
+[elc:include ./build/styles/media-queries.css]
+<b:if cond='data:blog.languageDirection == "rtl"'>[elc:include ./build/styles/header-rtl.css]</b:if>
+</style>
+</b:if>
+
+<b:defaultmarkups>
+<b:defaultmarkup type="Common">
+</b:defaultmarkup>
+<b:defaultmarkup type='Header'><b:includable id='main' var='this'><b:attr name='hidden'/></b:includable></b:defaultmarkup>
+</b:defaultmarkups>
+
+</head>
+<b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
+
+<body>
+<b:tag cond='!data:view.isLayoutMode' name='div' id='app' class='app'>
+<b:tag cond='!data:view.isLayoutMode' name='header' id='elcreative_header' class='elcreative_header'>
+[elc:include ./src/templates/header.html]
+</b:tag>
+<b:tag cond='!data:view.isLayoutMode' name='nav' id='elcreative_navigation' class='elcreative_navigation'>
+</b:tag>
+<b:tag cond='!data:view.isLayoutMode' name='div' id='elcreative_section' class='elcreative_section'>
+</b:tag>
+</b:tag>
+
+<b:section id='hidden' />
+<b:if cond='!data:view.isPage'>&lt;!--</b:if>
+</body>
+
+<b:if cond='!data:view.isPage'>&lt;/body&gt;--&gt;</b:if>
 </html>

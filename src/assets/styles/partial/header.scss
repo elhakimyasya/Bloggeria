@@ -1,0 +1,54 @@
+// Header
+.elcreative_header {
+  align-items: center;
+  background-color: var(--headerColorBackground);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  user-select: none;
+  width: 100%;
+  z-index: 998;
+
+  .header_primary {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 8px 0 8px;
+    width: 100%;
+  }
+
+  .header_secondary {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px 8px 8px;
+    width: 100%;
+  }
+
+  .header_section {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    &.header_start {
+      justify-content: flex-start;
+      margin: 0 8px 0 0;
+      max-width: max-content;
+      width: 100%;
+    }
+
+    &.header_center {
+      justify-content: center;
+      width: 100%;
+    }
+
+    &.header_end {
+      justify-content: flex-end;
+      margin: 0 0 0 8px;
+      max-width: max-content;
+      width: 100%;
+    }
+  }
+}

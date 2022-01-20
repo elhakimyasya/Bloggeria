@@ -1,52 +1,39 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 *:focus {
   outline: none;
 }
-
 *,
 ::after,
 ::before {
   box-sizing: border-box;
 }
-
 ::placeholder {
   color: inherit;
 }
-
-html {
-  font-family: 'Sohne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.4;
-}
-
-:root {
-  --color-navigation: #fff;
-}
-
-// Header
-.elcreative_header {
-  background-color: var(--color-navigation);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 12px 0px;
+:target::before {
+  content: '';
   display: block;
-  left: 0;
+  height: 74px;
+  margin: -74px 0 0;
+}
+body {
+  background: var(--background);
+  color: var(--color-text);
+  font: var(--font);
+}
+.no-items,
+.hidden {
+  display: none;
+}
+.visibility_hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
   position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 500;
-
-  .header_primary {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    max-width: 1192px;
-    margin: 0 auto;
-    width: 100%;
-
-    @media screen and (min-width: 780px) {
-      height: 65px;
-    }
-
-    @media screen and (max-width: 780px) {
-      height: 56px;
-    }
-  }
+  padding: 0;
+  width: 0;
 }

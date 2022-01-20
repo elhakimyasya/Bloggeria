@@ -1,0 +1,15 @@
+// Desktop
+@media screen and (min-width: 980px) {
+  // Header
+  .elcreative_header {
+    min-height: 64px;
+  }
+}
+
+// Mobile
+@media screen and (max-width: 980px) {
+  // Header
+  .elcreative_header {
+    min-height: 56px;
+  }
+}
