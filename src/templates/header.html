@@ -20,7 +20,7 @@
     <b:tag cond='!data:view.isLayoutMode' name='div' class='header_section header_center'>
         <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : "_blank"'>
             <b:include name='urlParamsAsFormInput' />
-            <button class='elcreative_button_icon button_small elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' title='data:messages.searchThisBlog' type='submit'>
+            <button class='elcreative_button_icon button_small elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='submit'>
                 <svg width='24' height='24' viewBox='0 0 24 24'>
                     <b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'>
                         <use xlink:href='#icon_magnify' />
@@ -30,8 +30,27 @@
                 </svg>
             </button>
             <input id='search_input' class='search_input' autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name='q' required='' expr:oninput='data:skin.vars.featuresCSE == "2px" ? "this.setCustomValidity(&apos;&apos;)" : ""' />
+            <button id='button_close_search' class='elcreative_button_icon button_small button_close_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='button'>
+                <svg width='24' height='24' viewBox='0 0 24 24'>
+                    <b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'>
+                        <use xlink:href='#icon_close' />
+                        <b:else />
+                        <b:include data='{iconId: "icon_close"}' name='defaultIcons' />
+                    </b:if>
+                </svg>
+            </button>
         </form>
     </b:tag>
-    <b:tag cond='!data:view.isLayoutMode' name='div' class='header_section header_end'></b:tag>
+    <b:tag cond='!data:view.isLayoutMode' name='div' class='header_section header_end'>
+        <button id='button_toggle_search' class='elcreative_button_icon button_toggle_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='button'>
+            <svg width='24' height='24' viewBox='0 0 24 24'>
+                <b:if cond='data:skin.vars.defaultCustomIcon == "2px"'>
+                    <use xlink:href='#icon_magnify' />
+                    <b:else />
+                    <b:include data='{iconId: "icon_magnify"}' name='defaultIcons' />
+                </b:if>
+            </svg>
+        </button>
+    </b:tag>
 </b:tag>
 <b:tag cond='!data:view.isLayoutMode' name='div' class='header_secondary'></b:tag>

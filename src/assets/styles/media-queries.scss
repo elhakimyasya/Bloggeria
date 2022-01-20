@@ -19,6 +19,14 @@
               0 1px 3px 1px rgba(65, 69, 73, 0.15);
           }
 
+          .elcreative_button_icon {
+            margin: 0 4px;
+
+            &.button_close_search {
+              display: none;
+            }
+          }
+
           input {
             line-height: 48px;
           }
@@ -27,6 +35,12 @@
 
       &.header_end {
         min-width: 200px;
+
+        .elcreative_button_icon {
+          &.button_toggle_search {
+            display: none;
+          }
+        }
       }
     }
   }
@@ -39,11 +53,27 @@
     min-height: 56px;
 
     .header_section {
+      &.header_start {
+        body.--search_active & {
+          display: none;
+        }
+      }
+
       &.header_center {
+        body:not(.--search_active) & {
+          display: none;
+        }
+
         form {
           input {
             line-height: 40px;
           }
+        }
+      }
+
+      &.header_end {
+        body.--search_active & {
+          display: none;
         }
       }
     }

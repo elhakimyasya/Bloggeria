@@ -21,6 +21,8 @@
 <Variable name="headerColorBackground" description="Header Background Color" type="color" default="#ffffff" value="#ffffff" />
 <Variable name="headerColorText" description="Header Text Color" type="color" default="#5f6368" value="#5f6368" />
 <Variable name="headerColorBorder" description="Header Border Color" type="color" default="#dadce4" value="#dadce4" />
+<Variable name="headerColorButtonIcon" description="Header Button Color" type="color" default="$(defaultColorButtonIcon)" value="#5f6368" />
+<Variable name="headerColorButtonIconHover" description="Header Button Hover Background Color" type="color" default="$(defaultColorButtonIconHover)" value="#202124" />
 </Group>
 
 <Variable hideEditor="true" name="body.text.font" description="Text Fonts" type="font" default="$(body.font)" value="$(body.font)" />
@@ -56,6 +58,9 @@ body:not(.--darkmode) {
 --headerColorTextTransparent1: $(headerColorText)1f;
 --headerColorTextTransparent2: $(headerColorText)2e;
 --headerColorBorder: $(headerColorBorder);
+--headerColorButtonIcon: $(headerColorButtonIcon);
+--headerColorButtonIconHover: $(headerColorButtonIconHover)1f;
+--headerColorButtonIconHoverActive: $(headerColorButtonIconHover)2e;
 }
 ]]>
 </b:skin>
@@ -80,9 +85,14 @@ body:not(.--darkmode) {
 <b:includable id='defaultIcons'>
 [elc:include ./src/templates/defaultmarkups/defaultIcons.html]
 </b:includable>
+<b:includable id='libraries'>
+<script>[elc:include ./build/scripts/global.js]</script>
+</b:includable>
 </b:defaultmarkup>
 <b:defaultmarkup type='Header'><b:includable id='main' var='this'><b:attr name='hidden'/></b:includable></b:defaultmarkup>
 </b:defaultmarkups>
+
+<script>[elc:include ./build/scripts/head.js]</script>
 
 </head>
 <b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
@@ -99,6 +109,7 @@ body:not(.--darkmode) {
 </b:tag>
 
 <b:section id='hidden' />
+<b:include name='libraries' />
 <b:if cond='!data:view.isPage'>&lt;!--</b:if>
 </body>
 

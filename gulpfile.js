@@ -13,9 +13,9 @@ const gulpJSObfuscator = require("gulp-javascript-obfuscator");
 const paths = {
     scripts: {
         src: [
-            "./src/scripts/*.js",
-            "./src/scripts/libraries/*.js",
-            "./src/scripts/partial/*.js"
+            "./src/assets/scripts/*.js",
+            "./src/assets/scripts/libraries/*.js",
+            "./src/assets/scripts/partial/*.js"
         ]
     },
     styles: {
