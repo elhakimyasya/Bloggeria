@@ -2,7 +2,14 @@
   "name": "bloggeria",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "author": {
+    "name": "Yasya El Hakim",
+    "email": "yasyaelhakim@gmail.com",
+    "url": "https://www.elcreativeacademy.com/"
+  },
+  "keywords": [
+    "Blogger"
+  ],
   "scripts": {
     "build": "gulp build:production",
     "build:dev": "gulp build:development"
@@ -11,8 +18,6 @@
     "type": "git",
     "url": "git+https://github.com/elhakimyasya/Bloggeria.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/elhakimyasya/Bloggeria/issues"

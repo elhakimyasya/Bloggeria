@@ -12,12 +12,18 @@ const gulpJSObfuscator = require("gulp-javascript-obfuscator");
 
 const paths = {
     scripts: {
-        src: "./src/script/*.js"
+        src: [
+            "./src/scripts/*.js",
+            "./src/scripts/libraries/*.js",
+            "./src/scripts/partial/*.js"
+        ]
     },
     styles: {
         src: [
             "./src/styles/*.scss",
-            "./src/styles/libraries/*.css"
+            "./src/styles/libraries/*.css",
+            "./src/styles/partial/*.css",
+            "./src/styles/partial/*.scss"
         ]
     },
     files: {
@@ -57,7 +63,7 @@ gulp.task("styles:minify", function () {
 });
 
 gulp.task("scripts", function () {
-    return gulp.src("./src/scripts/*.js")
+    return gulp.src(paths.scripts.src)
         .pipe(gulpBabel())
         .pipe(gulp.dest("./build/scripts"))
 });
@@ -87,7 +93,7 @@ gulp.task("start", function () {
         }))
         .pipe(gulpRename({
             basename: "theme",
-            extname: ".html"
+            extname: ".xml"
         }))
 
         .pipe(gulp.dest("./dist"))
