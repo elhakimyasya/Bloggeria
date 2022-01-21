@@ -1,7 +1,7 @@
 @media screen and (min-width: 980px) {
   // Main Section
   .elcreative_section {
-    body:not(.--drawer_menu_active) &:not(.__drawer_menu_modal) {
+    body:not(.error_page):not(.--drawer_menu_active) &:not(.__drawer_menu_modal) {
       margin: 0 300px 0 0;
     }
   }
