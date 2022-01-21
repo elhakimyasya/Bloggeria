@@ -1,0 +1,46 @@
+<b:includable id='main'>
+    <b:include name='widget-title' />
+    <b:include name='content' />
+</b:includable>
+<b:includable id='content'>
+    <div class='widget_content widget_pagelist'>
+        <b:include name='pageList' />
+    </div>
+</b:includable>
+<b:includable id='pageList'>
+    <ul>
+        <b:class cond='data:pageListClass' expr:name='data:pageListClass' />
+        <b:loop values='data:links' var='link'>
+            <b:include name='pageLink' />
+        </b:loop>
+    </ul>
+</b:includable>
+<b:includable id='pageLink'>
+    <li>
+        <b:class cond='data:overflow' name='overflowable-item' />
+        <b:class cond='data:link.isCurrentPage' name='selected' />
+
+        <a expr:href='data:link.href'>
+            <data:link.title />
+        </a>
+    </li>
+</b:includable>
+<b:includable id='overflowButton'>
+    <b:include name='verticalMoreIcon' />
+</b:includable>
+<b:includable id='overflowablePageList'>
+    <div class='overflowable-container'>
+        <div class='overflowable-contents'>
+            <div class='container'>
+                <b:with value='true' var='overflow'>
+                    <b:with value='&quot;tabs&quot;' var='pageListClass'>
+                        <b:include name='pageList' />
+                    </b:with>
+                </b:with>
+            </div>
+        </div>
+        <div class='overflow-button hidden'>
+            <b:include name='overflowButton' />
+        </div>
+    </div>
+</b:includable>

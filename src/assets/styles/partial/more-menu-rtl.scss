@@ -1,0 +1,17 @@
+.elcreative_dropdown {
+  &.overflow_menu {
+    right: auto;
+    left: 0;
+    transform-origin: left top;
+
+    ul {
+      li {
+        .dropdown_item {
+          svg {
+            margin: 0 0 0 8px;
+          }
+        }
+      }
+    }
+  }
+}

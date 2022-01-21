@@ -1,0 +1,93 @@
+// Drawer Menu
+.navigation_drawer_menu {
+  bottom: 0;
+  background-color: var(--navDrawerMenuColorBackground);
+  max-width: 300px;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  padding: 14px 0;
+  scrollbar-width: thin;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    border-width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  z-index: 997;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      .drawer_menu_link {
+        appearance: none;
+        align-items: center;
+        border-radius: 0 25px 25px 0;
+        border: none;
+        background-color: transparent;
+        color: var(--navDrawerMenuColorText);
+        cursor: pointer;
+        display: flex;
+        font-size: 14px;
+        justify-content: space-between;
+        min-height: 44px;
+        max-width: 285px;
+        overflow: hidden;
+        outline: none;
+        position: relative;
+        padding: 10px 0 10px 16px;
+        text-decoration: none;
+        transition: background-color 0.4s;
+        user-select: none;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+          background-color: var(--navDrawerMenuColorTextTransparent1);
+        }
+
+        &:active {
+          background-color: var(--navDrawerMenuColorTextTransparent2);
+        }
+
+        .ripple_container {
+          i {
+            background-color: var(--navDrawerMenuColorTextTransparent2);
+          }
+        }
+
+        .drawer_menu_item {
+          align-items: center;
+          display: flex;
+          justify-content: flex-start;
+
+          svg {
+            fill: currentColor;
+            flex: 0 0 auto;
+            height: 24px;
+            margin: 0 12px 0 0;
+            width: 24px;
+          }
+        }
+      }
+
+      &.selected {
+        .drawer_menu_link {
+          background-color: var(--navDrawerMenuColorSelectedTransparent1);
+          color: var(--navDrawerMenuColorSelected);
+          font-weight: 500;
+
+          &::before {
+            background-color: var(--navDrawerMenuColorSelected);
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            width: 4px;
+          }
+        }
+      }
+    }
+  }
+}
