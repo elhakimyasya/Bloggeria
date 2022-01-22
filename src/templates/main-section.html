@@ -1,0 +1,285 @@
+<b:section id='main_widget_section' class='main_widget_section' name='Main Section' showaddelement='false' maxwidgets='2'>
+    <b:widget id='Blog1' locked='true' title='Blog (Blog Posts)' type='Blog' visible='true'>
+        <b:includable id='main' var='this'>
+            <noscript>
+                <div class='elcreative_alert alert_warning'>
+                    <b:include data='{message: "transNoScript"}' name='translate' />
+                </div>
+            </noscript>
+            <b:if cond='data:view.isHomepage and data:skin.vars.indexOptionRecentHeadline == "2px"'>
+                <div class='widget_title'>
+                    <div class='title'>
+                        <data:messages.recentPosts />
+                    </div>
+                </div>
+            </b:if>
+            <div class='blog_posts'>
+                <div class='blog_posts'>
+                    <b:if cond='data:view.search.query and data:skin.vars.featuresCSE == "2px"'>
+                        <div id="elcCSE" class='elcCSE'><gcse:searchresults-only></gcse:searchresults-only></div>
+                        <b:if cond='data:skin.vars.featuresNativeShare in {"1px", "2px"}'>
+                            <div id='dialog_share_box' class='elcreative_dialog dialog_share_box' role='listbox' aria-hidden='true'>
+                                <div class='dialog_container'>
+                                    <div class='dialog_header'>
+                                        <span></span>
+                                        <button class='elcreative_button_icon elcreative_ripple' type='button' aria-label='Close Dialog' title='Close Dialog' data-toggle-trigger-off=''>
+                                            <svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_close'/><b:else/><b:include data='{iconId: "icon_close"}' name='defaultIcons'/></b:if></svg>
+                                        </button>
+                                    </div>
+                                    <div class='dialog_content'>
+                                        <b:include name='sharingButtons'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </b:if>
+                        <b:else/>
+                        <b:loop index='i' values='data:posts' var='post'>
+                            <article class='post_outer_container' expr:data-index='data:i'>
+                                <div class='post_container_start'>
+                                    <div class='post_header_start'>
+                                        <b:if cond='data:view.isMultipleItems'>
+                                            <b:if cond='data:post.labels.notEmpty and data:allBylineItems.labels and data:skin.vars.indexOptionLabelIcon != "1px"'>
+                                                <a class='post_label' expr:href='data:post.labels.first.url' expr:title='data:post.labels.first.name' rel='tag'>
+                                                    <b:if cond='data:skin.vars.indexOptionLabelIcon != "2px"'>
+                                                        <svg width='14' height='14' viewBox='0 0 24 24'>
+                                                            <b:if cond='data:skin.vars.indexOptionLabelIcon == "4px"'>
+                                                                <use expr:xlink:href='"#" + data:post.labels.first.name'/>
+                                                                <b:elseif cond='data:skin.vars.indexOptionLabelIcon == "3px"'/>
+                                                                <b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_labels'/><b:else/><b:include data='{iconId: "icon_labels"}' name='defaultIcons'/></b:if>
+                                                            </b:if>
+                                                        </svg>
+                                                    </b:if>
+                                                    <span><data:post.labels.first.name/></span>
+                                                </a>
+                                            </b:if>
+                                            <b:else/>
+                                            <b:if cond='data:view.isPost and data:skin.vars.itemOptionBreadcrumb == "2px"'>
+                                                <nav class='post_breadcrumb'>
+                                                    <a class='home' expr:href='data:blog.homepageUrl'><strong><data:messages.home/></strong></a><b:if cond='data:post.labels'><a class='label' expr:href='data:post.labels.first.url'><data:post.labels.first.name/></a></b:if>
+                                                </nav>
+                                            </b:if>
+                                        </b:if>
+                                        <b:if cond='data:post.title != ""'>
+                                            <b:tag cond='data:post.link or (data:post.url and data:view.url != data:post.url)' name='a' expr:href='data:post.link ?: data:post.url' class='post_title'>
+                                                <h2 expr:class='data:view.isSingleItem ? "post_title" : "no_class"'><data:post.title/></h2>
+                                            </b:tag>
+                                        </b:if>
+                                        <b:if cond='data:view.isPost and data:skin.vars.itemOptionSnippet == "2px"'>
+                                            <b:if cond='data:blog.metaDescription != ""'><div class='post_snippet'><em><data:blog.metaDescription/></em></div></b:if>
+                                        </b:if>
+                                        <b:tag cond='data:view.isMultipleItems and (data:allBylineItems.author or data:allBylineItems.timestamp) or data:view.isPost and (data:allBylineItems.share or data:allBylineItems.comments)' name='div' class='post_meta'>
+                                            <b:tag cond='data:view.isPost and (data:allBylineItems.author or data:allBylineItems.timestamp)' name='div' class='post_meta_start'>
+                                                <b:if cond='data:view.isPost and (data:skin.vars.itemOptionAuthor != "1px" and data:allBylineItems.author and data:skin.vars.itemOptionAuthorImage == "2px")'>
+                                                    <div class='meta_author_image'>
+                                                        <b:if cond='data:post.author.authorPhoto.image'>
+                                                            <span class='author_avatar lazyload shimmer' expr:title='data:post.author.name' expr:data-image='data:post.author.authorPhoto.image resizeImage 42' />
+                                                            <b:else/>
+                                                            <span class='author_avatar lazyload shimmer' expr:title='data:post.author.name' data-image='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wCEAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAwBAgICAwMDBgMDBgwIBwgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/CABEIABwAHAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAGCAAFAgcJ/9oACAEBAAAAAOsFRa5RRGCOApZDhmNJKiQP5//EABYBAQEBAAAAAAAAAAAAAAAAAAcFBv/aAAgBAhAAAABqnJee/8QAFwEAAwEAAAAAAAAAAAAAAAAABAUGB//aAAgBAxAAAADOzI9p/8QALhAAAQIFAgMGBwEAAAAAAAAAAQIDAAQFBhEHMQgSIRAUQWF1sxMVFyIzcYGR/9oACAEBAAE/ABFyX9RLQeZbqlWp9Pcf/Gl95KFL8wD4ecMzCJplLjakutuAKSpJylQOxBjOOzis03uR7WGenu4Ts/J1Dk7o6y0p1ISEgcnQHBBz088xw4WzVLQ0epMjVwtE42Fq+Es5UyhSiUoP6B28NoKQY161d+jNj/MkyonJl54S7DalcqOcgnKjvgAHbeKvxdX1U5suN1ZuUTnIbl5dASP9BJ/pjRHjDrlSu2n0i4G5eeZn3ky6ZltsNutKUcAkD7VDO/QGMZ8THHWc6W031FPtr7NJump9ueose4ITsI//xAAkEQABAwIFBQEAAAAAAAAAAAABAgMEACEFBhESMRNBUWFx8P/aAAgBAgEBPwDAsMZnSOk65sGhP30Nf1qkMpaeU2lW4JJAI7+6ybhEN2GXnmwpRJub8fazpAYiSUGOkJ3C4HHPiv/EAB8RAAEEAgIDAAAAAAAAAAAAAAECAwQRAAUSEwYxUf/aAAgBAwEBPwDZS1xmubaeRusYX2ISpYokA18zfzn25HWlZAoes8ckuSG1Bw3Rz//Z' />
+                                                        </b:if>
+                                                        <svg width='14' height='14' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_verified'/><b:else/><b:include data='{iconId: "icon_verified"}' name='defaultIcons'/></b:if></svg>
+                                                    </div>
+                                                </b:if>
+                                                <b:tag cond='data:view.isPost and (data:allBylineItems.author or data:allBylineItems.timestamp)' name='div' class='meta_author_datetime'>
+                                                    <b:if cond='data:allBylineItems.author and data:view.isMultipleItems and (data:skin.vars.indexOptionAuthor != "1px") or data:view.isSingleItem and !data:view.isPage and data:allBylineItems.author and (data:skin.vars.itemOptionAuthor != "1px" and data:allBylineItems.author)'>
+                                                        <strong class='byline post_author'><b:if cond='data:view.isMultipleItems and (data:skin.vars.indexOptionAuthor == "3px") or data:view.isSingleItem and (data:skin.vars.itemOptionAuthor == "3px")'><b:tag name='span' cond='data:allBylineItems.author.label'><data:allBylineItems.author.label/></b:tag></b:if> <data:post.author.name/></strong>
+                                                    </b:if>
+                                                    <b:if cond='data:allBylineItems.timestamp and (data:view.isMultipleItems and data:skin.vars.indexOptionTimestamp != "1px") or data:allBylineItems.timestamp and (data:view.isPost and data:skin.vars.itemOptionTimestamp != "1px")'>
+                                                        <span class='byline post_timestamp'><b:if cond='data:view.isMultipleItems and (data:skin.vars.indexOptionTimestampPrefix == "2px") or data:view.isSingleItem and (data:skin.vars.itemOptionTimestampPrefix == "2px")'><b:tag name='span' cond='data:allBylineItems.timestamp.label'><data:allBylineItems.timestamp.label/></b:tag></b:if> <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date'><data:post.date/></time> <b:if cond='data:view.isMultipleItems and (data:skin.vars.indexOptionDesktopPostStyle != "2px" and data:skin.vars.indexOptionTimestamp == "3px" and data:post.date != data:post.lastUpdated) or data:view.isPost and (data:skin.vars.itemOptionTimestamp == "3px" and data:post.date != data:post.lastUpdated)'><time class='updated' expr:datetime='data:post.lastUpdated.iso8601' expr:title='data:post.lastUpdated'> - <data:post.lastUpdated/></time></b:if></span>
+                                                    </b:if>
+                                                    <b:if cond='data:view.isMultipleItems'>
+                                                        <b:if cond='data:allBylineItems.author or data:allBylineItems.timestamp'>
+                                                            <b:if cond='data:skin.vars.indexOptionShare != "1px" and !data:blog.isMobileRequest and data:allBylineItems.share'>
+                                                                <div class='post_share'>
+                                                                    <button class='button_toggle_share' expr:data-post-tag='data:post.labels.first.name' expr:data-post-title='data:post.title.jsonEscaped' expr:data-post-url='data:post.url' expr:id='"button_toggle_share_" + data:post.id' expr:aria-label='data:messages.share.escaped' type='button' expr:title='data:messages.share.escaped'>
+                                                                        <b:if cond='data:skin.vars.featuresNativeShare in {"1px", "3px"}'>
+                                                                            <b:attr name='data-toggle-class-on-target' value='active'/>
+                                                                            <b:attr name='data-toggle-target' value='#dialog_share_box'/>
+                                                                            <b:attr name='aria-controls' value='dialog_share_box'/>
+                                                                            <b:attr name='aria-expanded' value='false'/>
+                                                                            <b:attr name='aria-haspopup' value='listbox'/>
+                                                                            <b:attr name='data-toggle-outside' value=' '/>
+                                                                            <b:attr name='data-toggle-escape' value=' '/>
+                                                                        </b:if>
+                                                                        <svg width='14' height='14' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_share'/><b:else/><b:include data='{iconId: "icon_share"}' name='defaultIcons'/></b:if></svg>
+                                                                    </button>
+                                                                </div>
+                                                            </b:if>
+                                                        </b:if>
+                                                    </b:if>
+                                                </b:tag>
+                                            </b:tag>
+                                            <b:tag cond='data:view.isPost and (data:allBylineItems.comments or data:allBylineItems.share)' name='div' class='post_meta_end'>
+                                                <b:if cond='data:view.isPost'>
+                                                    <b:if cond='data:allBylineItems.comments and data:post.allowNewComments and data:skin.vars.itemOptionCommentLink != "1px"'>
+                                                        <b:if cond='data:view.isPost and data:skin.vars.itemOptionCommentStyle == "2px"'>
+                                                            <button class='elcreative_button_icon button_comment' expr:aria-label='data:messages.comments' expr:data-attr='data:post.numberOfComments > 0 ? data:post.numberOfComments : ""' expr:title='data:messages.comments'>
+                                                                <svg width='16' height='16' viewBox='0 0 24 24'><b:if cond='data:post.numberOfComments > 0'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_comment_text'/><b:else/><b:include data='{iconId: "icon_comment_text"}' name='defaultIcons'/></b:if><b:else/><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_comment'/><b:else/><b:include data='{iconId: "icon_comment"}' name='defaultIcons'/></b:if></b:if></svg>
+                                                            </button>
+                                                            <b:else/>
+                                                            <a class='button_comment elcreative_button_icon small' href='#comments' role='button' expr:data-attr='data:post.numberOfComments > 0 ? data:post.numberOfComments : ""' expr:title='data:messages.comments'>
+                                                                <svg width='16' height='16' viewBox='0 0 24 24'><b:if cond='data:post.numberOfComments > 0'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_comment_text'/><b:else/><b:include data='{iconId: "icon_comment_text"}' name='defaultIcons'/></b:if><b:else/><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_comment'/><b:else/><b:include data='{iconId: "icon_comment"}' name='defaultIcons'/></b:if></b:if></svg>
+                                                            </a>
+                                                        </b:if>
+                                                    </b:if>
+                                                    <b:if cond='data:allBylineItems.share and data:skin.vars.itemOptionShare == "2px"'>
+                                                        <button class='button_toggle_share elcreative_button_icon' expr:data-post-tag='data:post.labels.first.name' expr:data-post-title='data:post.title.jsonEscaped' expr:data-post-url='data:post.url' id='button_toggle_share' expr:aria-label='data:messages.share.escaped' expr:title='data:messages.share.escaped' type='button'>
+                                                            <b:if cond='data:skin.vars.featuresNativeShare in {"1px", "3px"}'>
+                                                                <b:attr name='data-toggle-class-on-target' value='active'/>
+                                                                <b:attr name='data-toggle-target' value='#dialog_share_box'/>
+                                                                <b:attr name='aria-controls' value='dialog_share_box'/>
+                                                                <b:attr name='aria-expanded' value='false'/>
+                                                                <b:attr name='aria-haspopup' value='listbox'/>
+                                                                <b:attr name='data-toggle-outside' value=' '/>
+                                                                <b:attr name='data-toggle-escape' value=' '/>
+                                                            </b:if>
+                                                            <svg width='16' height='16' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_share'/><b:else/><b:include data='{iconId: "icon_share"}' name='defaultIcons'/></b:if></svg>
+                                                        </button>
+                                                    </b:if>
+                                                </b:if>
+                                            </b:tag>
+                                        </b:tag>
+                                        <b:if cond='!data:blog.isMobileRequest and data:view.isMultipleItems and data:skin.vars.indexOptionSnippet == "2px"'>
+                                            <div class='post_snippet'>
+                                                <b:eval expr='data:post.snippets.short snippet {length: 150}'/>
+                                            </div>
+                                        </b:if>
+                                    </div>
+                                    <b:tag cond='data:view.isMultipleItems and data:skin.vars.indexOptionImage == "2px"' name='div' class='post_header_end'>
+                                        <b:if cond='data:view.isMultipleItems'>
+                                            <b:if cond='data:post.featuredImage'>
+                                                <b:if cond='data:post.featuredImage.isYouTube'>
+                                                    <a class='post_image youtube' expr:href='data:post.url' expr:title='data:post.title'><span class='lazyload shimmer youtube_image' expr:data-image='resizeImage(data:post.featuredImage.youtubeMaxResDefaultUrl, 100, "1:1")' expr:title='data:post.title'><b:attr cond='data:skin.vars.indexOptionDesktopPostStyle == "2px" or data:skin.vars.indexOptionMobilePostStyle == "2px"' name='data-image' expr:value='resizeImage(data:post.featuredImage, 600, "16:9")'/></span></a>
+                                                    <b:else/>
+                                                    <a class='post_image' expr:href='data:post.url' expr:title='data:post.title'><span class='lazyload shimmer' expr:data-image='resizeImage(data:post.featuredImage, 100, "1:1")' expr:title='data:post.title'><b:attr cond='data:skin.vars.indexOptionDesktopPostStyle == "2px" or data:skin.vars.indexOptionMobilePostStyle == "2px"' name='data-image' expr:value='resizeImage(data:post.featuredImage, 600, "16:9")'/></span></a>
+                                                </b:if>
+                                                <b:else/>
+                                                <a class='post_image' expr:href='data:post.url' expr:title='data:post.title'><span class='lazyload shimmer no_thumbnail' expr:data-image='resizeImage("//lh3.googleusercontent.com/-Efigs16DUTQ/YKrJkJaHDKI/AAAAAAAAg_A/_xTHzW1sLmssSTAFEZtZTL_QqseedXjfACLcBGAsYHQ/s0/index.gif", 600, "1:1")' expr:title='data:post.title' /></a>
+                                            </b:if>
+                                        </b:if>
+                                    </b:tag>
+                                </div>
+                                <b:tag cond='data:view.isMultipleItems and (data:skin.vars.indexOptionJumplink != "1px" and data:skin.vars.indexOptionCommentLink != "1px") or data:view.isSingleItem' name='div' class='post_container_end'>
+                                    <b:tag cond='data:view.isMultipleItems and (data:skin.vars.indexOptionJumplink != "1px") or data:view.isSingleItem' name='div' class='post_footer_start'>
+                                        <b:if cond='data:view.isMultipleItems'>
+                                            <b:if cond='data:skin.vars.indexOptionJumplink != "1px"'>
+                                                <a expr:href='data:post.url' class='post_jumplink' expr:title='data:post.title'><b:if cond='data:skin.vars.indexOptionJumplink == "3px"'><svg width='14' height='14' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_newspaper'/><b:else/><b:include data='{iconId: "icon_newspaper"}' name='defaultIcons'/></b:if></svg></b:if><data:blog.jumpLinkMessage/></a>
+                                            </b:if>
+                                            <b:else/>
+                                            <b:class name='post_body'/>
+                                            <b:attr name='id' value='post_body'/>
+                                            <data:post.body/>
+                                        </b:if>
+                                    </b:tag>
+                                    <b:tag cond='data:view.isMultipleItems and (data:allBylineItems.comments) or data:view.isSingleItem' name='div' class='post_footer_end'>
+                                        <b:if cond='data:view.isMultipleItems'>
+                                            <b:if cond='data:skin.vars.indexOptionCommentLink != "1px" and data:allBylineItems.comments and data:post.allowNewComments'>
+                                                <a class='comment_link'>
+                                                    <b:if cond='data:view.isMultipleItems and data:skin.vars.itemOptionCommentStyle == "2px"'>
+                                                        <b:attr name='href' expr:value='data:post.url + "#comments_active"'/>
+                                                        <b:else/>
+                                                        <b:attr name='href' expr:value='data:post.url + "#comments"'/>
+                                                    </b:if>
+                                                    <b:if cond='data:skin.vars.featuresCommentSystem == "1px"'>
+                                                        <b:if cond='data:post.numberOfComments > 0'>
+                                                            <b:if cond='data:skin.vars.indexOptionCommentLink == "3px"'><svg width='14' height='14' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_comment_text'/><b:else/><b:include data='{iconId: "icon_comment_text"}' name='defaultIcons'/></b:if></svg></b:if><span><b:message name='messages.numberOfComments'><b:param expr:value='data:post.numberOfComments' name='numComments'/></b:message></span>
+                                                            <b:else/>
+                                                            <b:if cond='data:skin.vars.indexOptionCommentLink == "3px"'><svg width='14' height='14' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_comment'/><b:else/><b:include data='{iconId: "icon_comment"}' name='defaultIcons'/></b:if></svg></b:if><span><data:messages.postAComment/></span>
+                                                        </b:if>
+                                                        <b:else/>
+                                                        <b:if cond='data:skin.vars.indexOptionCommentLink == "3px"'><svg width='14' height='14' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_comment'/><b:else/><b:include data='{iconId: "icon_comment"}' name='defaultIcons'/></b:if></svg></b:if><span><data:messages.comments/></span>
+                                                    </b:if>
+                                                </a>
+                                            </b:if>
+                                            <b:else/>
+                                            <b:if cond='data:allBylineItems.share and data:skin.vars.itemOptionShare != "1px"'>
+                                                <div class='post_share'>
+                                                    <strong><data:messages.share.escaped/>: </strong>
+                                                    <button class='elcreative_button_icon small elcreative_ripple' type='button' data-sharer='facebook' expr:data-title='data:post.title + " | "' expr:data-url='data:post.url' aria-label='Facebook' title='Facebook'><svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_facebook'/><b:else/><b:include data='{iconId: "icon_facebook"}' name='defaultIcons'/></b:if></svg></button>
+                                                    <button class='elcreative_button_icon small elcreative_ripple' type='button' data-sharer='linkedin' expr:data-title='data:post.title + " | "' expr:data-url='data:post.url' aria-label='LinkedIn' title='LinkedIn'><svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_linkedin'/><b:else/><b:include data='{iconId: "icon_linkedin"}' name='defaultIcons'/></b:if></svg></button>
+                                                    <button class='elcreative_button_icon small elcreative_ripple' type='button' data-sharer='telegram' expr:data-title='data:post.title + " | "' expr:data-url='data:post.url' data-to='' aria-label='Telegram' title='Telegram'><svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_telegram'/><b:else/><b:include data='{iconId: "icon_telegram"}' name='defaultIcons'/></b:if></svg></button>
+                                                    <button class='elcreative_button_icon small elcreative_ripple' type='button' data-sharer='twitter' expr:data-title='data:post.title + " | "' expr:data-url='data:post.url' aria-label='Twitter' title='Twitter'><svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_twitter'/><b:else/><b:include data='{iconId: "icon_twitter"}' name='defaultIcons'/></b:if></svg></button>
+                                                    <button class='elcreative_button_icon small elcreative_ripple' type='button' data-sharer='whatsapp' expr:data-title='data:post.title + " | "' expr:data-url='data:post.url' aria-label='WhatsApp' title='WhatsApp'><svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_whatsapp'/><b:else/><b:include data='{iconId: "icon_whatsapp"}' name='defaultIcons'/></b:if></svg></button>
+                                                    <button class='elcreative_button_icon small elcreative_ripple' type='button' data-sharer='email' expr:data-title='data:post.title + " | "' expr:data-subject='data:post.title' data-to='' aria-label='Email' title='Email'><svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_email_send'/><b:else/><b:include data='{iconId: "icon_email_send"}' name='defaultIcons'/></b:if></svg></button>
+                                                    <button class='elcreative_button_icon small elcreative_ripple' type='button' expr:data-post-title='data:post.title' expr:aria-label='data:messages.showMore' expr:title='data:messages.showMore'>
+                                                        <b:if cond='data:skin.vars.featuresNativeShare in {"1px", "3px"}'>
+                                                            <b:attr name='data-toggle-class-on-target' value='active'/>
+                                                            <b:attr name='data-toggle-target' value='#dialog_share_box'/>
+                                                            <b:attr name='aria-controls' value='dialog_share_box'/>
+                                                            <b:attr name='aria-expanded' value='false'/>
+                                                            <b:attr name='aria-haspopup' value='listbox'/>
+                                                            <b:attr name='data-toggle-outside' value=' '/>
+                                                            <b:attr name='data-toggle-escape' value=' '/>
+                                                            <b:else/>
+                                                            <b:class name='button_toggle_share'/>
+                                                        </b:if>
+                                                        <svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_more'/><b:else/><b:include data='{iconId: "icon_more"}' name='defaultIcons'/></b:if></svg>
+                                                    </button>
+                                                </div>
+                                            </b:if>
+                                            <b:if cond='data:post.labels != "" and data:allBylineItems.labels and data:skin.vars.itemOptionLabelList != "1px"'>
+                                                <div class='labels_list'>
+                                                    <b:if cond='data:allBylineItems.labels.label != "" and data:skin.vars.itemOptionLabelList == "3px"'><b:tag cond='data:allBylineItems.labels.label' name='strong' class='byline_label'><data:allBylineItems.labels.label/></b:tag></b:if><b:loop index='i' values='data:post.labels' var='label'><a expr:href='data:label.url' rel='tag'><data:label.name/></a> </b:loop>
+                                                </div>
+                                            </b:if>
+                                            <b:include cond='data:post.includeAd' data='post' name='inlineAd'/>
+                                            <b:if cond='data:post.author.aboutMe and data:view.isPost'>
+                                                <div class='author_profile'>
+                                                    <div class='profile_start'>
+                                                        <b:if cond='data:post.author.authorPhoto.image'>
+                                                            <span class='author_avatar lazyload shimmer' expr:title='data:post.author.name' expr:data-image='data:post.author.authorPhoto.image resizeImage 80'/>
+                                                            <b:else/>
+                                                            <span class='author_avatar lazyload shimmer' expr:title='data:post.author.name' data-image='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wCEAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAwBAgICAwMDBgMDBgwIBwgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/CABEIABwAHAMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAGCAAFAgcJ/9oACAEBAAAAAOsFRa5RRGCOApZDhmNJKiQP5//EABYBAQEBAAAAAAAAAAAAAAAAAAcFBv/aAAgBAhAAAABqnJee/8QAFwEAAwEAAAAAAAAAAAAAAAAABAUGB//aAAgBAxAAAADOzI9p/8QALhAAAQIFAgMGBwEAAAAAAAAAAQIDAAQFBhEHMQgSIRAUQWF1sxMVFyIzcYGR/9oACAEBAAE/ABFyX9RLQeZbqlWp9Pcf/Gl95KFL8wD4ecMzCJplLjakutuAKSpJylQOxBjOOzis03uR7WGenu4Ts/J1Dk7o6y0p1ISEgcnQHBBz088xw4WzVLQ0epMjVwtE42Fq+Es5UyhSiUoP6B28NoKQY161d+jNj/MkyonJl54S7DalcqOcgnKjvgAHbeKvxdX1U5suN1ZuUTnIbl5dASP9BJ/pjRHjDrlSu2n0i4G5eeZn3ky6ZltsNutKUcAkD7VDO/QGMZ8THHWc6W031FPtr7NJump9ueose4ITsI//xAAkEQABAwIFBQEAAAAAAAAAAAABAgMEACEFBhESMRNBUWFx8P/aAAgBAgEBPwDAsMZnSOk65sGhP30Nf1qkMpaeU2lW4JJAI7+6ybhEN2GXnmwpRJub8fazpAYiSUGOkJ3C4HHPiv/EAB8RAAEEAgIDAAAAAAAAAAAAAAECAwQRAAUSEwYxUf/aAAgBAwEBPwDZS1xmubaeRusYX2ISpYokA18zfzn25HWlZAoes8ckuSG1Bw3Rz//Z'/>
+                                                        </b:if>
+                                                        <svg width='22' height='22' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_verified'/><b:else/><b:include data='{iconId: "icon_verified"}' name='defaultIcons'/></b:if></svg>
+                                                    </div>
+                                                    <div class='profile_end'>
+                                                        <div class='author_name'><strong><data:post.author.name/></strong></div>
+                                                        <div class='author_description'>
+                                                            <data:post.author.aboutMe/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </b:if>
+                                            <b:if cond='!data:view.isPage and data:skin.vars.featuresRelatedPost == "2px"'>
+                                                <div id='elcreative_related_posts' class='widget elcreative_related_posts'>
+                                                    <div class='widget_title'><div class='title'><data:messages.youMayLikeThesePosts/></div></div>
+                                                    <div id='widget_related_post' class='widget_content widget_related_post'>
+                                                        <b:include data='{iconId: "loader"}' name='defaultIcons'/>
+                                                    </div>
+                                                </div>
+                                                <script>var relatedPostLabelArray = [<b:if cond='data:post.labels'><b:loop values='data:post.labels' var='label'>"<data:label.name/>"<b:if cond='data:label.isLast != "true"'>,</b:if></b:loop></b:if>];</script>
+                                            </b:if>
+                                            <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+                                        </b:if>
+                                    </b:tag>
+                                </b:tag>
+                                <b:include data='post' name='postMetadataJSON'/>
+                            </article>
+                            <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
+                            <b:if cond='data:view.isSingleItem'>
+                                <script>var allowComments = <b:eval expr='data:post.allowNewComments ? "true" : "false"'/></script>
+                            </b:if>
+                        </b:loop>
+
+                        <b:if cond='data:skin.vars.featuresNativeShare in {"1px", "3px"}'>
+                            <div class='elcreative_dialog dialog_share_box' id='dialog_share_box' role='listbox' aria-hidden='true'>
+                                <div class='dialog_container'>
+                                    <div class='dialog_header'>
+                                        <span><b:if cond='data:view.isSingleItem'><data:messages.share.escaped/></b:if></span>
+                                        <button class='elcreative_button_icon small elcreative_ripple' type='button' aria-label='Close Dialog' data-toggle-trigger-off=''>
+                                            <svg width='24' height='24' viewBox='0 0 24 24'><b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'><use xlink:href='#icon_close'/><b:else/><b:include data='{iconId: "icon_close"}' name='defaultIcons'/></b:if></svg>
+                                        </button>
+                                    </div>
+                                    <div class='dialog_content'>
+                                        <b:include name='sharingButtons'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </b:if>
+                    </b:if>
+                </div>
+            </div>
+        </b:includable>
+        <b:includable id="sharingButtons"></b:includable>
+    </b:widget>
+</b:section>

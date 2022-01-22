@@ -122,6 +122,16 @@
   // Main Section
   .elcreative_section {
     padding: 82px 20px 20px;
+
+    .elcreative_main {
+      body.error_page & {
+        width: 100%;
+      }
+
+      body:not(.error_page) & {
+        width: calc(100% - (300px + 20px));
+      }
+    }
   }
 }
 
@@ -195,5 +205,10 @@
   .elcreative_section {
     flex-direction: column;
     padding: 70px 16px;
+
+    .elcreative_main {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 }

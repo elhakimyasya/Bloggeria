@@ -3,4 +3,21 @@
   .elcreative_dropdown {
     transform-origin: right top;
   }
+
+  // Alerts
+  .elcreative_alert {
+    &::after {
+      left: auto;
+      right: -15px;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 }

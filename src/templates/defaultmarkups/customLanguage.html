@@ -1,0 +1,25 @@
+<b:switch var='data:message'>
+    <b:case value='transNoScript'/>
+    <b:if cond='data:blog.locale == "id"'>
+        Maaf, <strong><data:blog.title/></strong> tidak berfungsi dengan baik tanpa mengaktifkan JavaScript.
+        <b:elseif cond='data:blog.locale == "ar"'/>
+        نحن آسفون ، لكن <strong><data:blog.title/></strong> لا يعمل بشكل صحيح بدون تمكين JavaScript.
+        <b:elseif cond='data:blog.locale == "es"'/>
+        Lo sentimos, pero <strong><data:blog.title/></strong> no funciona correctamente sin JavaScript habilitado.
+        <b:elseif cond='data:blog.locale == "de"'/>
+        Es tut uns leid, aber <strong><data:blog.title/></strong> funktioniert nicht richtig, wenn JavaScript nicht aktiviert ist.
+        <b:elseif cond='data:blog.locale == "fr"'/>
+        Nous sommes désolés, mais <strong><data:blog.title/></strong> ne fonctionne pas correctement sans JavaScript activé.
+        <b:elseif cond='data:blog.locale == "hi"'/>
+        हमें खेद है, लेकिन जावास्क्रिप्ट सक्षम किए बिना <strong><data:blog.title/></strong> ठीक से काम नहीं करता है।
+        <b:elseif cond='data:blog.locale == "it"'/>
+        Siamo spiacenti, ma <strong><data:blog.title/></strong> non funziona correttamente senza JavaScript abilitato.
+        <b:elseif cond='data:blog.locale == "nl"'/>
+        Het spijt ons, maar <strong><data:blog.title/></strong> werkt niet goed als JavaScript is uitgeschakeld.
+        <b:elseif cond='data:blog.locale == "pt"'/>
+        Lamentamos, mas o <strong><data:blog.title/></strong> não funciona corretamente sem o JavaScript habilitado.
+        <b:elseif cond='data:blog.locale == "th"'/>
+        ขออภัย <strong><data:blog.title/></strong> ทำงานไม่ถูกต้องหากไม่มีการเปิดใช้งาน JavaScript
+        <b:else/>We are sorry, but <strong><data:blog.title/></strong> does not work properly without JavaScript enabled.
+    </b:if>
+</b:switch>

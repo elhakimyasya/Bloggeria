@@ -182,3 +182,188 @@ body {
     width: inherit;
   }
 }
+
+// Alerts
+.elcreative_alert {
+  border-radius: 4px;
+  display: block;
+  margin: 8px 0;
+  overflow: hidden;
+  padding: 12px 16px;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    opacity: 0.15;
+    left: -15px;
+    position: absolute;
+    top: 0;
+  }
+
+  &.alert_outline {
+    border: 1px solid;
+
+    &:not(.alert_info):not(.alert_warning):not(.alert_error):not(.alert_success) {
+      border-color: var(--color-item-border);
+    }
+
+    &.alert_info {
+      border-color: #1976d2;
+      color: #1976d2;
+    }
+
+    &.alert_success {
+      border-color: #00701a;
+      color: #00701a;
+    }
+
+    &.alert_warning {
+      border-color: #fb8c00;
+      color: #fb8c00;
+    }
+
+    &.alert_error {
+      border-color: #d32f2f;
+      color: #d32f2f;
+    }
+  }
+
+  &:not(.alert_ouline) {
+    &:not(.alert_info):not(.alert_warning):not(.alert_error):not(.alert_success) {
+      background-color: var(--color-black-trans-12);
+    }
+
+    &.alert_info {
+      background-color: #1976d2;
+      color: var(--color-background);
+    }
+
+    &.alert_success {
+      background-color: #00701a;
+      color: var(--color-background);
+    }
+
+    &.alert_warning {
+      background-color: #fbc02d;
+    }
+
+    &.alert_error {
+      background-color: #d32f2f;
+      color: var(--color-background);
+    }
+  }
+
+  &.alert_info::after {
+    content: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIj4gPHBhdGggZD0iTTExLDlIMTNWN0gxMU0xMiwyMEM3LjU5LDIwIDQsMTYuNDEgNCwxMkM0LDcuNTkgNy41OSw0IDEyLDRDMTYuNDEsNCAyMCw3LjU5IDIwLDEyQzIwLDE2LjQxIDE2LjQxLDIwIDEyLDIwTTEyLDJBMTAsMTAgMCAwLDAgMiwxMkExMCwxMCAwIDAsMCAxMiwyMkExMCwxMCAwIDAsMCAyMiwxMkExMCwxMCAwIDAsMCAxMiwyTTExLDE3SDEzVjExSDExVjE3WiIvPjwvc3ZnPg==');
+  }
+
+  &.alert_success::after {
+    content: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIj4gPHBhdGggZD0iTTEyIDJDNi41IDIgMiA2LjUgMiAxMlM2LjUgMjIgMTIgMjIgMjIgMTcuNSAyMiAxMiAxNy41IDIgMTIgMk0xMiAyMEM3LjU5IDIwIDQgMTYuNDEgNCAxMlM3LjU5IDQgMTIgNCAyMCA3LjU5IDIwIDEyIDE2LjQxIDIwIDEyIDIwTTE2LjU5IDcuNThMMTAgMTQuMTdMNy40MSAxMS41OUw2IDEzTDEwIDE3TDE4IDlMMTYuNTkgNy41OFoiLz48L3N2Zz4=');
+  }
+
+  &.alert_warning::after {
+    content: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIj4gPHBhdGggZD0iTTExLDE1SDEzVjE3SDExVjE1TTExLDdIMTNWMTNIMTFWN00xMiwyQzYuNDcsMiAyLDYuNSAyLDEyQTEwLDEwIDAgMCwwIDEyLDIyQTEwLDEwIDAgMCwwIDIyLDEyQTEwLDEwIDAgMCwwIDEyLDJNMTIsMjBBOCw4IDAgMCwxIDQsMTJBOCw4IDAgMCwxIDEyLDRBOCw4IDAgMCwxIDIwLDEyQTgsOCAwIDAsMSAxMiwyMFoiLz48L3N2Zz4=');
+  }
+
+  &.alert_error::after {
+    content: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIj4gPHBhdGggZD0iTTIzLDEyTDIwLjU2LDE0Ljc4TDIwLjksMTguNDZMMTcuMjksMTkuMjhMMTUuNCwyMi40NkwxMiwyMUw4LjYsMjIuNDdMNi43MSwxOS4yOUwzLjEsMTguNDdMMy40NCwxNC43OEwxLDEyTDMuNDQsOS4yMUwzLjEsNS41M0w2LjcxLDQuNzJMOC42LDEuNTRMMTIsM0wxNS40LDEuNTRMMTcuMjksNC43MkwyMC45LDUuNTRMMjAuNTYsOS4yMkwyMywxMk0yMC4zMywxMkwxOC41LDkuODlMMTguNzQsNy4xTDE2LDYuNUwxNC41OCw0LjA3TDEyLDUuMThMOS40Miw0LjA3TDgsNi41TDUuMjYsNy4wOUw1LjUsOS44OEwzLjY3LDEyTDUuNSwxNC4xTDUuMjYsMTYuOUw4LDE3LjVMOS40MiwxOS45M0wxMiwxOC44MUwxNC41OCwxOS45MkwxNiwxNy41TDE4Ljc0LDE2Ljg5TDE4LjUsMTQuMUwyMC4zMywxMk0xMSwxNUgxM1YxN0gxMVYxNU0xMSw3SDEzVjEzSDExVjciLz48L3N2Zz4=');
+  }
+
+  a {
+    &:not(.elcreative_button):not(.elcreative_button) {
+      color: inherit !important;
+      text-decoration: underline !important;
+
+      &:hover {
+        text-decoration: none !important;
+      }
+    }
+  }
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  code {
+    border-color: inherit;
+    background-color: inherit;
+  }
+
+  span[style^='font-family: courier'] {
+    border-color: inherit;
+    background-color: inherit;
+  }
+}
+
+// Shimmer Effect
+.shimmer {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: transparent;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+
+  &:not(.lazyloaded) {
+    background-color: rgba(0, 0, 0, 0.14);
+    border-radius: inherit;
+
+    &::before {
+      animation: shimmer 0.85s infinite;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+      );
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      transform: translateX(-100%);
+      top: 0;
+      z-index: 1;
+    }
+  }
+}
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// Widget Title
+.widget_title {
+  align-items: center;
+  border-bottom: 1px solid var(--gadgetColorBorder);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  width: 100%;
+
+  .title {
+    box-sizing: border-box;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid var(--gadgetColorTitleIndicator);
+    color: var(--gadgetColorTitle);
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 44px;
+    margin: 0;
+    padding: 0 8px;
+    user-select: none;
+    width: auto;
+  }
+}

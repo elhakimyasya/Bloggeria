@@ -21,6 +21,8 @@
     <Variable name="featuresRippleEffect" description="Ripple Effect (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
     <Variable name="rippleEffectColor" description="Ripple Effect Color" type="color" default="$(defaultColorText)" value="#202124" />
     <Variable name="featuresSubMenu" description="Navigation Drawer Sub-Menu (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="featuresCSE" description="Google Custom Search Engine (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
+    <Variable name="featuresNativeShare" description="Native Sharer (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
 </Group>
 
 <Group description="Header" selector="header">
@@ -44,6 +46,37 @@
 
     <Variable name="navigationMoreMenuBackground" description="More Menu Background Color" type="color" default="$(defaultColorDropdownBackground)" value="#ffffff" />
     <Variable name="navigationMoreMenuMenuText" description="More Menu Text Color" type="color" default="$(defaultColorDropdownText)" value="#5f6368" />
+</Group>
+
+<Group description="Index">
+    <Variable name="indexOptionDesktopPostStyle" description="Post Style on Desktop (List | Grid)" type="length" default="1px" min="1px" max="2px" value="1px" />
+    <Variable name="indexOptionMobilePostStyle" description="Post Style on Mobile (List | Grid)" type="length" default="1px" min="1px" max="2px" value="1px" />
+    <Variable name="indexOptionRecentHeadline" description="Recent Headline Title (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="indexOptionLabelIcon" description="Labels (Disable | Text | Icon and Text | Custom Icon and Text)" type="length" default="3px" min="1px" max="4px" value="3px" />
+    <Variable name="indexOptionShare" description="Share Button on Desktop (Disable | Enable/Visible | Enable/Visible on Hover)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="indexOptionSnippet" description="Post Snippet/Summary on Desktop  (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="indexOptionAuthor" description="Post Author (Disable | Author Name | Author Prefix and Author Name)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="indexOptionTimestamp" description="Post Timestamp (Disable | Post Published | Post Published and Updated)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="indexOptionTimestampPrefix" description="Post Timestamp Prefix (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="indexOptionImage" description="Post Thumbnail (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="indexOptionImageRadius" description="Post Thumbnail Radius" type="length" default="8px" min="0px" max="50px" value="8px" />
+    <Variable name="indexOptionJumplink" description="Post Jumplink (Disable | Text | Text and Icon)" type="length" default="3px" min="1px" max="3px" value="3px" />
+</Group>
+
+<Group description="Item">
+    <Variable name="itemOptionBreadcrumb" description="Breadcrumb (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="itemOptionSnippet" description="Post Description (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="itemOptionAuthor" description="Post Author (Disable | Post Author Name | Post Author Prefix and Name)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="itemOptionAuthorImage" description="Post Author Profile Image (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="itemOptionTimestamp" description="Post Timestamp (Disable | Post Published | Post Published and Updated)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="itemOptionTimestampPrefix" description="Post Timestamp Prefix (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="itemOptionCommentStyle" description="Post Comment Stye (Default | Drawer)" type="length" default="2px" min="1px" max="2px" value="2px" />
+</Group>
+
+<Group description="Gadgets">
+    <Variable name="gadgetColorTitle" description="Gadget Title Color" type="color" default="$(defaultColorText)" value="#202124" />
+    <Variable name="gadgetColorTitleIndicator" description="Gadget Indicator Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />
+    <Variable name="gadgetColorBorder" description="Gadget Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4" />
 </Group>
 
 <Variable hideEditor="true" name="body.text.font" description="Text Fonts" type="font" default="$(body.font)" value="$(body.font)" />
