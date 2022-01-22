@@ -20,6 +20,10 @@
 </Group>
 
 <Group description="Features" selector="body">
+<Variable name="featuresPreloader" description="Preloader (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+<Variable name="preloaderHeight" description="Preloader Height" type="length" default="3px" min="2px" max="6px" value="3px" />
+<Variable name="preloaderStyle" description="Preloader Style (Default | Indeterminate)" type="length" default="2px" min="1px" max="2px" value="2px" />
+<Variable name="preloaderColor" description="Preloader Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />
 <Variable name="featuresColorMode" description="Dark Mode (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
 <Variable name="featuresRippleEffect" description="Ripple Effect (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px"/>
 <Variable name="rippleEffectColor" description="Ripple Effect Color" type="color" default="$(defaultColorText)" value="#202124"/>
@@ -75,6 +79,8 @@
 }
 
 body:not(.--darkmode) {
+--preloaderColor: $(preloaderColor);
+--preloaderHeight: $(preloaderHeight);
 --rippleEffectColor: $(rippleEffectColor)2e;
 
 --defaultColorButtonIcon: $(defaultColorButtonIcon);
@@ -120,6 +126,7 @@ body:not(.--darkmode) {
 <style>
 [elc:include ./build/styles/global.css]
 [elc:include ./build/styles/components.css]
+<b:if cond='data:skin.vars.featuresPreloader == "2px"'>[elc:include ./build/styles/pace.css]<b:if cond='data:skin.vars.preloaderStyle == "2px"'>[elc:include ./build/styles/pace-indeterminate.css]</b:if></b:if>
 <b:if cond='data:skin.vars.featuresRippleEffect == "2px"'>[elc:include ./build/styles/ripple-effect.css]</b:if>
 [elc:include ./build/styles/header.css]
 <b:if cond='data:widgets any (w => w.id == "LinkList999")'>[elc:include ./build/styles/drawer-menu.css]<b:if cond='data:skin.vars.featuresSubMenu == "2px"'>[elc:include ./build/styles/drawer-menu-sub.css]</b:if></b:if>
@@ -130,6 +137,7 @@ body:not(.--darkmode) {
 
 <b:if cond='data:blog.languageDirection == "rtl"'>
 [elc:include ./build/styles/components-rtl.css]
+<b:if cond='data:skin.vars.featuresPreloader == "2px"'>[elc:include ./build/styles/pace-rtl.css]<b:if cond='data:skin.vars.preloaderStyle == "2px"'>[elc:include ./build/styles/pace-indeterminate-rtl.css]</b:if></b:if>
 [elc:include ./build/styles/header-rtl.css]
 <b:if cond='data:widgets any (w => w.id == "LinkList999")'>[elc:include ./build/styles/drawer-menu-rtl.css]</b:if>
 <b:if cond='data:widgets any (w => w.id == "PageList999")'>[elc:include ./build/styles/more-menu-rtl.css]</b:if>
@@ -151,6 +159,7 @@ body:not(.--darkmode) {
 </b:includable>
 <b:includable id='libraries'>
 <script>
+<b:if cond='data:skin.vars.featuresPreloader == "2px"'>/*<![CDATA[*/[elc:include ./build/scripts/pace.js]/*]]>*/</b:if>
 /*<![CDATA[*/[elc:include ./build/scripts/easy-toggle-state.js]/*]]>*/
 <b:if cond='data:skin.vars.featuresRippleEffect == "2px"'>/*<![CDATA[*/[elc:include ./build/scripts/ripple-effect.js]/*]]>*/</b:if>
 <b:if cond='data:widgets any (w => w.id == "LinkList999")'>[elc:include ./build/scripts/drawer-menu.js]<b:if cond='data:skin.vars.featuresSubMenu == "2px"'>/*<![CDATA[*/[elc:include ./build/scripts/drawer-menu-sub.js]/*]]>*/</b:if></b:if>
@@ -181,8 +190,8 @@ body:not(.--darkmode) {
 [elc:include ./src/templates/navigation.html]
 </b:tag>
 <b:tag cond='!data:view.isLayoutMode' name='div' id='elcreative_section' class='elcreative_section'>
-<main id='elcreative_main' class='elcreative_main'>
 <b:class cond='data:skin.vars.navDrawerMenuOptionDesktopState == "1px" ' name='__drawer_menu_modal' />
+<main id='elcreative_main' class='elcreative_main'>
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ab esse vitae consequuntur quisquam ipsam sequi voluptatem quod perspiciatis non? Quis distinctio sint natus voluptatibus minus temporibus, consequuntur sapiente laboriosam iste et eaque aliquid ipsum ea nesciunt corrupti aspernatur possimus voluptates quos blanditiis obcaecati recusandae earum? Est non dolorum, consectetur iusto officiis tempora illo, dolor vel assumenda animi, obcaecati ipsa exercitationem nulla quas saepe alias beatae aliquam. Amet, non modi vero ipsam hic repellat sapiente eligendi? Quia officia harum minima, sunt sequi blanditiis impedit vitae laudantium dolore, modi sint animi corrupti iste exercitationem aliquam. Sunt unde pariatur itaque tempora quos reprehenderit facilis tempore magni laboriosam, illo modi totam commodi, aut voluptas ipsam! Provident ipsam tenetur beatae perferendis corrupti officia mollitia accusamus molestiae modi?
 </main>
 <b:if cond='!data:view.isError'>

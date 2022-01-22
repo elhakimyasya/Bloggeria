@@ -19,6 +19,11 @@
     opacity: 1;
     visibility: visible;
   }
+
+  body.error_page &.--active {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 // Dropdown
@@ -66,7 +71,7 @@
       &.selected .dropdown_item {
         background-color: var(--defaultColorDropdownTextTransparent1);
       }
-      
+
       .dropdown_item {
         appearance: none;
         align-items: center;

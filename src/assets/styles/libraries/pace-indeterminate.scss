@@ -1,0 +1,57 @@
+.pace {
+  &:not(.pace-inactive) {
+    .pace-progress {
+      background-color: var(--color-black-trans-12);
+
+      &::before,
+      &::after {
+        bottom: 0;
+        background-color: var(--preloaderColor);
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+        will-change: left, right;
+      }
+
+      &::before {
+        animation: paceIndeterminate 2s cubic-bezier(0.65, 0.815, 0.735, 0.395)
+          infinite;
+      }
+      &::after {
+        animation: paceIndeterminateShort 2s cubic-bezier(0.165, 0.84, 0.44, 1)
+          infinite;
+        animation-delay: 1.25s;
+      }
+    }
+  }
+}
+
+@keyframes paceIndeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+@keyframes paceIndeterminateShort {
+  0% {
+    left: 200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}

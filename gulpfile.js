@@ -22,6 +22,7 @@ const paths = {
         src: [
             "./src/assets/styles/*.scss",
             "./src/assets/styles/libraries/*.css",
+            "./src/assets/styles/libraries/*.scss",
             "./src/assets/styles/partial/*.css",
             "./src/assets/styles/partial/*.scss"
         ]
@@ -73,7 +74,9 @@ gulp.task("scripts:minify", function () {
         .pipe(gulpBabelMinify({
             mangle: {
                 keepClassName: true
-            }
+            },
+            evaluate: false,
+            builtIns: false
         }))
         .pipe(gulp.dest("./build/scripts"))
 });

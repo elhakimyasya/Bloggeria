@@ -1,0 +1,8 @@
+.pace {
+  &:not(.pace-inactive) {
+    .pace-progress {
+      right: unset;
+      left: 100%;
+    }
+  }
+}

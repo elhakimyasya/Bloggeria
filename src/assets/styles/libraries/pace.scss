@@ -1,0 +1,21 @@
+.pace {
+  pointer-events: none;
+  user-select: none;
+
+  &.pace-inactive {
+    display: none;
+  }
+
+  &:not(.pace-inactive) {
+    .pace-progress {
+      background-color: var(--preloaderColor);
+      height: var(--preloaderHeight);
+      overflow: hidden;
+      position: fixed;
+      right: 100%;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+  }
+}
