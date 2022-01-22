@@ -9,6 +9,7 @@ const gulpCSSMinify = require("gulp-minify-css");
 const gulpBabel = require("gulp-babel");
 const gulpBabelMinify = require("gulp-babel-minify");
 const gulpJSObfuscator = require("gulp-javascript-obfuscator");
+const gulpFileInclude = require("gulp-file-include");
 
 const paths = {
     scripts: {
@@ -93,6 +94,11 @@ gulp.task("start", function () {
             let replace = fs.readFileSync(name, "utf-8");
 
             return replace
+        }))
+        .pipe(gulpFileInclude({
+            indent: true,
+            basepath: "@file",
+            prefix: "@@"
         }))
         .pipe(gulpRename({
             basename: "theme",

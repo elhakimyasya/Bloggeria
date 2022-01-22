@@ -1,4 +1,11 @@
 var elcreativeConfig = {
+    themeInfo: {
+        config: {
+            featuresPreloader: "<data:skin.vars.featuresPreloader />",
+            featuresRippleEffect: "<data:skin.vars.featuresRippleEffect />",
+            featuresSubMenu: "<data:skin.vars.featuresSubMenu />"
+        }
+    },
     elements: {
         elementBackdrop: "backdrop",
         elementDrawerMenu: "LinkList999",

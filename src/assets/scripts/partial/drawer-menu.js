@@ -5,4 +5,4 @@ document.getElementById(elcreativeConfig.buttons.buttonMenuToggle).addEventListe
     document.body.classList.remove("--search_active");
     document.getElementById(elcreativeConfig.elements.elementBackdrop).classList.toggle("--active");
     document.getElementById(elcreativeConfig.elements.elementSearchInput).blur();
-});
+})
