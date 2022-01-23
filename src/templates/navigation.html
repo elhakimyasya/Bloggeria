@@ -10,11 +10,7 @@
                 <ul expr:class='data:skin.vars.featuresSubMenu == "2px" ? "visibility_hidden" : "no_class"'>
                     <b:loop values='data:links' var='link'>
                         <li expr:class='data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target) ? "selected" : "no_class"'>
-                            <a expr:href='data:link.target' class='drawer_menu_link elcreative_ripple'>
-                                <span class='drawer_menu_item'>
-                                    <data:link.name />
-                                </span>
-                            </a>
+                            <a expr:href='data:link.target' class='drawer_menu_link elcreative_ripple'><span class='drawer_menu_item'><data:link.name /></span></a>
                         </li>
                     </b:loop>
                 </ul>

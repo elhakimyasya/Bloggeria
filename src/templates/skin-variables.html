@@ -12,10 +12,13 @@
 <Group description='Features'>
     <Variable name="featuresCSE" description="Google Custom Search Engine (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
     <Variable name="featuresSubMenu" description="Navigation Drawer Sub-Menu (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="featuresRippleEffect" description="Ripple Effect (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="rippleEffectColor" description="Ripple Effect Color" type="color" default="$(defaultColorText)" value="#202124" />
 </Group>
 <Group description='Header' selector='header'>
     <Variable name="headerOptionEdge" description="Header Edge Style (None | Border | Shadow)" type="length" default="3px" min="1px" max="3px" value="3px" />
     <Variable name="headerOptionSearchDesktop" description="Search Bar Visibility on Desktop (Hidden | Visible)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="headerOptionSearchRadius" description="Search Bar Corner Radius" type="length" default="4px" min="0px" max="25px" value="4px" />
     <Variable name="headerColorBackground" description="Header Background Color" type="color" default="$(body.background.color)" value="#ffffff" />
     <Variable name="headerColorText" description="Header Text Color" type="color" default="#5f6368" value="#5f6368" />
     <Variable name="headerColorButtonIcon" description="Header Button Color" type="color" default="$(defaultColorButtonIcon)" value="#5f6368" />

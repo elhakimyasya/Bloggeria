@@ -1,12 +1,11 @@
-if (elcreativeConfig.themeInfo.config.featuresSubMenu == "2px") {
+if (elcreativeConfig.themeInfo.config.featuresSubMenu === "2px") {
     (function (selector) {
         var result = "";
         var listItem = document.getElementById(selector).querySelectorAll("li");
         var boolean = false;
 
         listItem.forEach(function (element, index) {
-            var listText = element.innerText.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
-
+            var listText = element.innerText.replace(/[\n\r]+|[\s]{2,}/g, '');
 
             if (listText.startsWith("_")) {
                 element = element.outerHTML.replace(">_", ">");

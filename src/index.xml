@@ -22,11 +22,15 @@
                 --bodyFont: $(body.font);
                 --bodyFontFamily: $(body.font.family);
                 --bodyFontSize: $(body.font.size);
+
+                --headerOptionSearchRadius: $(headerOptionSearchRadius);
             }
 
             body:not(.--darkmode) {
                 --bodyBackgroundColor: $(body.background.color);
                 --defaultColorText: $(defaultColorText);
+
+                --rippleEffectColor: $(rippleEffectColor)2e;
 
                 --defaultColorButtonIcon: $(defaultColorButtonIcon);
                 --defaultColorButtonIconTransparent1: $(defaultColorButtonIcon)1f;
@@ -78,6 +82,7 @@
                     <script>
                     /*<![CDATA[*/@@include("../build/scripts/easy-toggle-state.js")@@include("../build/scripts/scripts.js")/*]]>*/
                     <b:if cond='data:widgets any (w => w.id == "PageList999") and data:skin.vars.featuresSubMenu == "2px"'>/*<![CDATA[*/@@include("../build/scripts/drawer-menu-sub.js")/*]]>*/</b:if>
+                    <b:if cond='data:skin.vars.featuresRippleEffect == "2px"'>/*<![CDATA[*/@@include("../build/scripts/ripple-effect.js")/*]]>*/</b:if>
                     </script>
                 </b:includable>
             </b:defaultmarkup>
@@ -91,7 +96,13 @@
         <div id='app' class='app'>
             @@include("../src/templates/header.html")
             @@include("../src/templates/navigation.html")
-            <div id='elcreative_section' class='elcreative_section'></div>
+            <div id='elcreative_section' class='elcreative_section'>
+                <b:class cond='data:widgets any (w => w.id == "LinkList999")' name='with_drawer_menu' />
+                <b:class cond='data:widgets any (w => w.id == "LinkList999") and data:skin.vars.navDrawerMenuOptionDesktopState == "1px"' name='drawer_desktop_modal' />
+                <main class='elcreative_main'>
+                    @@include("../src/templates/main-section.html")
+                </main>
+            </div>
         </div>
         <b:section id='hidden' />
 

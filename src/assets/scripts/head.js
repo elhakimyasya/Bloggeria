@@ -1,7 +1,8 @@
 var elcreativeConfig = {
     themeInfo: {
         config: {
-            featuresSubMenu: "<data:skin.vars.featuresSubMenu/>"
+            featuresSubMenu: "<data:skin.vars.featuresSubMenu/>",
+            featuresRippleEffect: "<data:skin.vars.featuresRippleEffect/>",
         }
     },
     buttons: {

@@ -75,11 +75,33 @@ body {
   }
 
   // Mobile Screen
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 1200px) {
     body.--drawer_menu_active & {
       opacity: 1;
       visibility: visible;
     }
+  }
+}
+
+//
+// Ripple Effect
+//
+.ripple_container {
+  bottom: 0;
+  color: transparent;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  pointer-events: none;
+  right: 0;
+  transform: perspective(0);
+  top: 0;
+
+  i {
+    border-radius: 50%;
+    background-color: var(--rippleEffectColor);
+    position: absolute;
+    transition: opacity 640ms ease 0s, transform 640ms ease 0s;
   }
 }
 
@@ -245,6 +267,12 @@ body {
     &:active {
       background-color: var(--headerColorButtonIconTransparent2);
     }
+
+    .ripple_container {
+      i {
+        background-color: var(--headerColorButtonIconTransparent2);
+      }
+    }
   }
 
   // headerOptionEdge = 2px
@@ -360,7 +388,6 @@ body {
 
       form {
         align-items: center;
-        border-radius: 4px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -387,6 +414,7 @@ body {
 
         // Desktop Screen
         @media screen and (min-width: 980px) {
+          border-radius: var(--headerOptionSearchRadius);
           background-color: var(--headerColorTextTransparent1);
           max-width: 780px;
 
@@ -555,6 +583,25 @@ body {
             padding: 10px 16px 10px 0;
           }
 
+          .ripple_container {
+            i {
+              background-color: var(--navDrawerMenuColorTextTransparent2);
+            }
+          }
+
+          // featuresSubMenu = 2px
+          &[data-toggle-class]::after {
+            content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPScjOWFhMGE2Jz48cGF0aCBkPSJNNywxMEwxMiwxNUwxNywxMEg3WiIgLz48L3N2Zz4=);
+            flex: 0 0 auto;
+            height: 24px;
+            margin: 0 8px;
+            transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            width: 24px;
+          }
+          &.--active::after {
+            transform: rotate(180deg);
+          }
+
           .drawer_menu_item {
             align-items: center;
             display: flex;
@@ -569,6 +616,30 @@ body {
 
               .rtl & {
                 margin: 0 0 0 12px;
+              }
+            }
+          }
+        }
+
+        // featuresSubMenu = 2px
+        .drawer_sub {
+          &:not(.--active) li {
+            max-height: 0;
+          }
+
+          &.--active li {
+            max-height: 60px;
+          }
+
+          li {
+            overflow: hidden;
+            transition: max-height 0.9s cubic-bezier(0.24, 1, 0.32, 1);
+
+            .drawer_menu_link {
+              padding: 10px 0 10px 52px;
+
+              .rtl & {
+                padding: 10px 52px 10px 0;
               }
             }
           }
@@ -763,8 +834,68 @@ body {
               margin: 0 0 0 8px;
             }
           }
+
+          .ripple_container {
+            i {
+              background-color: var(--navigationMoreMenuMenuTextTransparent2);
+            }
+          }
         }
       }
     }
+  }
+}
+
+//
+// Section
+//
+.elcreative_section {
+  display: flex;
+  justify-content: space-between;
+  padding: 82px 20px 20px;
+  transition: margin 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .elcreative_main {
+    .section {
+      max-width: 980px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  // Desktop Screen
+  @media screen and (min-width: 1200px) {
+    body.error_page.--drawer_menu_active
+      &.with_drawer_menu:not(.drawer_desktop_modal) {
+      margin: 0 0 0 300px;
+
+      .rtl & {
+        margin: 0 300px 0 0;
+      }
+    }
+
+    body:not(.error_page):not(.--drawer_menu_active)
+      &.with_drawer_menu:not(.drawer_desktop_modal) {
+      margin: 0 0 0 300px;
+
+      .rtl & {
+        margin: 0 300px 0 0;
+      }
+
+      &.drawer_desktop_modal {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+    }
+
+    body:not(.error_page) .elcreative_main {
+      width: calc(100% - (300px + 20px));
+    }
+  }
+
+  // Mobile Screen
+  @media screen and (max-width: 980px) {
+    flex-direction: column;
+    padding: 70px 16px;
   }
 }
