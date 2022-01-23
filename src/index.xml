@@ -32,6 +32,11 @@
                 --defaultColorButtonIconTransparent1: $(defaultColorButtonIcon)1f;
                 --defaultColorButtonIconTransparent2: $(defaultColorButtonIcon)2e;
 
+                --defaultColorDropdownBackground: $(defaultColorDropdownBackground);
+                --defaultColorDropdownText: $(defaultColorDropdownText);
+                --defaultColorDropdownTextTransparent1: $(defaultColorDropdownText)1f;
+                --defaultColorDropdownTextTransparent2: $(defaultColorDropdownText)2e;
+
                 --headerColorBackground: $(headerColorBackground);
                 --headerColorText: $(headerColorText);
                 --headerColorTextTransparent1: $(headerColorText)1f;
@@ -40,6 +45,19 @@
                 --headerColorButtonIcon: $(headerColorButtonIcon);
                 --headerColorButtonIconTransparent1: $(headerColorButtonIcon)1f;
                 --headerColorButtonIconTransparent2: $(headerColorButtonIcon)2e;
+
+                --navDrawerMenuColorBackground: $(navDrawerMenuColorBackground);
+                --navDrawerMenuColorText: $(navDrawerMenuColorText);
+                --navDrawerMenuColorTextTransparent1: $(navDrawerMenuColorText)1f;
+                --navDrawerMenuColorTextTransparent2: $(navDrawerMenuColorText)2e;
+                --navDrawerMenuColorSelected: $(navDrawerMenuColorSelected);
+                --navDrawerMenuColorSelectedTransparent1: $(navDrawerMenuColorSelected)1f;
+                --navDrawerMenuColorBorder: $(navDrawerMenuColorBorder);
+
+                --navigationMoreMenuBackground: $(navigationMoreMenuBackground);
+                --navigationMoreMenuMenuText: $(navigationMoreMenuMenuText);
+                --navigationMoreMenuMenuTextTransparent1: $(navigationMoreMenuMenuText)1f;
+                --navigationMoreMenuMenuTextTransparent2: $(navigationMoreMenuMenuText)2e;
             }
         ]]>
         </b:skin>
@@ -57,7 +75,10 @@
                     @@include("../src/templates/defaultmarkups/defaultIcons.html")
                 </b:includable>
                 <b:includable id='libraries'>
-                    <script>/*<![CDATA[*/@@include("../build/scripts/scripts.js")/*]]>*/</script>
+                    <script>
+                    /*<![CDATA[*/@@include("../build/scripts/easy-toggle-state.js")@@include("../build/scripts/scripts.js")/*]]>*/
+                    <b:if cond='data:widgets any (w => w.id == "PageList999") and data:skin.vars.featuresSubMenu == "2px"'>/*<![CDATA[*/@@include("../build/scripts/drawer-menu-sub.js")/*]]>*/</b:if>
+                    </script>
                 </b:includable>
             </b:defaultmarkup>
             <b:defaultmarkup type='Header'><b:includable id='main' var='this'><b:class name='hidden'/></b:includable></b:defaultmarkup>
@@ -69,11 +90,14 @@
     <body expr:class='data:blog.pageType'>
         <div id='app' class='app'>
             @@include("../src/templates/header.html")
-            <nav id='elcreative_navigation'></nav>
+            @@include("../src/templates/navigation.html")
             <div id='elcreative_section' class='elcreative_section'></div>
         </div>
         <b:section id='hidden' />
 
+        <div id='backdrop' class='backdrop'>
+            <b:class cond='data:skin.vars.navDrawerMenuOptionDesktopState == "1px"' name='drawer_desktop_modal' />
+        </div>
         <b:include data='blog' name='libraries' />
         <b:if cond='!data:view.isPage'>&lt;!--</b:if>
     </body>

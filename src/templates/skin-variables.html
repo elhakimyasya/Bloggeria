@@ -5,9 +5,13 @@
     <Variable name="defaultColorText" description="Default Text Color" type="color" default="#202124" value="#202124" />
 
     <Variable name="defaultColorButtonIcon" description="Default Button Icon Color" type="color" default="#5f6368" value="#5f6368" />
+
+    <Variable name="defaultColorDropdownBackground" description="Default Dropdown Background Color" type="color" default="#ffffff" value="#ffffff" />
+    <Variable name="defaultColorDropdownText" description="Default Dropdown Text Color" type="color" default="#5f6368" value="#5f6368" />
 </Group>
 <Group description='Features'>
     <Variable name="featuresCSE" description="Google Custom Search Engine (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
+    <Variable name="featuresSubMenu" description="Navigation Drawer Sub-Menu (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
 </Group>
 <Group description='Header' selector='header'>
     <Variable name="headerOptionEdge" description="Header Edge Style (None | Border | Shadow)" type="length" default="3px" min="1px" max="3px" value="3px" />
@@ -16,6 +20,17 @@
     <Variable name="headerColorText" description="Header Text Color" type="color" default="#5f6368" value="#5f6368" />
     <Variable name="headerColorButtonIcon" description="Header Button Color" type="color" default="$(defaultColorButtonIcon)" value="#5f6368" />
     <Variable name="headerColorBorder" description="Header Border Color*" type="color" default="$(defaultColorBorder)" value="#dadce4" />
+</Group>
+<Group description='Navigation'>
+    <Variable name="navDrawerMenuOptionDesktopState" description="Drawer Menu State on Desktop (Modal | Dismissable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="navDrawerMenuOptionDesktopEdge" description="Drawer Menu Edge Style on Desktop (None | Border | Shadow)" type="length" default="2px" min="1px" max="3px" value="2px" />
+    <Variable name="navDrawerMenuOptionMobileEdge" description="Drawer Menu Edge Style on Mobile (None | Border | Shadow)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="navDrawerMenuColorBackground" description="Drawer Menu Background Color" type="color" default="$(defaultColorBackground)" value="#ffffff" />
+    <Variable name="navDrawerMenuColorText" description="Drawer Menu Text Color" type="color" default="#5f6368" value="#5f6368" />
+    <Variable name="navDrawerMenuColorSelected" description="Drawer Menu Selected Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />
+    <Variable name="navDrawerMenuColorBorder" description="Drawer Menu Border Color*" type="color" default="$(defaultColorBorder)" value="#dadce4" />
+    <Variable name="navigationMoreMenuBackground" description="More Menu Background Color" type="color" default="$(defaultColorDropdownBackground)" value="#ffffff" />
+    <Variable name="navigationMoreMenuMenuText" description="More Menu Text Color" type="color" default="$(defaultColorDropdownText)" value="#5f6368" />
 </Group>
 
 <Variable hideEditor="true" name="body.text.color" description="Text Color" type="color" default="$(defaultColorText)" value="#9aa0a6" />

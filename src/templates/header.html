@@ -71,6 +71,17 @@
                     </b:if>
                 </svg>
             </button>
+            <b:if cond='data:widgets any (w => w.id == "PageList999")'>
+                <button id='button_more_menu' class='elcreative_button_icon button_more_menu elcreative_ripple' aria-label='More Menu' title='More Menu' type='button' data-toggle-class-on-target='--active' data-toggle-target='#PageList999' aria-haspopup='listbox' aria-controls='PageList999' aria-expanded='false' data-toggle-outside='' data-toggle-escape=''>
+                    <svg width='24' height='24' viewBox='0 0 24 24'>
+                        <b:if cond='data:skin.vars.defaultOptionCustomIcon == "2px"'>
+                            <use xlink:href='#icon_more_menu' />
+                            <b:else />
+                            <b:include data='{iconId: "icon_more_menu"}' name='defaultIcons' />
+                        </b:if>
+                    </svg>
+                </button>
+            </b:if>
         </div>
     </div>
     <div class='header_secondary'></div>

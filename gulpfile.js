@@ -98,13 +98,13 @@ gulp.task("start", function () {
 
             return replace
         }))
+        .pipe(gulpTokenReplace({
+            global: config
+        }))
         .pipe(gulpFileInclude({
             indent: true,
             basepath: "@file",
             prefix: "@@"
-        }))
-        .pipe(gulpTokenReplace({
-            global: config
         }))
         .pipe(gulpRename({
             basename: "theme",

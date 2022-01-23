@@ -1,0 +1,44 @@
+<nav id='elcreative_navigation' class='elcreative_navigation'>
+    <b:section id='navigation_widget_section' class='navigation_widget_section' name='Navigation Drawer and More Menu' showaddelement='false' maxwidgets='2'>
+        <b:widget id='LinkList999' locked='true' title='Navigation Drawer Menu' type='LinkList' visible='true'>
+            <b:includable id='main'>
+                <b:class name='navigation_drawer_menu' />
+                <b:class cond='data:skin.vars.navDrawerMenuOptionDesktopState == "1px"' name='drawer_desktop_modal' />
+                <b:class expr:name='data:skin.vars.navDrawerMenuOptionDesktopEdge == "2px" ? "drawer_desktop_border" : data:skin.vars.navDrawerMenuOptionDesktopEdge == "3px" ? "drawer_desktop_shadow" : "no_class"' />
+                <b:class expr:name='data:skin.vars.navDrawerMenuOptionMobileEdge == "2px" ? "drawer_mobile_border" : data:skin.vars.navDrawerMenuOptionMobileEdge == "3px" ? "drawer_mobile_shadow" : "no_class"' />
+
+                <ul expr:class='data:skin.vars.featuresSubMenu == "2px" ? "visibility_hidden" : "no_class"'>
+                    <b:loop values='data:links' var='link'>
+                        <li expr:class='data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target) ? "selected" : "no_class"'>
+                            <a expr:href='data:link.target' class='drawer_menu_link elcreative_ripple'>
+                                <span class='drawer_menu_item'>
+                                    <data:link.name />
+                                </span>
+                            </a>
+                        </li>
+                    </b:loop>
+                </ul>
+            </b:includable>
+            <b:includable id='content' />
+        </b:widget>
+        <b:widget id='PageList999' locked='true' title='More Menu' type='PageList' visible='true'>
+            <b:includable id='main'>
+                <b:class name='elcreative_dropdown overflow_menu' />
+                <ul expr:class='data:pageListClass ? data:pageListClass : "no_class"'>
+                    <b:loop values='data:links' var='link'>
+                        <li expr:class='data:link.isCurrentPage ? "selected" : "no_class"'>
+                            <a expr:href='data:link.href' class='dropdown_item elcreative_ripple'>
+                                <data:link.title />
+                            </a>
+                        </li>
+                    </b:loop>
+                </ul>
+            </b:includable>
+            <b:includable id='content' />
+            <b:includable id='overflowButton' />
+            <b:includable id='overflowablePageList' />
+            <b:includable id='pageLink' />
+            <b:includable id='pageList' />
+        </b:widget>
+    </b:section>
+</nav>
