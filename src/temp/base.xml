@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html b:css='{{b.css}}' b:defaultwidgetversion='{{b.defaultwidgetversion}}' b:js='{{b.js}}' b:layoutsVersion='{{b.layoutsVersion}}' b:responsive='{{b.responsive}}' b:templateVersion='{{b.templateVersion}}' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
+    <head>
+        <b:include data='blog' name='headContent' />
+        <b:skin version='2.7'><![CDATA[
+            /*
+            @@include("../src/templates/variables.html")
+            */
+            @@include("../build/styles/normalize.css")
+
+            :root {
+            --background: $(body.background);
+            --color-text: $(body.text.color);
+            --font: $(body.font);
+
+            --headerOptionSearchRadius: $(headerOptionSearchRadius);
+            }
+
+            body:not(.--darkmode) {
+            --preloaderColor: $(preloaderColor);
+            --preloaderHeight: $(preloaderHeight);
+            --rippleEffectColor: $(rippleEffectColor)2e;
+
+            --defaultColorButtonIcon: $(defaultColorButtonIcon);
+            --defaultColorButtonIconTransparent1: $(defaultColorButtonIcon)1f;
+            --defaultColorButtonIconTransparent2: $(defaultColorButtonIcon)2e;
+
+            --defaultColorDropdownBackground: $(defaultColorDropdownBackground);
+            --defaultColorDropdownText: $(defaultColorDropdownText);
+            --defaultColorDropdownTextTransparent1: $(defaultColorDropdownText)1f;
+            --defaultColorDropdownTextTransparent2: $(defaultColorDropdownText)2e;
+
+            --headerColorBackground: $(headerColorBackground);
+            --headerColorText: $(headerColorText);
+            --headerColorTextTransparent1: $(headerColorText)1f;
+            --headerColorTextTransparent2: $(headerColorText)2e;
+            --headerColorBorder: $(headerColorBorder);
+            --headerColorButtonIcon: $(headerColorButtonIcon);
+            --headerColorButtonIconTransparent1: $(headerColorButtonIcon)1f;
+            --headerColorButtonIconTransparent2: $(headerColorButtonIcon)2e;
+
+            --navDrawerMenuColorBackground: $(navDrawerMenuColorBackground);
+            --navDrawerMenuColorText: $(navDrawerMenuColorText);
+            --navDrawerMenuColorTextTransparent1: $(navDrawerMenuColorText)1f;
+            --navDrawerMenuColorTextTransparent2: $(navDrawerMenuColorText)2e;
+            --navDrawerMenuColorSelected: $(navDrawerMenuColorSelected);
+            --navDrawerMenuColorSelectedTransparent1: $(navDrawerMenuColorSelected)1f;
+            --navDrawerMenuColorBorder: $(navDrawerMenuColorBorder);
+
+            --navigationMoreMenuBackground: $(navigationMoreMenuBackground);
+            --navigationMoreMenuMenuText: $(navigationMoreMenuMenuText);
+            --navigationMoreMenuMenuTextTransparent1: $(navigationMoreMenuMenuText)1f;
+            --navigationMoreMenuMenuTextTransparent2: $(navigationMoreMenuMenuText)2e;
+            
+            --gadgetColorTitle: $(gadgetColorTitle);
+            --gadgetColorTitleIndicator: $(gadgetColorTitleIndicator);
+            --gadgetColorBorder: $(gadgetColorBorder);
+            }
+            ]]>
+        </b:skin>
+
+        <b:if cond='data:view.isLayoutMode'>
+            <b:template-skin><![CDATA[@@include("../build/styles/layout-skin.css")]]></b:template-skin>
+            <b:else/>
+            <style>@@include("../src/assets/styles/template.txt", {
+                "global"                                : '@@include("../../../build/styles/global.css")',
+                "featuresPreloader"                     : '@@include("../../../build/styles/pace.css")',
+                "featuresPreloaderIndeterminate"        : '@@include("../../../build/styles/pace-indeterminate.css")',
+                "featuresRippleEffect"                  : '@@include("../../../build/styles/ripple-effect.css")',
+                "header"                                : '@@include("../../../build/styles/header.css")',
+                "featuresDrawerMenu"                    : '@@include("../../../build/styles/drawer-menu.css")',
+                "featuresDrawerMenuSub"                 : '@@include("../../../build/styles/drawer-menu-sub.css")',
+                "featuresMoreMenu"                      : '@@include("../../../build/styles/more-menu.css")',
+                "featuresColorMode"                     : '@@include("../../../build/styles/darkmode.css")',
+                "mainSection"                           : '@@include("../../../build/styles/main-section.css")',
+                "mediaQueries"                          : '@@include("../../../build/styles/media-queries.css")',
+
+                "featuresPreloaderRTL"                  : '@@include("../../../build/styles/pace-rtl.css")',
+                "featuresPreloaderIndeterminateRTL"     : '@@include("../../../build/styles/pace-indeterminate-rtl.css")',
+                "headerRTL"                             : '@@include("../../../build/styles/header-rtl.css")',
+                "featuresDrawerMenuRTL"                 : '@@include("../../../build/styles/drawer-menu-rtl.css")',
+                "featuresMoreMenuRTL"                   : '@@include("../../../build/styles/more-menu-rtl.css")',
+                "mainSectionRTL"                        : '@@include("../../../build/styles/main-section-rtl.css")',
+            })</style>
+        </b:if>
+
+        <b:defaultmarkups>
+            <b:defaultmarkup type="Common">
+                <b:includable id='headContent'>
+                    @@include("../src/templates/defaultmarkups/headContent.html")
+                </b:includable>
+                <b:includable id='widget-title'>
+                    @@include("../src/templates/defaultmarkups/widget-title.html")
+                </b:includable>
+                <b:includable id='translate'>
+                    <b:switch var='data:blog.locale'>
+                        <b:case value='en' />
+                        <b:include name='customLanguage' />
+                        <b:default/>
+                        <b:include name='customLanguage' />
+                    </b:switch>
+                </b:includable>
+                <b:includable id='customLanguage'>
+                    @@include("../src/templates/defaultmarkups/customLanguage.html")
+                </b:includable>
+                <b:includable id='defaultIcons'>
+                    @@include("../src/templates/defaultmarkups/defaultIcons.html")
+                </b:includable>
+                <b:includable id='libraries'>
+                    <script>@@include("../src/assets/scripts/template.txt", {
+                        "featuresPreloader"                     : '@@include("../../../build/scripts/pace.js")',
+                        "lazySizes"                             : '@@include("../../../build/scripts/lazysizes.js")',
+                        "easyToggleState"                       : '@@include("../../../build/scripts/easy-toggle-state.js")',
+                        "featuresRippleEffect"                  : '@@include("../../../build/scripts/ripple-effect.js")',
+                        "featuresDrawerMenu"                    : '@@include("../../../build/scripts/drawer-menu.js")',
+                        "featuresDrawerMenuSub"                 : '@@include("../../../build/scripts/drawer-menu-sub.js")',
+                        "global"                                : '@@include("../../../build/scripts/global.js")',
+                    })</script>
+                </b:includable>
+            </b:defaultmarkup>
+            <b:defaultmarkup type='Header'>
+                <b:includable id='main' var='this'>
+                    <b:attr name='hidden'/>
+                </b:includable>
+            </b:defaultmarkup>
+            <b:defaultmarkup type='LinkList'>
+                @@include("../src/templates/defaultmarkups/linkList.html")
+            </b:defaultmarkup>
+            <b:defaultmarkup type='PageList'>
+                @@include("../src/templates/defaultmarkups/pageList.html")
+            </b:defaultmarkup>
+        </b:defaultmarkups>
+
+        <script>@@include("../build/scripts/head.js")</script>
+    </head>
+    <b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
+
+    <body expr:class='data:view.isMultipleItems ? "index_page" : data:view.isSingleItem ? "item_page" : data:view.isError ? "error_page" : "pages"'>
+        <b:tag cond='!data:view.isLayoutMode' name='div' id='app' class='app'>
+            <b:tag cond='!data:view.isLayoutMode' name='header' id='elcreative_header' expr:class='data:skin.vars.headerOptionEdge == "3px" ? "elcreative_header __header_shadow" : data:skin.vars.headerOptionEdge == "2px" ? "elcreative_header __header_border" : "elcreative_header"'>
+                @@include("../src/templates/header.html")
+            </b:tag>
+
+            <b:tag cond='!data:view.isLayoutMode' name='nav' id='elcreative_navigation' class='elcreative_navigation'>
+                @@include("../src/templates/navigation.html")
+            </b:tag>
+
+            <b:tag cond='!data:view.isLayoutMode' name='div' id='elcreative_section' class='elcreative_section'>
+                <b:class cond='data:skin.vars.navDrawerMenuOptionDesktopState == "1px" ' name='__drawer_menu_modal' />
+                <main id='elcreative_main' class='elcreative_main'>
+                    @@include("../src/templates/main-section.html")
+                </main>
+                <b:if cond='!data:view.isError'>
+                    <aside class='elcreative_aside'></aside>
+                </b:if>
+            </b:tag>
+        </b:tag>
+
+        <b:section id='hidden' />
+        <div id="backdrop" class="backdrop">
+            <b:class cond='data:skin.vars.navDrawerMenuOptionDesktopState == "1px" ' name='__drawer_menu_modal' />
+        </div>
+
+        <b:include name='libraries' />
+        <b:if cond='!data:view.isPage'>&lt;!--</b:if>
+    </body>
+
+    <b:if cond='!data:view.isPage'>&lt;/body&gt;--&gt;</b:if>
+</html>

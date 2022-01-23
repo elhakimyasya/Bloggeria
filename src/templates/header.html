@@ -1,82 +1,70 @@
-<b:tag cond='!data:view.isLayoutMode' name='div' class='header_primary'>
-    <b:tag cond='!data:view.isLayoutMode' name='div' class='header_section header_start'>
-        <b:section id='header_widget_logo_title_section' class='header_widget_logo_title_section' name='Header Logo and Title' showaddelement='false' maxwidgets='1'>
-            <b:widget id='Header1' locked='true' title='Blog (Header)' type='Header' visible='true'>
-                <b:includable id='main' var='this'>
-                    <b:if cond='data:widgets any (w => w.id == "LinkList999")'>
-                        <button id='button_menu' class='elcreative_button_icon button_menu elcreative_ripple' aria-label='Menu' title='Menu' type='button'>
-                            <svg width='24' height='24' viewBox='0 0 24 24'>
-                                <b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'>
-                                    <use xlink:href='#icon_menu' />
-                                    <b:else />
-                                    <b:include data='{iconId: "icon_menu"}' name='defaultIcons' />
-                                </b:if>
-                            </svg>
-                        </button>
-                    </b:if>
-                    <a expr:href='data:blog.homepageUrl' expr:title='data:blog.title'>
-                        <b:tag cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name='img' expr:src='data:image' expr:alt='data:title' expr:width='data:width' expr:height='data:height' />
-                        <h1 expr:class='data:imagePlacement in {"REPLACE"} ? "visibility_hidden" : "no_class"'>
-                            <data:title />
-                        </h1>
-                    </a>
-                </b:includable>
-                <b:includable id='behindImageStyle' />
-                <b:includable id='description' />
-                <b:includable id='image' />
-                <b:includable id='title' />
-            </b:widget>
-        </b:section>
-    </b:tag>
-    <b:tag cond='!data:view.isLayoutMode' name='div' class='header_section header_center'>
-        <b:class cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='__search_desktop_hidden' />
-        <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : "_blank"'>
-            <b:include name='urlParamsAsFormInput' />
-            <button class='elcreative_button_icon button_small elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='submit'>
+<header id='elcreative_header' class='elcreative_header'>
+    <b:class expr:name='data:skin.vars.headerOptionEdge == "2px" ? "header_border" : data:skin.vars.headerOptionEdge == "3px" ? "header_shadow" : "no_class"' />
+    <div class='header_primary'>
+        <div class='header_section header_start'>
+            <b:section id='header_widget_logo_title_section' class='header_widget_logo_title_section' name='Header Logo and Title' showaddelement='false' maxwidgets='1'>
+                <b:widget id='Header1' locked='true' title='Blog (Header)' type='Header' visible='true'>
+                    <b:includable id='main' var='this'>
+                        <b:if cond='data:widgets any (w => w.id == "LinkList999")'>
+                            <button id='button_menu' class='elcreative_button_icon button_menu elcreative_ripple' aria-label='Menu' title='Menu' type='button'>
+                                <svg width='24' height='24' viewBox='0 0 24 24'>
+                                    <b:if cond='data:skin.vars.defaultOptionCustomIcon == "2px"'>
+                                        <use xlink:href='#icon_menu' />
+                                        <b:else />
+                                        <b:include data='{iconId: "icon_menu"}' name='defaultIcons' />
+                                    </b:if>
+                                </svg>
+                            </button>
+                        </b:if>
+                        <a expr:href='data:blog.homepageUrl' expr:title='data:blog.title'>
+                            <b:tag cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name='img' expr:src='data:image' expr:alt='data:title' expr:width='data:width' expr:height='data:height' />
+                            <h1 expr:class='data:imagePlacement in {"REPLACE"} ? "visibility_hidden" : "no_class"'>
+                                <data:title />
+                            </h1>
+                        </a>
+                    </b:includable>
+                    <b:includable id='behindImageStyle' />
+                    <b:includable id='description' />
+                    <b:includable id='image' />
+                    <b:includable id='title' />
+                </b:widget>
+            </b:section>
+        </div>
+        <div class='header_section header_center'>
+            <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : ""'>
+                <b:include name='urlParamsAsFormInput' />
+                <button class='elcreative_button_icon button_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='submit'>
+                    <svg width='24' height='24' viewBox='0 0 24 24'>
+                        <b:if cond='data:skin.vars.defaultOptionCustomIcon == "2px"'>
+                            <use xlink:href='#icon_magnify' />
+                            <b:else />
+                            <b:include data='{iconId: "icon_magnify"}' name='defaultIcons' />
+                        </b:if>
+                    </svg>
+                </button>
+                <input id='search_input' class='search_input' autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name='q' required='' expr:oninput='data:skin.vars.featuresCSE == "2px" ? "this.setCustomValidity(&apos;&apos;)" : ""' />
+                <button id='button_close_search' class='elcreative_button_icon button_close_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='button'>
+                    <svg width='24' height='24' viewBox='0 0 24 24'>
+                        <b:if cond='data:skin.vars.defaultOptionCustomIcon == "2px"'>
+                            <use xlink:href='#icon_close' />
+                            <b:else />
+                            <b:include data='{iconId: "icon_close"}' name='defaultIcons' />
+                        </b:if>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        <div class='header_section header_end'>
+            <button id='button_toggle_search' class='elcreative_button_icon button_toggle_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='button'>
                 <svg width='24' height='24' viewBox='0 0 24 24'>
-                    <b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'>
+                    <b:if cond='data:skin.vars.defaultOptionCustomIcon == "2px"'>
                         <use xlink:href='#icon_magnify' />
                         <b:else />
                         <b:include data='{iconId: "icon_magnify"}' name='defaultIcons' />
                     </b:if>
                 </svg>
             </button>
-            <input id='search_input' class='search_input' autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name='q' required='' expr:oninput='data:skin.vars.featuresCSE == "2px" ? "this.setCustomValidity(&apos;&apos;)" : ""' />
-            <button id='button_close_search' class='elcreative_button_icon button_small button_close_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='button'>
-                <svg width='24' height='24' viewBox='0 0 24 24'>
-                    <b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'>
-                        <use xlink:href='#icon_close' />
-                        <b:else />
-                        <b:include data='{iconId: "icon_close"}' name='defaultIcons' />
-                    </b:if>
-                </svg>
-            </button>
-        </form>
-    </b:tag>
-    <b:tag cond='!data:view.isLayoutMode' name='div' class='header_section header_end'>
-        <button id='button_toggle_search' class='elcreative_button_icon button_toggle_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='button'>
-            <b:class cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='__search_desktop_hidden' />
-            <svg width='24' height='24' viewBox='0 0 24 24'>
-                <b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'>
-                    <use xlink:href='#icon_magnify' />
-                    <b:tag cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='use' xlink:href='#icon_magnify' />
-                    <b:else />
-                    <b:include data='{iconId: "icon_magnify"}' name='defaultIcons' />
-                    <b:include cond='data:skin.vars.headerOptionSearchDesktop == "1px"' data='{iconId: "icon_close"}' name='defaultIcons' />
-                </b:if>
-            </svg>
-        </button>
-        <b:if cond='data:widgets any (w => w.id == "PageList999")'>
-            <button id='button_more_menu' class='elcreative_button_icon button_more_menu elcreative_ripple' aria-label='More Menu' type='button' tuke='More Menu' data-toggle-class-on-target='--active' data-toggle-target='#PageList999' aria-haspopup='listbox' aria-controls='PageList999' aria-expanded='false' data-toggle-outside='' data-toggle-escape=''>
-                <svg width='24' height='24' viewBox='0 0 24 24'>
-                    <b:if cond='data:skin.vars.defaultOptionsCustomIcon == "2px"'>
-                        <use xlink:href='#icon_more_menu' />
-                        <b:else />
-                        <b:include data='{iconId: "icon_more_menu"}' name='defaultIcons' />
-                    </b:if>
-                </svg>
-            </button>
-        </b:if>
-    </b:tag>
-</b:tag>
-<b:tag cond='!data:view.isLayoutMode' name='div' class='header_secondary'></b:tag>
+        </div>
+    </div>
+    <div class='header_secondary'></div>
+</header>

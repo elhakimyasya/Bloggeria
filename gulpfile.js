@@ -10,6 +10,7 @@ const gulpBabel = require("gulp-babel");
 const gulpBabelMinify = require("gulp-babel-minify");
 const gulpJSObfuscator = require("gulp-javascript-obfuscator");
 const gulpFileInclude = require("gulp-file-include");
+const gulpTokenReplace = require("gulp-token-replace");
 
 const paths = {
     scripts: {
@@ -89,6 +90,8 @@ gulp.task("scripts:obfuscate", function () {
 });
 
 gulp.task("start", function () {
+    delete require.cache[require.resolve("./config.json")];
+    var config = require("./config.json");
     return gulp.src(paths.files.src)
         .pipe(gulpReplace(/\[elc:include (.*?)\]/g, function (index, name) {
             let replace = fs.readFileSync(name, "utf-8");
@@ -99,6 +102,9 @@ gulp.task("start", function () {
             indent: true,
             basepath: "@file",
             prefix: "@@"
+        }))
+        .pipe(gulpTokenReplace({
+            global: config
         }))
         .pipe(gulpRename({
             basename: "theme",

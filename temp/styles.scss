@@ -39,10 +39,6 @@ body {
   width: 0;
 }
 
-//
-// Components
-//
-
 // Backdrop
 .backdrop {
   bottom: 0;
@@ -97,9 +93,16 @@ body {
     opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
     visibility 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   transform: scale(0);
-  transform-origin: left top;
   visibility: hidden;
   z-index: 998;
+
+  :not(.rtl) & {
+    transform-origin: left top;
+  }
+
+  .rtl & {
+    transform-origin: right top;
+  }
 
   &.--active {
     opacity: 1;
@@ -195,9 +198,16 @@ body {
 
   &::after {
     opacity: 0.15;
-    left: -15px;
     position: absolute;
     top: 0;
+
+    :not(.rtl) & {
+      left: -15px;
+    }
+
+    .rtl & {
+      right: -15px;
+    }
   }
 
   &.alert_outline {
@@ -333,12 +343,56 @@ body {
     }
   }
 }
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
+
+:not(.rtl) {
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
-  100% {
-    transform: translateX(100%);
+}
+
+.rtl {
+  @keyframes shimmer {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+// Preloader/Pace
+.pace {
+  pointer-events: none;
+  user-select: none;
+
+  &.pace-inactive {
+    display: none;
+  }
+
+  &:not(.pace-inactive) {
+    .pace-progress {
+      background-color: var(--preloaderColor);
+      height: var(--preloaderHeight);
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+
+      :not(.rtl) & {
+        right: 100%;
+      }
+
+      .rtl & {
+        left: 100%;
+      }
+    }
   }
 }
 

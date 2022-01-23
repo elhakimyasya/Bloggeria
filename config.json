@@ -1,0 +1,17 @@
+{
+    "themeInfo": {
+        "author": "Yasya El Hakim",
+        "license": "Personal",
+        "name": "Materia X2",
+        "releaseDate": "January, 23 2022",
+        "type": "Premium (Paid)",
+        "version": "3.0.0"
+    },
+    "b": {
+        "css": false,
+        "defaultwidgetversion": 2,
+        "js": true,
+        "layoutsVersion": 3,
+        "responsive": true
+    }
+}
