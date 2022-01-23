@@ -11,10 +11,11 @@
 </Group>
 <Group description='Header' selector='header'>
     <Variable name="headerOptionEdge" description="Header Edge Style (None | Border | Shadow)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="headerOptionSearchDesktop" description="Search Bar Visibility on Desktop (Hidden | Visible)" type="length" default="2px" min="1px" max="2px" value="2px" />
     <Variable name="headerColorBackground" description="Header Background Color" type="color" default="$(body.background.color)" value="#ffffff" />
     <Variable name="headerColorText" description="Header Text Color" type="color" default="#5f6368" value="#5f6368" />
-    <Variable name="headerColorBorder" description="Header Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4" />
     <Variable name="headerColorButtonIcon" description="Header Button Color" type="color" default="$(defaultColorButtonIcon)" value="#5f6368" />
+    <Variable name="headerColorBorder" description="Header Border Color*" type="color" default="$(defaultColorBorder)" value="#dadce4" />
 </Group>
 
 <Variable hideEditor="true" name="body.text.color" description="Text Color" type="color" default="$(defaultColorText)" value="#9aa0a6" />

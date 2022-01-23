@@ -1,5 +1,6 @@
 <header id='elcreative_header' class='elcreative_header'>
     <b:class expr:name='data:skin.vars.headerOptionEdge == "2px" ? "header_border" : data:skin.vars.headerOptionEdge == "3px" ? "header_shadow" : "no_class"' />
+
     <div class='header_primary'>
         <div class='header_section header_start'>
             <b:section id='header_widget_logo_title_section' class='header_widget_logo_title_section' name='Header Logo and Title' showaddelement='false' maxwidgets='1'>
@@ -31,6 +32,8 @@
             </b:section>
         </div>
         <div class='header_section header_center'>
+            <b:class cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='search_desktop_hidden' />
+
             <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : ""'>
                 <b:include name='urlParamsAsFormInput' />
                 <button class='elcreative_button_icon button_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='submit'>
@@ -56,11 +59,15 @@
         </div>
         <div class='header_section header_end'>
             <button id='button_toggle_search' class='elcreative_button_icon button_toggle_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog' expr:title='data:messages.searchThisBlog' type='button'>
+                <b:class cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='search_desktop_hidden' />
+
                 <svg width='24' height='24' viewBox='0 0 24 24'>
                     <b:if cond='data:skin.vars.defaultOptionCustomIcon == "2px"'>
                         <use xlink:href='#icon_magnify' />
+                        <b:tag cond='data:skin.vars.headerOptionSearchDesktop == "1px"' name='use' xlink:href='#icon_close' />
                         <b:else />
                         <b:include data='{iconId: "icon_magnify"}' name='defaultIcons' />
+                        <b:include cond='data:skin.vars.headerOptionSearchDesktop == "1px"' data='{iconId: "icon_close"}' name='defaultIcons' />
                     </b:if>
                 </svg>
             </button>

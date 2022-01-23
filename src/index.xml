@@ -57,14 +57,13 @@
                     @@include("../src/templates/defaultmarkups/defaultIcons.html")
                 </b:includable>
                 <b:includable id='libraries'>
-                    <script>
-                        @@include("../build/scripts/scripts.js")
-                    </script>
+                    <script>/*<![CDATA[*/@@include("../build/scripts/scripts.js")/*]]>*/</script>
                 </b:includable>
             </b:defaultmarkup>
             <b:defaultmarkup type='Header'><b:includable id='main' var='this'><b:class name='hidden'/></b:includable></b:defaultmarkup>
         </b:defaultmarkups>
         <script>@@include("../build/scripts/head.js")</script>
+
     </head>
     <b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
     <body expr:class='data:blog.pageType'>

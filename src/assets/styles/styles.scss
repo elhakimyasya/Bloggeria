@@ -267,6 +267,14 @@ body {
         }
       }
 
+      // Desktop Screen
+      @media screen and (min-width: 980px) {
+        // headerOptionSearchDesktop = 2px
+        body:not(.--search_active) &.search_desktop_hidden {
+          display: none;
+        }
+      }
+
       // Mobile Screen
       @media screen and (max-width: 980px) {
         body:not(.--search_active) & {
@@ -290,10 +298,28 @@ body {
           margin: 0 2px;
         }
 
+        // headerOptionSearchDesktop = 2px
+        &.button_toggle_search {
+          &.search_desktop_hidden {
+            body:not(.--search_active) & {
+              path:last-child {
+                display: none;
+              }
+            }
+            body.--search_active & {
+              path:first-child {
+                display: none;
+              }
+            }
+          }
+        }
+
         // Desktop Screen
         @media screen and (min-width: 980px) {
           &.button_toggle_search {
+            &:not(.search_desktop_hidden) {
               display: none;
+            }
           }
         }
       }
