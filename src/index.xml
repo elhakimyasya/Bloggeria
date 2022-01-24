@@ -27,6 +27,7 @@
             }
 
             body:not(.--darkmode) {
+                --blackTransparent: rgba(0, 0, 0, .12);
                 --bodyBackgroundColor: $(body.background.color);
                 --defaultColorText: $(defaultColorText);
 
@@ -62,6 +63,12 @@
                 --navigationMoreMenuMenuText: $(navigationMoreMenuMenuText);
                 --navigationMoreMenuMenuTextTransparent1: $(navigationMoreMenuMenuText)1f;
                 --navigationMoreMenuMenuTextTransparent2: $(navigationMoreMenuMenuText)2e;
+
+                --itemColorBorder: $(itemColorBorder);
+
+                --gadgetColorTitle: $(gadgetColorTitle);
+                --gadgetColorTitleIndicator: $(gadgetColorTitleIndicator);
+                --gadgetColorBorder: $(gadgetColorBorder);
             }
         ]]>
         </b:skin>

@@ -6,6 +6,13 @@
                     <b:include data='{message: "transNoScript"}' name='translate' />
                 </div>
             </noscript>
+            <b:if cond='data:view.isHomepage and data:skin.vars.indexOptionRecentHeadline == "2px"'>
+                <div class='widget_title'>
+                    <div class='title'>
+                        <data:messages.recentPosts />
+                    </div>
+                </div>
+            </b:if>
         </b:includable>
     </b:widget>
 </b:section>
