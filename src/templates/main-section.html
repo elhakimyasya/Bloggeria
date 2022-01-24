@@ -13,6 +13,9 @@
                     </div>
                 </div>
             </b:if>
+            <b:if cond='data:blog.pageType in {"index", "archive"}'>
+                Search
+            </b:if>
         </b:includable>
     </b:widget>
 </b:section>
