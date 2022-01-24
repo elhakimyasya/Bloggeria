@@ -43,6 +43,9 @@ body {
   padding: 0;
   width: 0;
 }
+img {
+  max-width: 100%
+}
 
 //
 // Backdrop
@@ -888,7 +891,7 @@ body {
       }
     }
 
-    body:not(.error_page) .elcreative_main {
+    body:not(.error_page) & .elcreative_main {
       width: calc(100% - (300px + 20px));
     }
   }
@@ -899,3 +902,7 @@ body {
     padding: 70px 16px;
   }
 }
+
+// 
+// 
+// 
