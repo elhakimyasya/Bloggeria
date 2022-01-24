@@ -83,6 +83,10 @@ img {
       opacity: 1;
       visibility: visible;
     }
+    body.--search_active & {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
 

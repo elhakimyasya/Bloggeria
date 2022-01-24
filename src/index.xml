@@ -78,6 +78,12 @@
                 <b:includable id='defaultIcons'>
                     @@include("../src/templates/defaultmarkups/defaultIcons.html")
                 </b:includable>
+                <b:includable id='translate'>
+					<b:switch var='data:blog.locale'><b:case value='en'/><b:include name='customLanguage'/><b:default/><b:include name='customLanguage'/></b:switch>
+				</b:includable>
+                <b:includable id='customLanguage'>
+                    @@include("../src/templates/defaultmarkups/customLanguage.html")
+                </b:includable>
                 <b:includable id='libraries'>
                     <script>
                     /*<![CDATA[*/@@include("../build/scripts/easy-toggle-state.js")@@include("../build/scripts/scripts.js")/*]]>*/
