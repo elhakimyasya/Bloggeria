@@ -24,14 +24,21 @@
                 --bodyFontSize: $(body.font.size);
 
                 --headerOptionSearchRadius: $(headerOptionSearchRadius);
+
+                --indexOptionBorderRadius: $(indexOptionBorderRadius);
             }
 
             body:not(.--darkmode) {
                 --blackTransparent: rgba(0, 0, 0, .12);
                 --bodyBackgroundColor: $(body.background.color);
                 --defaultColorText: $(defaultColorText);
+                --defaultColorMeta: $(defaultColorMeta);
 
                 --rippleEffectColor: $(rippleEffectColor)2e;
+
+                --defaultColorButton: $(defaultColorButton);
+                --defaultColorButtonTransparent1: $(defaultColorButton)1f;
+                --defaultColorButtonTransparent2: $(defaultColorButton)2e;
 
                 --defaultColorButtonIcon: $(defaultColorButtonIcon);
                 --defaultColorButtonIconTransparent1: $(defaultColorButtonIcon)1f;
@@ -64,6 +71,9 @@
                 --navigationMoreMenuMenuTextTransparent1: $(navigationMoreMenuMenuText)1f;
                 --navigationMoreMenuMenuTextTransparent2: $(navigationMoreMenuMenuText)2e;
 
+                --indexColorBackground: $(indexColorBackground);
+                --indexColorBorder: $(indexColorBorder);
+
                 --itemColorBorder: $(itemColorBorder);
 
                 --gadgetColorTitle: $(gadgetColorTitle);
@@ -75,7 +85,7 @@
         <b:if cond='data:view.isLayoutMode'>
             <b:template-skin>@@include("../build/styles/template-skin.css")</b:template-skin>
             <b:else />
-            <style>@@include("../build/styles/styles.css")</style>
+            <style>@@include("../build/styles/styles.css")<b:if cond='data:view.isMultipleItems'>@@include("../build/styles/index.css")</b:if></style>
         </b:if>
         <b:defaultmarkups>
             <b:defaultmarkup type='Common'>
@@ -93,7 +103,7 @@
                 </b:includable>
                 <b:includable id='libraries'>
                     <script>
-                    /*<![CDATA[*/@@include("../build/scripts/easy-toggle-state.js")@@include("../build/scripts/scripts.js")/*]]>*/
+                    /*<![CDATA[*/@@include("../build/scripts/lazysizes.js")@@include("../build/scripts/easy-toggle-state.js")@@include("../build/scripts/scripts.js")/*]]>*/
                     <b:if cond='data:widgets any (w => w.id == "PageList999") and data:skin.vars.featuresSubMenu == "2px"'>/*<![CDATA[*/@@include("../build/scripts/drawer-menu-sub.js")/*]]>*/</b:if>
                     <b:if cond='data:skin.vars.featuresRippleEffect == "2px"'>/*<![CDATA[*/@@include("../build/scripts/ripple-effect.js")/*]]>*/</b:if>
                     </script>

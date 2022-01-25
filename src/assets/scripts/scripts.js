@@ -1,3 +1,10 @@
+// Lazysizes
+document.addEventListener("lazybeforeunveil", function (element) {
+    var target = element.target.getAttribute("data-image");
+
+    target && (element.target.style.backgroundImage = "url(" + target + ")")
+});
+
 // Backdrop
 if (document.getElementById(elcreativeConfig.elements.elementBackdrop)) {
     document.getElementById(elcreativeConfig.elements.elementBackdrop).addEventListener("click", () => {

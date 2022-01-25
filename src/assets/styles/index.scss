@@ -1,0 +1,11 @@
+.Blog {
+  .blog_posts {
+    // Desktop Screen
+    @media screen and (min-width: 980px) {
+    }
+
+    // Mobile Screen
+    @media screen and (max-width: 980px) {
+    }
+  }
+}
