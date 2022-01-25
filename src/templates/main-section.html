@@ -1,11 +1,7 @@
 <b:section id='main_widget_section' class='main_widget_section' name='Main Section' showaddelement='false' maxwidgets='2'>
     <b:widget id='Blog1' locked='true' title='Blog (Blog Posts)' type='Blog' visible='true'>
         <b:includable id='main' var='this'>
-            <noscript>
-                <div class='elcreative_alert alert_warning'>
-                    <b:include data='{message: "transNoScript"}' name='translate' />
-                </div>
-            </noscript>
+            <noscript><div class='elcreative_alert alert_warning'><b:include data='{message: "transNoScript"}' name='translate' /></div></noscript>
             <b:if cond='data:view.isHomepage and data:skin.vars.indexOptionRecentHeadline == "2px"'>
                 <div class='widget_title'>
                     <div class='title'>
@@ -16,29 +12,17 @@
             <b:if cond='data:view.isError'>
                 <div class='error_wrapper'>
                     <h3>404</h3>
-                    <h4>
-                        <data:messages.theresNothingHere />
-                    </h4>
-                    <p>
-                        <data:navMessage />
-                    </p>
-                    <a class='elcreative_button raised elcreative_ripple' expr:href='data:blog.homepageUrl'>
-                        <p>
-                            <data:messages.home />
-                        </p>
-                    </a>
+                    <h4><data:messages.theresNothingHere /></h4>
+                    <p><data:navMessage /></p>
+                    <a class='elcreative_button raised elcreative_ripple' expr:href='data:blog.homepageUrl'><data:messages.home /></a>
                 </div>
-
                 <b:else />
-
                 <div class='blog_posts'>
                     <b:class cond='data:view.isMultipleItems' expr:name='data:skin.vars.indexOptionDesktopPostStyle == "1px" ? "posts_list_desktop" : "posts_grid_desktop"' />
-                    <b:class cond='data:view.isMultipleItems' expr:name='data:skin.vars.indexOptionDesktopStyle == "4px" ? "posts_shadow" : data:skin.vars.indexOptionDesktopStyle == "3px" ? "posts_border_bottom" : data:skin.vars.indexOptionDesktopStyle == "2px" ? "posts_bordered" : "no_class"' />
-
+                    <b:class cond='data:view.isMultipleItems' expr:name='data:skin.vars.indexOptionDesktopStyle == "4px" ? "posts_desktop_shadow" : data:skin.vars.indexOptionDesktopStyle == "3px" ? "posts_desktop_border_bottom" : data:skin.vars.indexOptionDesktopStyle == "2px" ? "posts_desktop_bordered" : "no_class"' />
                     <b:loop index='i' values='data:posts' var='post'>
                         <article class='post_outer_container' expr:data-index='data:i'>
                             <b:class cond='data:view.isMultipleItems' expr:name='data:skin.vars.indexOptionPostFade == "2px" ? "posts_fade" : "no_class"' />
-
                             <div class='post_container_start'>
                                 <div class='post_header_start'>
                                     <b:if cond='data:view.isMultipleItems'>

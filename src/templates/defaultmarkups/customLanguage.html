@@ -1,7 +1,7 @@
 <b:switch var='data:message'>
     <b:case value='transNoScript'/>
     <b:if cond='data:blog.locale == "id"'>
-        Sorry, this blog doesn't work properly without JavaScript.
+        Maaf, Blog ini tidak berfungsi dengan baik tanpa JavaScript.
         <b:elseif cond='data:blog.locale == "ar"'/>
         عذرا ، هذه المدونة لا تعمل بشكل صحيح بدون جافا سكريبت.
         <b:elseif cond='data:blog.locale == "es"'/>
@@ -20,6 +20,6 @@
         Desculpe, este blog não funciona corretamente sem JavaScript.
         <b:elseif cond='data:blog.locale == "th"'/>
         ขออภัย บล็อกนี้ทำงานไม่ถูกต้องหากไม่มี JavaScript
-        <b:else/>Maaf, Blog ini tidak berfungsi dengan baik tanpa JavaScript.
+        <b:else/>Sorry, this blog doesn't work properly without JavaScript.
     </b:if>
 </b:switch>

@@ -1,5 +1,10 @@
 <meta charset='UTF-8' />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name='viewport' expr:content='data:skin.vars.defaultOptionViewportPinch == "1px" ? "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" : "width=device-width, initial-scale=1.0"' />
 <title>
-    <data:blog.pageName.escaped />
+    <b:if cond='data:view.isHomepage or data:view.search and !data:view.search.label and !data:view.search.query'><data:blog.title /></b:if>
+    <b:if cond='data:view.search.label'><data:blog.pageTitle /></b:if>
+    <b:if cond='data:view.isError'><data:messages.theresNothingHere /></b:if>
+    <b:if cond='data:view.isSingleItem'><data:blog.pageName /> | <data:blog.title /></b:if>
+    <b:if cond='data:view.search.query'><data:messages.search />: <data:view.search.query /> | <data:blog.title /></b:if>
+    <b:if cond='data:view.isArchive'><data:messages.archive />: <data:blog.pageName /> | <data:blog.title /></b:if>
 </title>
