@@ -1,7 +1,11 @@
 <b:section id='main_widget_section' class='main_widget_section' name='Main Section' showaddelement='false' maxwidgets='2'>
     <b:widget id='Blog1' locked='true' title='Blog (Blog Posts)' type='Blog' visible='true'>
         <b:includable id='main' var='this'>
-            <noscript><div class='elcreative_alert alert_warning'><b:include data='{message: "transNoScript"}' name='translate' /></div></noscript>
+            <noscript>
+                <div class='elcreative_alert alert_warning'>
+                    <b:include data='{message: "transNoScript"}' name='translate' />
+                </div>
+            </noscript>
             <b:if cond='data:view.isHomepage and data:skin.vars.indexOptionRecentHeadline == "2px"'>
                 <div class='widget_title'>
                     <div class='title'>
@@ -12,9 +16,15 @@
             <b:if cond='data:view.isError'>
                 <div class='error_wrapper'>
                     <h3>404</h3>
-                    <h4><data:messages.theresNothingHere /></h4>
-                    <p><data:navMessage /></p>
-                    <a class='elcreative_button raised elcreative_ripple' expr:href='data:blog.homepageUrl'><data:messages.home /></a>
+                    <h4>
+                        <data:messages.theresNothingHere />
+                    </h4>
+                    <p>
+                        <data:navMessage />
+                    </p>
+                    <a class='elcreative_button raised elcreative_ripple' expr:href='data:blog.homepageUrl'>
+                        <data:messages.home />
+                    </a>
                 </div>
                 <b:else />
                 <div class='blog_posts'>
@@ -126,7 +136,43 @@
                                                 </b:if>
                                             </b:tag>
                                         </b:tag>
-
+                                        <b:tag cond='data:view.isPost and (data:allBylineItems.comments or data:allBylineItems.share)' name='div' class='post_meta_end'>
+                                            <b:if cond='data:view.isPost'>
+                                                <b:if cond='data:allBylineItems.comments and data:post.allowNewComments and data:skin.vars.itemOptionCommentLink != "1px"'>
+                                                    <b:if cond='data:view.isPost and data:skin.vars.itemOptionCommentStyle == "2px"'>
+                                                        <button class='elcreative_button_icon button_comment' expr:aria-label='data:messages.comments' expr:data-attr='data:post.numberOfComments > 0 ? data:post.numberOfComments : ""' expr:title='data:messages.comments'>
+                                                            <svg width='16' height='16' viewBox='0 0 24 24'>
+                                                                <b:if cond='data:post.numberOfComments > 0'>
+                                                                    <b:tag cond='data:skin.vars.defaultOptionCustomIcon == "2px"' name='use' xlink:href='#icon_comment_text' />
+                                                                    <b:include cond='data:skin.vars.defaultOptionCustomIcon == "1px"' data='{iconId: "icon_comment_text"}' name='defaultIcons' />
+                                                                    <b:else />
+                                                                    <b:tag cond='data:skin.vars.defaultOptionCustomIcon == "2px"' name='use' xlink:href='#icon_comment' />
+                                                                    <b:include cond='data:skin.vars.defaultOptionCustomIcon == "1px"' data='{iconId: "icon_comment"}' name='defaultIcons' />
+                                                                </b:if>
+                                                            </svg>
+                                                        </button>
+                                                        <b:else />
+                                                        <a class='button_comment elcreative_button_icon small' href='#comments' role='button' expr:data-attr='data:post.numberOfComments > 0 ? data:post.numberOfComments : ""' expr:title='data:messages.comments'>
+                                                            <svg width='16' height='16' viewBox='0 0 24 24'>
+                                                                <b:if cond='data:post.numberOfComments > 0'>
+                                                                    <b:if cond='data:skin.vars.defaultCustomIcon == "2px"'>
+                                                                        <use xlink:href='#icon_comment_text' />
+                                                                        <b:else />
+                                                                        <b:include data='{iconId: "icon_comment_text"}' name='defaultIcons' />
+                                                                    </b:if>
+                                                                    <b:else />
+                                                                    <b:if cond='data:skin.vars.defaultCustomIcon == "2px"'>
+                                                                        <use xlink:href='#icon_comment' />
+                                                                        <b:else />
+                                                                        <b:include data='{iconId: "icon_comment"}' name='defaultIcons' />
+                                                                    </b:if>
+                                                                </b:if>
+                                                            </svg>
+                                                        </a>
+                                                    </b:if>
+                                                </b:if>
+                                            </b:if>
+                                        </b:tag>
                                     </b:tag>
                                 </div>
                             </div>

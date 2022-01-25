@@ -22,6 +22,7 @@
                 --bodyFont: $(body.font);
                 --bodyFontFamily: $(body.font.family);
                 --bodyFontSize: $(body.font.size);
+                --bullets: "\0000a0\002022\0000a0";
 
                 --headerOptionSearchRadius: $(headerOptionSearchRadius);
 
@@ -73,6 +74,11 @@
 
                 --indexColorBackground: $(indexColorBackground);
                 --indexColorBorder: $(indexColorBorder);
+                --indexColorLabel: $(indexColorLabel);
+                --indexColorLabelHover: $(indexColorLabelHover);
+                --indexColorTitle: $(indexColorTitle);
+                --indexColorTitleHover: $(indexColorTitleHover);
+                --indexColorMeta: $(indexColorMeta);
 
                 --itemColorBorder: $(itemColorBorder);
 

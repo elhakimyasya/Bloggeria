@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .Blog {
   .blog_posts {
     .post_outer_container {
@@ -29,6 +31,70 @@
 
         .post_header_start {
           width: 100%;
+
+          .rtl & {
+            margin: 0 0 0 8px;
+          }
+
+          .post_label {
+            align-items: center;
+            color: var(--indexColorLabel);
+            display: flex;
+            font-size: 14px;
+            font-weight: 500;
+            flex-direction: row;
+            height: 28px;
+            justify-content: center;
+            margin-bottom: 4px;
+            text-decoration: none;
+
+            &:hover {
+              color: var(--indexColorLabelHover);
+            }
+
+            svg {
+              fill: currentColor;
+              height: 16px;
+              margin: 0 4px 0 0;
+              width: 16px;
+
+              .rtl & {
+                margin: 0 0 0 4px;
+              }
+            }
+          }
+
+          .post_title {
+            color: var(--indexColorTitle);
+            font-size: 18px;
+            margin-bottom: 4px;
+            text-decoration: none;
+
+            &:hover {
+              color: var(--indexColorTitleHover);
+            }
+
+            h2 {
+              color: inherit;
+              font-size: inherit;
+              margin: 0;
+            }
+          }
+
+          .post_meta {
+            color: var(--indexColorMeta);
+            flex-direction: row;
+            justify-content: flex-start;
+
+            .byline {
+              &:not(:first-child) {
+                &::before {
+                  content: var(--bullets);
+                  margin: 0 4px;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -61,6 +127,7 @@
         .post_outer_container {
           .post_container_start {
             flex-direction: row;
+            margin: 0 8px 0 0;
           }
         }
       }
@@ -72,8 +139,6 @@
 
         &.posts_desktop_bordered {
           .post_outer_container {
-            padding: 12px;
-
             .post_container_start {
               .post_header_start {
                 padding: 12px 12px 0 12px;
@@ -84,8 +149,6 @@
 
         &.posts_desktop_shadow {
           .post_outer_container {
-            padding: 12px;
-
             .post_container_start {
               .post_header_start {
                 padding: 12px 0 0 0;
@@ -104,6 +167,17 @@
 
             .post_header_start {
               padding: 12px 0 0 0;
+            }
+
+            .post_header_end {
+              position: relative;
+              width: 100%;
+
+              .post_image {
+                .lazyloaded {
+                  padding-top: 56.25%;
+                }
+              }
             }
           }
         }
