@@ -1,4 +1,4 @@
-if (elcreativeConfig.themeInfo.config.featuresSubMenu === "2px") {
+if (elcreativeConfig.theme.featuresSubMenu === "2px") {
     (function (selector) {
         var result = "";
         var listItem = document.getElementById(selector).querySelectorAll("li");

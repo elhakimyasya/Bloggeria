@@ -1,77 +1,68 @@
-<Group description='Default'>
+<Group description='Default Options'>
+    <Variable name="body.background" description="Default Background" type="background" color="#ffffff" default="#ffffff url(https://1.bp.blogspot.com/-QRmRBpJ2Fls/X2mVNLOCIgI/AAAAAAAARUM/jeK_OSFBBcc_OaH2zikBdj_tjS45yB38ACLcBGAsYHQ/s900/name%252814%2529.jpeg) repeat scroll top center" value="#ffffff url(https://1.bp.blogspot.com/-QRmRBpJ2Fls/X2mVNLOCIgI/AAAAAAAARUM/jeK_OSFBBcc_OaH2zikBdj_tjS45yB38ACLcBGAsYHQ/s900/name%252814%2529.jpeg) repeat scroll top center" />
+
     <Variable name="defaultOptionViewportPinch" description="Viewport Pinch/Zooming (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
     <Variable name="defaultOptionCustomIcon" description="Custom Icons (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
-    <Variable name="body.font" description="Default Font" type="font" default="normal 400 16px 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" value="normal 400 16px 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" />
-    <Variable name="body.background" description="Default Background" type="background" color="#ffffff" default="#ffffff none repeat scroll top left" value="#ffffff url(https://1.bp.blogspot.com/-zs6wB56BXlU/YXAvzeJaxlI/AAAAAAAAlF8/INI42BCjUAsoBqD1Um7dQt530JrQXhbTgCLcBGAsYHQ/s72/materia.png) repeat scroll center center" />
-    <Variable name="defaultColorText" description="Default Text Color" type="color" default="#202124" value="#202124" />
-    <Variable name="defaultColorMeta" description="Default Meta Color" type="color" default="#5f6368" value="#5f6368" />
 
-    <Variable name="defaultColorButton" description="Default Button Color" type="color" default="#1a73e8" value="#1a73e8" />
+    <Variable name="body.font" description="Default Font" type="font" default="normal 400 14px 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" value="normal 400 14px 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
+    <Variable name="keycolor" description="Default Key Color" type="color" default="#1a73e8" value="#1a73e8" />
+    <Variable name="posts.text.color" description="Default Text Color" type="color" default="#212121" value="#212121" />
+    <Variable name="defaultColorBorder" description="Default Border Color" type="color" default="#dadce4" value="#dadce4" />
 
     <Variable name="defaultColorButtonIcon" description="Default Button Icon Color" type="color" default="#5f6368" value="#5f6368" />
+    <Variable name="defaultOptionButtonIconRadius" description="Button Icon Corner Radius" type="length" default="25px" min="0px" max="25px" value="25px" />
 
     <Variable name="defaultColorDropdownBackground" description="Default Dropdown Background Color" type="color" default="#ffffff" value="#ffffff" />
     <Variable name="defaultColorDropdownText" description="Default Dropdown Text Color" type="color" default="#5f6368" value="#5f6368" />
 </Group>
-<Group description='Features'>
+<Group description='Feature Options'>
+    <Variable name="featuresColorMode" description="Dark Mode (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="darkmodeColorKey" description="Dark Mode Keycolor" type="color" default="#f7ce45" value="#f7ce45" />
+    <Variable name="darkmodeColorBackground" description="Dark Mode Background Color" type="color" default="$(posts.text.color)" value="#202124" />
+    <Variable name="darkmodeColorText" description="Dark Mode Text Color" type="color" default="#e4e6e9" value="#e4e6e9" />
+    <Variable name="darkmodeColorMeta" description="Dark Mode Meta Color" type="color" default="#9aa0a6" value="#9aa0a6" />
+    <Variable name="darkmodeColorBorder" description="Dark Mode Border Color" type="color" default="#5f6368" value="#5f6368" />
     <Variable name="featuresCSE" description="Google Custom Search Engine (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
-    <Variable name="featuresSubMenu" description="Navigation Drawer Sub-Menu (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
     <Variable name="featuresRippleEffect" description="Ripple Effect (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="rippleEffectColor" description="Ripple Effect Color" type="color" default="$(defaultColorText)" value="#202124" />
+    <Variable name="featuresRippleEffectColor" description="Ripple Effect Color" type="color" default="$(posts.text.color)" value="#202124" />
+    <Variable name="featuresSubMenu" description="Navigation Drawer Sub-Menu (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
 </Group>
-<Group description='Header' selector='header'>
+<Group description='Header Options'>
     <Variable name="headerOptionEdge" description="Header Edge Style (None | Border | Shadow)" type="length" default="3px" min="1px" max="3px" value="3px" />
     <Variable name="headerOptionSearchDesktop" description="Search Bar Visibility on Desktop (Hidden | Visible)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="headerOptionSearchRadius" description="Search Bar Corner Radius" type="length" default="4px" min="0px" max="25px" value="4px" />
+    <Variable name="headerOptionSearchRadius" description="Search Bar Corner Radius on Desktop" type="length" default="4px" min="0px" max="25px" value="4px" />
     <Variable name="headerColorBackground" description="Header Background Color" type="color" default="$(body.background.color)" value="#ffffff" />
     <Variable name="headerColorText" description="Header Text Color" type="color" default="#5f6368" value="#5f6368" />
     <Variable name="headerColorButtonIcon" description="Header Button Color" type="color" default="$(defaultColorButtonIcon)" value="#5f6368" />
-    <Variable name="headerColorBorder" description="Header Border Color*" type="color" default="$(defaultColorBorder)" value="#dadce4" />
+    <Variable name="headerOptionButtonIconRadius" description="Header Button Corner Radius" type="length" default="25px" min="0px" max="25px" value="25px" />
+    <Variable name="headerColorBorder" description="Header Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4" />
 </Group>
-<Group description='Navigation'>
+<Group description='Navigation Options'>
     <Variable name="navDrawerMenuOptionDesktopState" description="Drawer Menu State on Desktop (Modal | Dismissable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="navDrawerMenuOptionDesktopEdge" description="Drawer Menu Edge Style on Desktop (None | Border | Shadow)" type="length" default="2px" min="1px" max="3px" value="2px" />
-    <Variable name="navDrawerMenuOptionMobileEdge" description="Drawer Menu Edge Style on Mobile (None | Border | Shadow)" type="length" default="3px" min="1px" max="3px" value="3px" />
-    <Variable name="navDrawerMenuColorBackground" description="Drawer Menu Background Color" type="color" default="$(defaultColorBackground)" value="#ffffff" />
+    <Variable name="navDrawerMenuOptionDesktopEdge" description="Drawer Menu Edge Style on Desktop (None | Shadow | Border)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="navDrawerMenuOptionMobileEdge" description="Drawer Menu Edge Style on Mobile (None | Shadow | Border)" type="length" default="2px" min="1px" max="3px" value="2px" />
+    <Variable name="navDrawerMenuOptionItemRadius" description="Drawer Menu Item Corner Radius" type="length" default="25px" min="0px" max="25px" value="25px" />
+    <Variable name="navDrawerMenuColorBackground" description="Drawer Menu Background Color" type="color" default="$(body.background.color)" value="#ffffff" />
     <Variable name="navDrawerMenuColorText" description="Drawer Menu Text Color" type="color" default="#5f6368" value="#5f6368" />
-    <Variable name="navDrawerMenuColorSelected" description="Drawer Menu Selected Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />
-    <Variable name="navDrawerMenuColorBorder" description="Drawer Menu Border Color*" type="color" default="$(defaultColorBorder)" value="#dadce4" />
+    <Variable name="navDrawerMenuColorSelected" description="Drawer Menu Selected Color" type="color" default="$(keycolor)" value="#1a73e8" />
+    <Variable name="navDrawerMenuColorBorder" description="Drawer Menu Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4" />
+
     <Variable name="navigationMoreMenuBackground" description="More Menu Background Color" type="color" default="$(defaultColorDropdownBackground)" value="#ffffff" />
     <Variable name="navigationMoreMenuMenuText" description="More Menu Text Color" type="color" default="$(defaultColorDropdownText)" value="#5f6368" />
 </Group>
-<Group description='Index'>
-    <Variable name="indexOptionRecentHeadline" description="Recent Posts Headline (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="indexOptionDesktopPostStyle" description="Posts Style on Desktop (List | Grid)" type="length" default="1px" min="1px" max="2px" value="1px" />
-    <Variable name="indexOptionDesktopStyle" description="Posts Edge Style on Desktop (None | Border | Border Bottom | Shadow)" type="length" default="2px" min="1px" max="4px" value="2px" />
-    <Variable name="indexOptionBorderRadius" description="Posts Edge Corner Radius" type="length" default="8px" min="1px" max="32px" value="8px" />
-    <Variable name="indexOptionPostFade" description="Posts Fade Animation (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="indexOptionLabelIcon" description="Posts Label (Disable | Text | Icon and Text | Custom Icon and Text)" type="length" default="3px" min="1px" max="4px" value="3px" />
-    <Variable name="indexOptionAuthor" description="Posts Author (Disable | Author Name | Author Prefix and Author Name)" type="length" default="3px" min="1px" max="3px" value="3px" />
-    <Variable name="indexOptionTimestamp" description="Posts Timestamp (Disable | Published | Published and Updated)" type="length" default="3px" min="1px" max="3px" value="3px" />
-    <Variable name="indexOptionTimestampPrefix" description="Posts Timestamp Prefix (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="indexColorBackground" description="Posts Background Color" type="color" default="$(defaultColorBackground)" value="#ffffff" />
-    <Variable name="indexColorBorder" description="Posts Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4" />
-    <Variable name="indexColorLabel" description="Posts Label Color" type="color" default="$(defaultColorMeta)" value="#5f6368" />
-    <Variable name="indexColorLabelHover" description="Posts Label Hover Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />
-    <Variable name="indexColorTitle" description="Posts Title Color" type="color" default="$(defaultColorText)" value="#202124" />
-    <Variable name="indexColorTitleHover" description="Posts Title Hover Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />
-    <Variable name="indexColorMeta" description="Posts Meta Color" type="color" default="$(defaultColorMeta)" value="#5f6368" />
-</Group>
-<Group description='Item'>
-    <Variable name="itemOptionBreadcrumb" description="Breadcrumb (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="itemOptionSnippet" description="Post Description (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="itemOptionAuthor" description="Post Author (Disable | Author Name | Author Prefix and Name)" type="length" default="3px" min="1px" max="3px" value="3px" />
-    <Variable name="itemOptionAuthorImage" description="Post Author Profile Image (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="itemOptionTimestamp" description="Post Timestamp (Disable | Published | Published and Updated)" type="length" default="3px" min="1px" max="3px" value="3px" />
-    <Variable name="itemOptionTimestampPrefix" description="Post Timestamp Prefix (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="itemOptionCommentLink" description="Post Comment Button (Disable | Icon | Icon and Number)" type="length" default="3px" min="1px" max="3px" value="3px" />
-    <Variable name="itemOptionCommentStyle" description="Post Comment Stye (Default | Drawer)" type="length" default="2px" min="1px" max="2px" value="2px" />
-    <Variable name="itemColorBorder" description="Post Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4" />
-</Group>
-<Group description='Gadgets'>
-    <Variable name="gadgetColorTitle" description="Gadget Title Color" type="color" default="$(defaultColorText)" value="#202124" />
-    <Variable name="gadgetColorTitleIndicator" description="Gadget Indicator Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />
-    <Variable name="gadgetColorBorder" description="Gadget Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4" />
-</Group>
 
-<Variable hideEditor="true" name="body.text.color" description="Text Color" type="color" default="$(defaultColorText)" value="#9aa0a6" />
+<Variable hideEditor="true" name="body.text.color" description="Text Color" type="color" default="$(posts.text.color)" value="#9aa0a6" />
+<Variable hideEditor="true" name="body.text.font" description="1" type="font" default="$(body.font)" value="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
+<Variable hideEditor="true" name="posts.background.color" description="2" type="color" default="transparent" value="transparent" />
+<Variable hideEditor="true" name="body.link.color" description="3" type="color" default="$(keycolor)" value="#1a73e8" />
+<Variable hideEditor="true" name="tabs.font" description="9" type="font" default="$(body.text.font)" value="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
+<Variable hideEditor="true" name="tabs.color" description="10" type="color" default="#e5e5e5" value="#e5e5e5" />
+<Variable hideEditor="true" name="tabs.selected.color" description="11" type="color" default="#ffffff" value="#ffffff" />
+<Variable hideEditor="true" name="tabs.overflow.background.color" description="12" type="color" default="#ffffff" value="#ffffff" />
+<Variable hideEditor="true" name="tabs.overflow.color" description="13" type="color" default="$(posts.text.color)" value="#212121" />
+<Variable hideEditor="true" name="tabs.overflow.selected.color" description="14" type="color" default="$(posts.text.color)" value="#212121" />
+<Variable hideEditor="true" name="posts.title.color" description="15" type="color" default="$(posts.text.color)" value="#212121" />
+<Variable hideEditor="true" name="posts.title.font" description="16" type="font" default="$(body.text.font)" value="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
+<Variable hideEditor="true" name="posts.text.font" description="17" type="font" default="$(body.text.font)" value="normal 400 14px 'Google Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
+<Variable hideEditor="true" name="posts.icons.color" description="19" type="color" default="$(posts.text.color)" value="#212121" />
+<Variable hideEditor="true" name="labels.background.color" description="20" type="color" default="$(keycolor)" value="#1a73e8" />

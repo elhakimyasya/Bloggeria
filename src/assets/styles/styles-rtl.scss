@@ -1,0 +1,133 @@
+// Dropdown
+.elcreative_dropdown {
+  transform-origin: right top;
+}
+
+// Header
+.elcreative_header {
+  .header_section {
+    &.header_start {
+      margin: 0 0 0 8px;
+
+      .Header {
+        .elcreative_button_icon {
+          margin: 0 0 0 4px;
+        }
+
+        img {
+          margin: 0 0 0 8px;
+        }
+      }
+    }
+
+    &.header_end {
+      margin: 0 8px 0 0;
+    }
+  }
+}
+
+// Navigation
+.elcreative_navigation {
+  // Drawer Menu
+  .navigation_drawer_menu {
+    left: unset;
+    right: 0;
+
+    ul {
+      li {
+        .drawer_menu_link {
+          border-radius: 25px 0 0 25px;
+          padding: 10px 16px 10px 0;
+
+          &[data-toggle-class] {
+            &.--active::after {
+              transform: rotate(-180deg);
+            }
+          }
+
+          .drawer_menu_item {
+            svg {
+              margin: 0 0 0 12px;
+            }
+          }
+        }
+
+        ul {
+          li {
+            .drawer_menu_link {
+              padding: 10px 52px 10px 0;
+            }
+          }
+        }
+
+        &.selected {
+          .drawer_menu_link {
+            left: unset;
+            right: 0;
+          }
+        }
+      }
+    }
+
+    // Desktop Screen
+    @media screen and (min-width: 1200px) {
+      body:not(.error_page):not(.--drawer_menu_active)
+        &.desktop_edge_3px.desktop_state_2px {
+        border-right: none;
+        border-left: 1px solid var(--navDrawerMenuColorBorder);
+      }
+
+      body:not(.error_page).--drawer_menu_active
+        &.desktop_edge_3px.desktop_state_1px {
+        border-right: none;
+        border-left: 1px solid var(--navDrawerMenuColorBorder);
+      }
+
+      body.error_page.--drawer_menu_active &.desktop_edge_3px {
+        border-right: none;
+        border-left: 1px solid var(--navDrawerMenuColorBorder);
+      }
+
+      body:not(.error_page):not(.--drawer_menu_active) &.desktop_state_1px {
+        transform: translateX(300px);
+      }
+
+      body:not(.error_page).--drawer_menu_active &.desktop_state_2px {
+        transform: translateX(300px);
+      }
+
+      body.error_page:not(.--drawer_menu_active) & {
+        transform: translateX(300px);
+      }
+    }
+
+    // Mobile Screen
+    @media screen and (max-width: 1200px) {
+      body.--drawer_menu_active &.mobile_edge_3px {
+        border-right: none;
+        border-left: 1px solid var(--navDrawerMenuColorBorder);
+      }
+
+      body:not(.--drawer_menu_active) & {
+        transform: translateX(300px);
+      }
+    }
+  }
+
+  // More Menu
+  .overflow_menu {
+    right: unset;
+    left: 0;
+    transform-origin: left top;
+
+    ul {
+      li {
+        .dropdown_item {
+          svg {
+            margin: 0 0 0 8px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,18 +1,18 @@
 var elcreativeConfig = {
-    themeInfo: {
-        config: {
-            featuresSubMenu: "<data:skin.vars.featuresSubMenu/>",
-            featuresRippleEffect: "<data:skin.vars.featuresRippleEffect/>",
-        }
-    },
-    buttons: {
-        buttonDrawerMenu: "button_menu",
-        buttonSearchToggle: "button_toggle_search",
-        buttonSearchClose: "button_close_search",
+    theme: {
+        featuresColorMode: "<data:skin.vars.featuresColorMode />",
+        featuresRippleEffect: "<data:skin.vars.featuresRippleEffect />",
+        featuresSubMenu: "<data:skin.vars.featuresSubMenu />"
     },
     elements: {
-        elementSearchInput: "search_input",
+        elementBackdrop: "backdrop",
         elementDrawerMenu: "LinkList999",
-        elementBackdrop: "backdrop"
+        elementSearchInput: "search_input"
+    },
+    buttons: {
+        buttonColorMode: "button_color_mode",
+        buttonMenu: "button_menu",
+        buttonSearchToggle: "button_toggle_search",
+        buttonSearchClose: "button_close_search"
     }
-}
+} 

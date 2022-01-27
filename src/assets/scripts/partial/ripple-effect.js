@@ -1,4 +1,4 @@
-if (elcreativeConfig.themeInfo.config.featuresRippleEffect === "2px") {
+if (elcreativeConfig.theme.featuresRippleEffect === "2px") {
     var elcreativeRipple;
     document.onpointerdown = function (event) {
         var rippleTarget = event.target;
