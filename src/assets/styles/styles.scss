@@ -456,6 +456,33 @@ img {
   }
 }
 
+// Gadget
+// Widget Title
+.widget_title {
+  align-items: center;
+  border-bottom: 1px solid var(--gadgetColorBorder);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  width: 100%;
+
+  .title {
+    box-sizing: border-box;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid var(--gadgetColorTitleIndicator);
+    color: var(--gadgetColorTitle);
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 44px;
+    margin: 0;
+    padding: 0 8px;
+    user-select: none;
+    width: auto;
+  }
+}
+
 // Header
 .elcreative_header {
   align-items: center;
@@ -1004,6 +1031,32 @@ img {
   display: flex;
   justify-content: space-between;
   transition: margin 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Main Section
+  .elcreative_main {
+    max-width: 780px;
+    margin: 0 auto;
+
+    body.error_page & {
+      width: 100%;
+    }
+
+    .widget_title {
+      text-transform: capitalize;
+    }
+
+    // Desktop Screen
+    @media screen and (min-width: 980px) {
+      body:not(.error_page) & {
+        width: calc(100% - (300px + 20px));
+      }
+    }
+
+    // Mobile Screen
+    @media screen and (max-width: 980px) {
+      width: 100%;
+    }
+  }
 
   // Desktop Screen
   @media screen and (min-width: 1200px) {

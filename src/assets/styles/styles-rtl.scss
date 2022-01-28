@@ -209,7 +209,7 @@
   @media screen and (min-width: 1200px) {
     &.drawer_exists {
       body:not(.error_page):not(.--drawer_menu_active) &.desktop_state_2px {
-        margin: 0 0 0 300px;
+        margin: 0 300px 0 0;
       }
     }
   }

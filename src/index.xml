@@ -77,6 +77,10 @@
                 --navigationMoreMenuMenuText    : $(navigationMoreMenuMenuText);
                 --navigationMoreMenuMenuTextTrans1: $(navigationMoreMenuMenuText)1f;
                 --navigationMoreMenuMenuTextTrans2: $(navigationMoreMenuMenuText)2e;
+
+                --gadgetColorTitle              : $(gadgetColorTitle);
+                --gadgetColorTitleIndicator     : $(gadgetColorTitleIndicator);
+                --gadgetColorBorder             : $(gadgetColorBorder);
             }
 
             @media (prefers-color-scheme: dark) {
@@ -123,6 +127,10 @@
                     --navigationMoreMenuMenuText    : $(darkmodeColorText);
                     --navigationMoreMenuMenuTextTrans1: $(darkmodeColorText)1f;
                     --navigationMoreMenuMenuTextTrans2: $(darkmodeColorText)2e;
+
+                    --gadgetColorTitle              : $(darkmodeColorText);
+                    --gadgetColorTitleIndicator     : $(darkmodeColorKey);
+                    --gadgetColorBorder             : $(darkmodeColorBorder);
                 }
             }
         ]]>

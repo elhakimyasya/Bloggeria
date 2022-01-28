@@ -6,6 +6,14 @@
                     <b:include data='{message: "transNoScript"}' name='translate' />
                 </div>
             </noscript>
+            <b:if cond='data:view.isHomepage and data:skin.vars.indexOptionRecentHeadline == "2px"'>
+                <div class='widget_title'>
+                    <span class='title'>
+                        <data:messages.recentPosts />
+                    </span>
+                </div>
+            </b:if>
+            <b:eval expr='data:view.isSearchQuery'/>
         </b:includable>
     </b:widget>
 </b:section>
