@@ -141,6 +141,12 @@
                 <b:includable id='defaultIcons'>
                     @@include("../src/templates/defaultmarkups/defaultIcons.html")
                 </b:includable>
+                <b:includable id='translate'>
+					<b:switch var='data:blog.locale'><b:case value='en'/><b:include name='customLanguage'/><b:default/><b:include name='customLanguage'/></b:switch>
+				</b:includable>
+                <b:includable id='customLanguage'>
+                    @@include("../src/templates/defaultmarkups/customLanguage.html")
+                </b:includable>
                 <b:includable id='libraries'>
                     <script>
                         <b:if cond='data:skin.vars.featuresPreloader == "2px"'>/*<![CDATA[*/@@include("../build/scripts/pace.js")/*]]>*/</b:if>
@@ -171,10 +177,10 @@
         <div id='app' class='app'>
             <b:section id='elcreative_panel' class='elcreative_panel' maxwidgets='4' name='Materia Theme Panel' showaddelements='no'>
                 <b:widget id='LinkList996' locked='true' title='CSS Options' type='LinkList' version='2' visible='true'>
-                    <b:includable id='main'>&lt;style&gt;<b:loop values='data:links' var='link'><b:if cond='data:link.name == "menuBorder"'>.elcreative_navigation .navigation_drawer_menu>ul>li:nth-child(<data:link.target/>)::after{content:''}</b:if></b:loop>&lt;/style&gt;</b:includable>
+                    <b:includable id='main'>&lt;style&gt;<b:loop values='data:links' var='link'><b:if cond='data:link.name == "menuBorder"'>.elcreative_navigation .navigation_drawer_menu>ul>li:nth-child(<data:link.target/>)::after{content:''}</b:if></b:loop>&lt;/style&gt;</b:includable><b:includable id='content' />
                 </b:widget>
                 <b:widget cond='data:skin.vars.defaultCustomIcon == "2px"' id='LinkList995' locked='true' title='Default Icons' type='LinkList' version='2' visible='true'>
-					<b:includable id='main'><svg xmlns='//www.w3.org/2000/svg' hidden=''><defs><b:loop values='data:links' var='link'><symbol expr:id='data:link.name' viewbox='0 0 24 24'><path expr:d='data:link.target'/></symbol></b:loop></defs></svg></b:includable>
+					<b:includable id='main'><svg xmlns='//www.w3.org/2000/svg' hidden=''><defs><b:loop values='data:links' var='link'><symbol expr:id='data:link.name' viewbox='0 0 24 24'><path expr:d='data:link.target'/></symbol></b:loop></defs></svg></b:includable><b:includable id='content' />
 				</b:widget>
             </b:section>
             <header id='elcreative_header' expr:class='"elcreative_header edge_" + data:skin.vars.headerOptionEdge'>

@@ -61,6 +61,14 @@
   transform-origin: right top;
 }
 
+// Alerts
+.elcreative_alert {
+  &:after {
+    left: unset;
+    right: -15px;
+  }
+}
+
 // Header
 .elcreative_header {
   .header_section {
