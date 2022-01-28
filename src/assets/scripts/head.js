@@ -1,6 +1,7 @@
 var elcreativeConfig = {
     theme: {
         featuresColorMode: "<data:skin.vars.featuresColorMode />",
+        featuresPreloader: "<data:skin.vars.featuresPreloader />",
         featuresRippleEffect: "<data:skin.vars.featuresRippleEffect />",
         featuresSubMenu: "<data:skin.vars.featuresSubMenu />"
     },
