@@ -35,6 +35,10 @@ body {
   padding: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 [hidden] {
   display: none;
 }
@@ -62,7 +66,7 @@ body {
 .backdrop {
   bottom: 0;
   box-sizing: border-box;
-  background-color: var(--defaultColorTextTrans1);
+  background-color: var(--blackTrans);
   display: flex;
   height: 100vh;
   left: 0;
@@ -96,12 +100,14 @@ body {
   }
 
   // Mobile Screen
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 1200px) {
     body.--drawer_menu_active & {
       opacity: 1;
       visibility: visible;
     }
+  }
 
+  @media screen and (max-width: 980px) {
     body.--search_active & {
       opacity: 1;
       visibility: visible;
@@ -128,6 +134,94 @@ body {
       position: absolute;
       transition: opacity 640ms ease 0s, transform 640ms ease 0s;
     }
+  }
+}
+
+// Preloader
+.pace {
+  pointer-events: none;
+  user-select: none;
+
+  &:not(.pace-inactive) {
+    .pace-progress {
+      background-color: var(--featuresPreloaderColor);
+      height: var(--featuresPreloaderHeight);
+      overflow: hidden;
+      position: fixed;
+      right: 100%;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+
+      body.preloader_indeterminate & {
+        background-color: var(--whiteTrans);
+
+        &::before {
+          bottom: 0;
+          background-color: var(--featuresPreloaderColor);
+          content: '';
+          position: absolute;
+          top: 0;
+          will-change: left, right;
+          left: 0;
+        }
+
+        &::after {
+          bottom: 0;
+          background-color: var(--featuresPreloaderColor);
+          content: '';
+          position: absolute;
+          top: 0;
+          will-change: left, right;
+          left: 0;
+        }
+
+        &::before {
+          animation: animIndeterminate 2s
+            cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+        }
+
+        &::after {
+          animation: animIndeterminateShort 2s
+            cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation-delay: 1.25s;
+        }
+
+        @keyframes animIndeterminate {
+          0% {
+            left: -35%;
+            right: 100%;
+          }
+          60% {
+            left: 100%;
+            right: -90%;
+          }
+          100% {
+            left: 100%;
+            right: -90%;
+          }
+        }
+
+        @keyframes animIndeterminateShort {
+          0% {
+            left: 200%;
+            right: 100%;
+          }
+          60% {
+            left: 107%;
+            right: -8%;
+          }
+          100% {
+            left: 107%;
+            right: -8%;
+          }
+        }
+      }
+    }
+  }
+
+  &.pace-inactive {
+    display: none;
   }
 }
 
@@ -418,8 +512,7 @@ body {
 
           &:focus-within {
             background-color: var(--headerColorTextTrans2);
-            box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3),
-              0 1px 3px 1px rgba(65, 69, 73, 0.15);
+            box-shadow: var(--shadowForm);
           }
 
           .elcreative_button_icon {
@@ -467,6 +560,15 @@ body {
             path:first-child {
               display: none;
             }
+          }
+        }
+
+        &.button_color_mode {
+          body:not(.--darkmode) & path:last-child {
+            display: none;
+          }
+          body.--darkmode & path:first-child {
+            display: none;
           }
         }
 
@@ -778,5 +880,41 @@ body {
         }
       }
     }
+  }
+}
+
+// Section
+.elcreative_section {
+  display: flex;
+  justify-content: space-between;
+  transition: margin 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Desktop Screen
+  @media screen and (min-width: 1200px) {
+    &.drawer_exists {
+      body:not(.error_page):not(.--drawer_menu_active) &.desktop_state_2px {
+        margin: 0 0 0 300px;
+      }
+
+      body.error_page & {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      &.desktop_state_1px {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @media screen and (min-width: 980px) {
+    padding: 82px 20px 20px;
+  }
+
+  // Mobile Screen
+  @media screen and (max-width: 980px) {
+    flex-direction: column;
+    padding: 70px 16px;
   }
 }

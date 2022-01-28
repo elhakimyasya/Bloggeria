@@ -1,9 +1,124 @@
 <meta charset='UTF-8' />
 <meta name='viewport' expr:content='data:skin.vars.defaultOptionViewportPinch == "1px" ? "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" : "width=device-width, initial-scale=1.0"' />
 <meta name='description' expr:content='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped' />
+<meta name='theme-color' expr:content='data:skin.vars.keycolor' />
+<meta name='msapplication-navbutton-color' expr:content='data:skin.vars.keycolor' />
+<meta name='rating' expr:content='data:blog.adultContent ? "adult" : "general"' />
+<meta name='language' expr:content='data:blog.locale' />
+<meta name='copyright' expr:content='data:blog.title' />
+<meta name='url' expr:content='data:blog.url.canonical' />
+<b:loop cond='data:view.isSingleItem or data:view.isHomepage' values='{
+    "robots",
+    "googlebot",
+    "googlemediabot",
+    "gulliver",
+    "slurp",
+    "fast",
+    "scooter",
+    "vscooter",
+    "ia_archiver",
+    "FAST-WebCrawler",
+    "teoma",
+    "Baiduspider",
+    "AlexaBot",
+    "Yandex",
+    "JikeSpider",
+    "naverbot",
+    "yeti",
+    "SurveyBot",
+    "ZyBorg",
+    "ArchitextSpider",
+    "msnbot-media/1.0",
+    "MSNPTC",
+    "MSNBot",
+    "bingbot",
+    "coccoc",
+    "Linespider"
+    }' var='link'>
+    <meta expr:name='data:link' content='index, follow' />
+</b:loop>
+<b:if cond='data:blog.pageType in {"archive"} or data:blog.searchLabel or data:blog.searchQuery'>
+    <meta name='robots' content='noindex/nofollow' />
+</b:if>
+
+<meta property='og:locale' expr:content='data:blog.locale' />
+<meta property='og:site_name' expr:content='data:blog.title.escaped' />
+<meta property='og:url' expr:content='data:blog.url.canonical' />
+<meta property='og:description' expr:content='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped' />
+<meta property='og:image' expr:content='data:view.isMultipleItems ? data:skin.vars.body_background.image : data:view.featuredImage' />
+<meta property='og:image:url' expr:content='data:view.isMultipleItems ? data:skin.vars.body_background.image : data:view.featuredImage' />
+<meta property='og:image:secure_url' expr:content='data:view.isMultipleItems ? data:skin.vars.body_background.image : data:view.featuredImage' />
+<b:if cond='data:view.isMultipleItems'>
+    <meta property='og:title' expr:content='data:blog.title.escaped' />
+    <meta property='og:type' content='website' />
+    <b:else />
+    <meta property='og:title' expr:content='data:blog.pageName' />
+    <meta property='og:type' content='article' />
+</b:if>
+
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:title' expr:content='data:view.title.escaped' />
+<meta name='twitter:url' expr:content='data:blog.url.canonical' />
+<meta name='twitter:description' expr:content='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped' />
+
+<meta name='apple-mobile-web-app-title' expr:content='data:blog.title.escaped' />
+<meta name='apple-mobile-web-app-capable' content='yes' />
+<meta name='apple-touch-fullscreen' content='yes' />
+<meta name='apple-mobile-web-app-status-bar-style' expr:content='data:skin.vars.keycolor' />
+
 <b:with value='data:view.isSingleItem ? data:view.title.escaped + " | " + data:blog.title.escaped : data:view.isArchive ? data:messages.archive.escaped + ": " + data:blog.pageName.escaped + " | " + data:blog.title.escaped :
 data:view.isSearch ? data:blog.pageName.escaped + " | " + data:blog.title.escaped : data:view.isError ? data:messages.theresNothingHere.escaped : data:blog.title.escaped' var='blog_title'>
     <title>
         <data:blog_title />
     </title>
 </b:with>
+
+<link name='link' expr:href='data:view.isMultipleItems ? resizeImage(data:skin.vars.body_background.image , 1200, "1200:630") : resizeImage(data:view.featuredImage , 1200, "1200:630")' rel='image_src' />
+<link expr:href='data:blog.blogspotFaviconUrl' rel='apple-touch-startup-image' />
+<link expr:href='data:blog.blogspotFaviconUrl' rel='apple-touch-icon' />
+<link expr:href='data:blog.blogspotFaviconUrl' rel='apple-touch-icon' sizes='32x32' />
+<link expr:href='data:blog.blogspotFaviconUrl' rel='shortcut icon' type='image/icon' />
+<link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon' />
+<link expr:href='data:view.url.canonical' rel='canonical' />
+<link expr:href='data:blog.homepageUrl' rel='home' />
+<b:loop values='{
+    "//1.bp.blogspot.com",
+    "//2.bp.blogspot.com",
+    "//3.bp.blogspot.com",
+    "//4.bp.blogspot.com",
+    "//lh3.googleusercontent.com",
+    "//www.blogger.com",
+    "//fonts.googleapis.com",
+    "//fonts.gstatic.com",
+    "//resources.blogblog.com",
+    "//www.facebook.com",
+    "//twitter.com",
+    "//www.youtube.com",
+    "//www.pinterest.com",
+    "//www.linkedin.com",
+    "//www.behance.net",
+    "//feeds.feedburner.com",
+    "//github.com",
+    "//apis.google.com",
+    "//connect.facebook.net",
+    "//cdnjs.cloudflare.com",
+    "//www.google-analytics.com",
+    "//pagead2.googlesyndication.com",
+    "//googleads.g.doubleclick.net",
+    "//www.gstatic.com",
+    "//www.googletagservices.com",
+    "//static.xx.fbcdn.net",
+    "//tpc.googlesyndication.com",
+    "//syndication.twitter.com"
+    }' var='link'>
+    <link expr:href='data:link' rel='dns-prefetch preconnect' />
+</b:loop>
+<data:blog.feedLinks />
+<data:blog.meTag />
+
+
+<meta name='author' expr:content='data:blog.title.escaped' />
+<meta name='distribution' content='Global' />
+<meta name="news_keywords" expr:content='data:blog.title.escaped + ", " + data:blog.pageName.escaped' />
+<meta name='keywords' expr:content='data:blog.title.escaped + ", " + data:blog.pageName.escaped' />
+<meta name='target' content='all' />

@@ -24,23 +24,28 @@
                 --defaultFontFamily             : $(body.font.family);
                 --defaultFontSize               : $(body.font.size);
 
-                --defaultBackground             : $(body.background);
+                --featuresPreloaderHeight       : $(featuresPreloaderHeight);
 
+                --defaultBackground             : $(body.background);
                 --defaultOptionButtonIconRadius : $(defaultOptionButtonIconRadius);
 
                 --headerOptionSearchRadius      : $(headerOptionSearchRadius);
-                --headerOptionButtonIconRadius   : $(headerOptionButtonIconRadius);
+                --headerOptionButtonIconRadius  : $(headerOptionButtonIconRadius);
 
                 --navDrawerMenuOptionItemRadius : $(navDrawerMenuOptionItemRadius);
             }
             body:not(.--darkmode) {
+                --blackTrans                    : rgba(255, 255, 255, 0.7);
+                --whiteTrans                    : rgba(0, 0, 0, 0.12);
+                --shadowForm                    : 0 1px 1px 0 rgba(65,69,73,0.3),0 1px 3px 1px rgba(65,69,73,0.15);
+
                 --defaultColorKey               : $(keycolor);
                 --defaultColorBackground        : $(body.background.color);
                 --defaultColorText              : $(posts.text.color);
-                --defaultColorTextTrans1        : $(posts.text.color)1f;
                 --defaultColorBorder            : $(defaultColorBorder);
 
                 --featuresRippleEffectColor     : $(featuresRippleEffectColor)2e;
+                --featuresPreloaderColor        : $(featuresPreloaderColor);
 
                 --defaultColorButtonIcon        : $(defaultColorButtonIcon);
                 --defaultColorButtonIconTrans1  : $(defaultColorButtonIcon)1f;
@@ -76,13 +81,17 @@
 
             @media (prefers-color-scheme: dark) {
                 body.--darkmode {
+                    --blackTrans                    : rgba(0, 0, 0, 0.7);
+                    --whiteTrans                    : rgba(0, 0, 0, 0.12);
+                    --shadowForm                    : 0 2px 3px 0 rgba(0,0,0,.60),0 6px 10px 4px rgba(0,0,0,.30);
+
                     --defaultColorKey               : $(darkmodeColorKey);
                     --defaultColorBackground        : $(darkmodeColorBackground);
                     --defaultColorText              : $(darkmodeColorText);
-                    --defaultColorTextTrans1        : $(darkmodeColorText)1f;
                     --defaultColorBorder            : $(defaultColorBorder);
 
                     --featuresRippleEffectColor     : $(featuresRippleEffectColor)2e;
+                    --featuresPreloaderColor        : $(darkmodeColorKey);
 
                     --defaultColorButtonIcon        : $(darkmodeColorText);
                     --defaultColorButtonIconTrans1  : $(darkmodeColorText)1f;
@@ -134,6 +143,7 @@
                 </b:includable>
                 <b:includable id='libraries'>
                     <script>
+                        <b:if cond='data:skin.vars.featuresPreloader == "2px"'>/*<![CDATA[*/@@include("../build/scripts/pace.js")/*]]>*/</b:if>
                         /*<![CDATA[*/@@include("../build/scripts/easy-toggle-state.js")/*]]>*/
                         <b:if cond='data:skin.vars.featuresRippleEffect == "2px"'>/*<![CDATA[*/@@include("../build/scripts/ripple-effect.js")/*]]>*/</b:if>
                         <b:if cond='data:skin.vars.featuresSubMenu == "2px"'>/*<![CDATA[*/@@include("../build/scripts/drawer-menu-sub.js")/*]]>*/</b:if>
@@ -156,6 +166,7 @@
     </head>
     <b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
     <body expr:class='data:blog.pageType'>
+        <b:class cond='data:skin.vars.featuresPreloader == "2px" and data:skin.vars.featuresPreloaderStyle == "2px"' name='preloader_indeterminate' />
         <b:if cond='data:skin.vars.featuresColorMode == "2px"'><script>/*<![CDATA[*/@@include("../build/scripts/color-mode-storage.js")/*]]>*/</script></b:if>
         <div id='app' class='app'>
             <b:section id='elcreative_panel' class='elcreative_panel' maxwidgets='4' name='Materia Theme Panel' showaddelements='no'>
@@ -216,6 +227,12 @@
             <nav id='elcreative_navigation' class='elcreative_navigation'>
                 @@include("../src/templates/section/navigation.html")
             </nav>
+            <div id='elcreative_section' expr:class='"elcreative_section desktop_state_" + data:skin.vars.navDrawerMenuOptionDesktopState'>
+                <b:class expr:name='data:widgets any (w => w.id == "LinkList999") ? "drawer_exists" : "no_class"' />
+                <main class='elcreative_main'>
+                    @@include("../src/templates/section/main.html")
+                </main>
+            </div>
         </div>
         <b:section id='hidden' />
         <span id='backdrop' expr:class='"backdrop drawer_desktop_state_" + data:skin.vars.navDrawerMenuOptionDesktopState + " search_desktop_" + data:skin.vars.headerOptionSearchDesktop' />

@@ -1,3 +1,61 @@
+// Preloader
+.pace {
+  &:not(.pace-inactive) {
+    .pace-progress {
+      right: unset;
+      left: 100%;
+
+      body.preloader_indeterminate & {
+        &::before {
+          will-change: right, left;
+          left: unset;
+          right: 0;
+        }
+
+        &::after {
+          will-change: right, left;
+          left: unset;
+          right: 0;
+        }
+
+        @keyframes animIndeterminate {
+          0% {
+            left: 100%;
+            right: -35%;
+          }
+          60% {
+            left: -90%;
+            right: 100%;
+          }
+          100% {
+            left: -90%;
+            right: 100%;
+          }
+        }
+
+        @keyframes animIndeterminateShort {
+          0% {
+            left: 100%;
+            right: 200%;
+          }
+          60% {
+            left: -8%;
+            right: 107%;
+          }
+          100% {
+            left: -8%;
+            right: 107%;
+          }
+        }
+      }
+    }
+  }
+
+  &.pace-inactive {
+    display: none;
+  }
+}
+
 // Dropdown
 .elcreative_dropdown {
   transform-origin: right top;
@@ -64,6 +122,11 @@
           .drawer_menu_link {
             left: unset;
             right: 0;
+
+            &::before {
+              left: unset;
+              right: 0;
+            }
           }
         }
       }
@@ -127,6 +190,18 @@
             margin: 0 0 0 8px;
           }
         }
+      }
+    }
+  }
+}
+
+// Section
+.elcreative_section {
+  // Desktop Screen
+  @media screen and (min-width: 1200px) {
+    &.drawer_exists {
+      body:not(.error_page):not(.--drawer_menu_active) &.desktop_state_2px {
+        margin: 0 0 0 300px;
       }
     }
   }
