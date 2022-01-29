@@ -137,6 +137,52 @@ img {
   }
 }
 
+// Shimmer Effect
+.shimmer {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: transparent;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+
+  &:not(.lazyloaded) {
+    background-color: rgba(0, 0, 0, 0.14);
+    border-radius: inherit;
+
+    &::before {
+      animation: animShimmer 0.85s infinite;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+      );
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      transform: translateX(-100%);
+      top: 0;
+      z-index: 1;
+
+      @keyframes animShimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
+}
+
 // Preloader
 .pace {
   pointer-events: none;
@@ -576,7 +622,7 @@ img {
     border-bottom: 3px solid var(--gadgetColorTitleIndicator);
     color: var(--gadgetColorTitle);
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 44px;
     margin: 0;
@@ -1257,6 +1303,14 @@ img {
               display: flex;
               flex-direction: column;
               justify-content: space-between;
+
+              .post_meta {
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                flex-wrap: wrap;
+                margin-bottom: 2px;
+              }
             }
 
             .post_header_end {

@@ -56,6 +56,22 @@
   }
 }
 
+// Shimmer Effect
+.shimmer {
+  &:not(.lazyloaded) {
+    &::before {
+      @keyframes animShimmer {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    }
+  }
+}
+
 // Dropdown
 .elcreative_dropdown {
   transform-origin: right top;
@@ -219,6 +235,33 @@
           svg {
             margin: 0 8px 0 0;
             transform: rotate(180deg);
+          }
+        }
+      }
+
+      .blog_posts {
+        .post_outer_container {
+          .post_container_start {
+            .post_header_start {
+              .post_label {
+                svg {
+                  margin: 0 0 0 4px;
+                }
+              }
+
+              .post_meta {
+                .post_meta_start {
+                  .meta_author_image {
+                    margin: 0 0 0 8px;
+
+                    svg {
+                      right: unset;
+                      left: 0;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
