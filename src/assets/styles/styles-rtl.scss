@@ -263,6 +263,33 @@
               }
             }
           }
+
+          .post_container_end {
+            .post_jumplink {
+              svg {
+                margin: 0 0 0 4px;
+              }
+            }
+
+            .comment_link {
+              svg {
+                margin: 0 0 0 4px;
+              }
+            }
+          }
+        }
+
+        // Desktop Screen
+        @media screen and (min-width: 1200px) {
+          &.posts_desktop_list {
+            .post_outer_container {
+              .post_container_start {
+                .post_header_start {
+                  margin: 0 0 0 8px;
+                }
+              }
+            }
+          }
         }
       }
     }

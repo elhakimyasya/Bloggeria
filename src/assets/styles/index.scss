@@ -98,6 +98,64 @@
             text-overflow: ellipsis;
           }
         }
+
+        .post_header_end {
+          .post_image {
+            display: block;
+            position: relative;
+
+            span {
+              border-radius: inherit;
+            }
+          }
+        }
+      }
+
+      .post_container_end {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .post_jumplink {
+          align-items: center;
+          display: flex;
+          color: var(--indexColorJumplink);
+          font-size: 14px;
+          flex-direction: row;
+          justify-content: center;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          svg {
+            fill: currentColor;
+            height: 14px;
+            margin: 0 4px 0 0;
+            width: 14px;
+          }
+        }
+
+        .comment_link {
+          align-items: center;
+          color: var(--indexColorCommentlink);
+          display: flex;
+          font-size: 14px;
+          flex-direction: row;
+          justify-content: center;
+          text-decoration: none;
+          text-transform: capitalize;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          svg {
+            fill: currentColor;
+            height: 14px;
+            width: 14px;
+          }
+        }
       }
     }
 
@@ -128,6 +186,18 @@
 
           .post_container_start {
             flex-direction: row;
+
+            .post_header_start {
+              margin: 0 8px 0 0;
+            }
+
+            .post_header_end {
+              .post_image {
+                border-radius: var(--indexOptionImageRadius);
+                height: 100px;
+                width: 100px;
+              }
+            }
           }
         }
       }
@@ -146,6 +216,16 @@
               .post_header_start {
                 padding: 12px 12px 0 12px;
               }
+
+              .post_header_end {
+                .post_image {
+                  border-radius: var(--indexOptionImageRadius);
+                }
+              }
+            }
+
+            .post_container_end {
+              padding: 0 12px 12px 12px;
             }
           }
 
@@ -186,6 +266,18 @@
             .post_header_end {
               position: relative;
               width: 100%;
+
+              .post_image {
+                height: unset;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, 0%);
+                width: 100%;
+
+                span {
+                  padding-top: 56.25%;
+                }
+              }
             }
           }
         }

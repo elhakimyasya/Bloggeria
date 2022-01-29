@@ -36,6 +36,7 @@
                 --navDrawerMenuOptionItemRadius : $(navDrawerMenuOptionItemRadius);
 
                 --indexOptionBorderRadius       : $(indexOptionBorderRadius);
+                --indexOptionImageRadius        : $(indexOptionImageRadius);
             }
             body:not(.--darkmode) {
                 --blackTrans                    : rgba(255, 255, 255, 0.7);
@@ -93,6 +94,8 @@
                 --indexColorBorder              : $(indexColorBorder);
                 --indexColorMeta                : $(indexColorMeta);
                 --indexColorSnippet             : $(indexColorSnippet);
+                --indexColorJumplink            : $(indexColorJumplink);
+                --indexColorCommentlink         : $(indexColorCommentlink);
 
                 --itemColorLink                 : $(itemColorLink);
                 --itemColorBreadcrumb           : $(itemColorBreadcrumb);
@@ -120,6 +123,8 @@
                     --featuresPreloaderColor        : $(darkmodeColorKey);
 
                     --defaultColorButton            : $(darkmodeColorKey);
+                    --defaultColorButtonTrans1      : $(darkmodeColorKey)1f;
+                    --defaultColorButtonTrans2      : $(darkmodeColorKey)2e;
 
                     --defaultColorButtonIcon        : $(darkmodeColorText);
                     --defaultColorButtonIconTrans1  : $(darkmodeColorText)1f;
@@ -160,6 +165,8 @@
                     --indexColorBorder              : $(darkmodeColorBorder);
                     --indexColorMeta                : $(darkmodeColorMeta);
                     --indexColorSnippet             : $(darkmodeColorMeta);
+                    --indexColorJumplink            : $(darkmodeColorKey);
+                    --indexColorCommentlink         : $(darkmodeColorKey);
 
                     --itemColorLink                 : $(darkmodeColorKey);
                     --itemColorBreadcrumb           : $(darkmodeColorMeta);

@@ -32,6 +32,8 @@
     <Variable name="featuresRippleEffect" description="Ripple Effect (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
     <Variable name="featuresRippleEffectColor" description="Ripple Effect Color" type="color" default="$(posts.text.color)" value="#202124" />
     <Variable name="featuresSubMenu" description="Navigation Drawer Sub-Menu (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+
+    <Variable name="featuresCommentSystem" description="Comment System (Blogger | Disqus)" type="length" default="1px" min="1px" max="2px" value="1px" />
 </Group>
 <Group description='Header Options'>
     <Variable name="headerOptionEdge" description="Header Edge Style (None | Border | Shadow)" type="length" default="3px" min="1px" max="3px" value="3px" />
@@ -76,6 +78,12 @@
     <Variable name="indexOptionTimestampPrefix" description="Posts Timestamp Prefix (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
     <Variable name="indexOptionSnippet" description="Posts Summary on Desktop (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
     <Variable name="indexColorSnippet" description="Posts Summary Color" type="color" default="$(defaultColorMeta)" value="#5f6368" />
+    <Variable name="indexOptionImage" description="Posts Thumbnail (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="indexOptionImageRadius" description="Posts Thumbnail Corner Radius" type="length" default="8px" min="0px" max="50px" value="8px" />
+    <Variable name="indexOptionJumplink" description="Posts Jumplink (Disable | Text | Text and Icon)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="indexColorJumplink" description="Posts Jumplink Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />
+    <Variable name="indexOptionCommentLink" description="Posts Comment Link (Disable | Text | Text and Icon)" type="length" default="3px" min="1px" max="3px" value="3px" />
+    <Variable name="indexColorCommentlink" description="Posts Comment Link Color" type="color" default="$(defaultColorKey)" value="#1a73e8" />\
 </Group>
 <Group description='Item Options'>
     <Variable name="itemColorLink" description="Post Link Color" type="color" default="$(keycolor)" value="#1a73e8" />
@@ -89,6 +97,7 @@
     <Variable name="itemOptionAuthorImage" description="Post Author Profile Image (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
     <Variable name="itemOptionTimestamp" description="Post Timestamp (Disable | Post Published | Post Published and Updated)" type="length" default="3px" min="1px" max="3px" value="3px" />
     <Variable name="itemOptionTimestampPrefix" description="Post Timestamp Prefix (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="itemOptionCommentStyle" description="Post Comment Stye (Default | Drawer)" type="length" default="2px" min="1px" max="2px" value="2px" />
 </Group>
 
 <Group description='Gadget Options'>

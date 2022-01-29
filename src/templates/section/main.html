@@ -205,7 +205,92 @@
                                             </div>
                                         </b:if>
                                     </div>
+                                    <b:tag cond='data:view.isMultipleItems and data:skin.vars.indexOptionImage == "2px"' name='div' class='post_header_end'>
+                                        <b:if cond='data:view.isMultipleItems'>
+                                            <b:if cond='data:post.featuredImage'>
+                                                <b:if cond='data:post.featuredImage.isYouTube'>
+                                                    <a class='post_image youtube' expr:href='data:post.url' expr:title='data:post.title'>
+                                                        <span class='lazyload shimmer youtube_image' expr:data-image='resizeImage(data:post.featuredImage.youtubeMaxResDefaultUrl, 100, "1:1")' expr:title='data:post.title'>
+                                                            <b:attr cond='data:skin.vars.indexOptionDesktopPostStyle == "2px" or data:skin.vars.indexOptionMobilePostStyle == "2px"' name='data-image' expr:value='resizeImage(data:post.featuredImage, 600, "16:9")' />
+                                                        </span></a>
+                                                    <b:else />
+                                                    <a class='post_image' expr:href='data:post.url' expr:title='data:post.title'>
+                                                        <span class='lazyload shimmer' expr:data-image='resizeImage(data:post.featuredImage, 100, "1:1")' expr:title='data:post.title'>
+                                                            <b:attr cond='data:skin.vars.indexOptionDesktopPostStyle == "2px" or data:skin.vars.indexOptionMobilePostStyle == "2px"' name='data-image' expr:value='resizeImage(data:post.featuredImage, 600, "16:9")' />
+                                                        </span>
+                                                    </a>
+                                                </b:if>
+                                                <b:else />
+                                                <a class='post_image' expr:href='data:post.url' expr:title='data:post.title'><span class='lazyload shimmer no_thumbnail' expr:data-image='resizeImage("//lh3.googleusercontent.com/-Efigs16DUTQ/YKrJkJaHDKI/AAAAAAAAg_A/_xTHzW1sLmssSTAFEZtZTL_QqseedXjfACLcBGAsYHQ/s0/index.gif", 600, "1:1")' expr:title='data:post.title' /></a>
+                                            </b:if>
+                                        </b:if>
+                                    </b:tag>
                                 </div>
+                                <b:tag cond='data:view.isMultipleItems and (data:skin.vars.indexOptionJumplink != "1px" and data:skin.vars.indexOptionCommentLink != "1px") or data:view.isSingleItem' name='div' class='post_container_end'>
+                                    <b:tag cond='data:view.isMultipleItems and (data:skin.vars.indexOptionJumplink != "1px") or data:view.isSingleItem' name='div' class='post_footer_start'>
+                                        <b:if cond='data:view.isMultipleItems'>
+                                            <b:if cond='data:skin.vars.indexOptionJumplink != "1px"'>
+                                                <a expr:href='data:post.url' class='post_jumplink' expr:title='data:post.title'>
+                                                    <b:if cond='data:skin.vars.indexOptionJumplink == "3px"'>
+                                                        <svg width='14' height='14' viewBox='0 0 24 24'>
+                                                            <b:include data='{iconId: "icon_newspaper"}' name='defaultIcons' />
+                                                        </svg>
+                                                    </b:if>
+                                                    <data:blog.jumpLinkMessage />
+                                                </a>
+                                            </b:if>
+                                            <b:else />
+                                            <b:class name='post_body' />
+                                            <b:attr name='id' value='post_body' />
+                                            <data:post.body />
+                                        </b:if>
+                                    </b:tag>
+                                    <b:tag cond='data:view.isMultipleItems and (data:allBylineItems.comments) or data:view.isSingleItem' name='div' class='post_footer_end'>
+                                        <b:if cond='data:view.isMultipleItems'>
+                                            <b:if cond='data:skin.vars.indexOptionCommentLink != "1px" and data:allBylineItems.comments and data:post.allowNewComments'>
+                                                <a class='comment_link'>
+                                                    <b:if cond='data:view.isMultipleItems and data:skin.vars.itemOptionCommentStyle == "2px"'>
+                                                        <b:attr name='href' expr:value='data:post.url + "#comments_active"' />
+                                                        <b:else />
+                                                        <b:attr name='href' expr:value='data:post.url + "#comments"' />
+                                                    </b:if>
+                                                    <b:if cond='data:skin.vars.featuresCommentSystem == "1px"'>
+                                                        <b:if cond='data:post.numberOfComments > 0'>
+                                                            <b:if cond='data:skin.vars.indexOptionCommentLink == "3px"'>
+                                                                <svg width='14' height='14' viewBox='0 0 24 24'>
+                                                                    <b:include data='{iconId: "icon_comment_text"}' name='defaultIcons' />
+                                                                </svg>
+                                                            </b:if><span>
+                                                                <b:message name='messages.numberOfComments'>
+                                                                    <b:param expr:value='data:post.numberOfComments' name='numComments' />
+                                                                </b:message>
+                                                            </span>
+                                                            <b:else />
+                                                            <b:if cond='data:skin.vars.indexOptionCommentLink == "3px"'>
+                                                                <svg width='14' height='14' viewBox='0 0 24 24'>
+                                                                    <b:include data='{iconId: "icon_comment"}' name='defaultIcons' />
+                                                                </svg>
+                                                            </b:if>
+                                                            <span>
+                                                                <data:messages.postAComment />
+                                                            </span>
+                                                        </b:if>
+
+                                                        <b:else />
+                                                        <b:if cond='data:skin.vars.indexOptionCommentLink == "3px"'>
+                                                            <svg width='14' height='14' viewBox='0 0 24 24'>
+                                                                <b:include data='{iconId: "icon_comment"}' name='defaultIcons' />
+                                                            </svg>
+                                                        </b:if>
+                                                        <span>
+                                                            <data:messages.comments />
+                                                        </span>
+                                                    </b:if>
+                                                </a>
+                                            </b:if>
+                                        </b:if>
+                                    </b:tag>
+                                </b:tag>
                             </article>
                         </b:loop>
                     </b:if>
