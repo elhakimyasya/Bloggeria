@@ -205,6 +205,26 @@
 
 // Section
 .elcreative_section {
+  // Main Section
+  .elcreative_main {
+    .Blog {
+      .search_query {
+        .message_query {
+          .query_icon {
+            margin: 0 0 0 12px;
+          }
+        }
+
+        .query_more {
+          svg {
+            margin: 0 8px 0 0;
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+
   // Desktop Screen
   @media screen and (min-width: 1200px) {
     &.drawer_exists {

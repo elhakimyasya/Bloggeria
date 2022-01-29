@@ -47,6 +47,10 @@
                 --featuresRippleEffectColor     : $(featuresRippleEffectColor)2e;
                 --featuresPreloaderColor        : $(featuresPreloaderColor);
 
+                --defaultColorButton            : $(defaultColorButton);
+                --defaultColorButtonTrans1      : $(defaultColorButton)1f;
+                --defaultColorButtonTrans2      : $(defaultColorButton)2e;
+
                 --defaultColorButtonIcon        : $(defaultColorButtonIcon);
                 --defaultColorButtonIconTrans1  : $(defaultColorButtonIcon)1f;
                 --defaultColorButtonIconTrans2  : $(defaultColorButtonIcon)2e;
@@ -97,6 +101,8 @@
                     --featuresRippleEffectColor     : $(featuresRippleEffectColor)2e;
                     --featuresPreloaderColor        : $(darkmodeColorKey);
 
+                    --defaultColorButton            : $(darkmodeColorKey);
+
                     --defaultColorButtonIcon        : $(darkmodeColorText);
                     --defaultColorButtonIconTrans1  : $(darkmodeColorText)1f;
                     --defaultColorButtonIconTrans2  : $(darkmodeColorText)2e;
@@ -131,6 +137,7 @@
                     --gadgetColorTitle              : $(darkmodeColorText);
                     --gadgetColorTitleIndicator     : $(darkmodeColorKey);
                     --gadgetColorBorder             : $(darkmodeColorBorder);
+                    --gadgetColorPostMeta           : $(gadgetColorPostMeta);
                 }
             }
         ]]>
@@ -138,8 +145,7 @@
         <b:if cond='data:view.isLayoutMode'>
             <b:template-skin>@@include("../build/styles/template-skin.css")</b:template-skin>
             <b:else />
-            <style>@@include("../build/styles/styles.css")<b:if cond='data:blog.languageDirection == "rtl"'>@@include("../build/styles/styles-rtl.css")</b:if>
-            </style>
+            <style>@@include("../build/styles/styles.css")<b:if cond='data:view.isMultipleItems'>@@include("../build/styles/index.css")</b:if><b:if cond='data:blog.languageDirection == "rtl"'>@@include("../build/styles/styles-rtl.css")</b:if></style>
         </b:if>
         <b:defaultmarkups>
             <b:defaultmarkup type='Common'>
@@ -197,7 +203,7 @@
                          @@include("../src/templates/section/header-logo-title.html")
                     </div>
                     <div expr:class='"header_section header_center search_desktop_" + data:skin.vars.headerOptionSearchDesktop'>
-                        <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : "_blank"'>
+                        <form expr:action='data:blog.searchUrl.canonical' expr:target='!data:view.isPreview ? "_top" : "_blank"'>
                             <b:include name='urlParamsAsFormInput'/>
                             <button class='elcreative_button_icon button_search elcreative_ripple' expr:aria-label='data:messages.searchThisBlog.escaped' expr:title='data:messages.searchThisBlog.escaped' type='submit'>
                                 <svg width='24' height='24' viewBox='0 0 24 24'>

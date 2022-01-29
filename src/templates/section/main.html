@@ -6,14 +6,115 @@
                     <b:include data='{message: "transNoScript"}' name='translate' />
                 </div>
             </noscript>
-            <b:if cond='data:view.isHomepage and data:skin.vars.indexOptionRecentHeadline == "2px"'>
-                <div class='widget_title'>
-                    <span class='title'>
-                        <data:messages.recentPosts />
-                    </span>
+            <b:if cond='data:view.isError'>
+                <div class='error_wrapper'>
+                    <h3>404</h3>
+                    <h4>
+                        <data:messages.theresNothingHere />
+                    </h4>
+                    <p>
+                        <data:navMessage />
+                    </p>
+                    <a class='elcreative_button raised elcreative_ripple' expr:href='data:blog.homepageUrl'>
+                        <data:messages.home />
+                    </a>
+                </div>
+                <b:else />
+                <b:if cond='data:view.isHomepage and data:skin.vars.indexOptionRecentHeadline == "2px"'>
+                    <div class='widget_title'>
+                        <span class='title'>
+                            <data:messages.recentPosts />
+                        </span>
+                    </div>
+                </b:if>
+
+                <b:if cond='data:view.search.query or data:view.search.label and data:skin.vars.indexLabelDescription == "1px" or data:view.isArchive'>
+                    <div class='search_query'>
+                        <div class='message_query'>
+                            <div class='query_icon'>
+                                <svg width='24' height='24' viewBox='0 0 24 24'>
+                                    <b:if cond='data:skin.vars.featuresCSE == "2px"'>
+                                        <b:include cond='data:posts.empty and data:view.search.query' data='{iconId: "icon_magnify"}' name='defaultIcons' />
+                                        <b:else />
+                                        <b:include cond='data:posts.empty and data:view.search.query' data='{iconId: "icon_eye_off"}' name='defaultIcons' />
+                                    </b:if>
+                                    <b:include cond='data:posts.empty and data:view.search.label and data:skin.vars.indexLabelDescription == "1px"' data='{iconId: "icon_eye_off"}' name='defaultIcons' />
+                                    <b:include cond='data:posts.empty and data:view.isArchive' data='{iconId: "icon_eye_off"}' name='defaultIcons' />
+
+                                    <b:include cond='!data:posts.empty and data:view.search.query' data='{iconId: "icon_magnify"}' name='defaultIcons' />
+                                    <b:if cond='!data:posts.empty and data:view.search.label'>
+                                        <b:if cond='data:skin.vars.indexOptionLabelIcon == "4px"'>
+                                            <use expr:xlink:href='"#" + data:view.search.label' />
+                                            <b:elseif cond='data:skin.vars.indexOptionLabelIcon != "4px"' />
+                                            <b:include data='{iconId: "icon_pound"}' name='defaultIcons' />
+                                        </b:if>
+                                    </b:if>
+                                    <b:include cond='!data:posts.empty and data:view.isArchive' data='{iconId: "icon_archive"}' name='defaultIcons' />
+                                </svg>
+                            </div>
+
+                            <strong class='label_search'>
+                                <b:if cond='data:view.search.query'>
+                                    <data:messages.search />
+                                </b:if>
+                                <b:if cond='data:view.search.label'>
+                                    <data:view.search.label />
+                                </b:if>
+                                <b:if cond='data:view.isArchive'>
+                                    <b:if cond='data:posts.empty'>
+                                        <data:messages.archive />
+                                        <b:else />
+                                        <data:messages.archive />:
+                                        <data:blog.pageName />
+
+                                    </b:if>
+                                </b:if>
+                            </strong>
+                        </div>
+                        <div class='query_more'>
+                            <a expr:href='data:blog.homepageUrl' class='elcreative_button elcreative_ripple'>
+                                <data:messages.showAll />
+                                <svg width='18' height='18' viewBox='0 0 24 24'>
+                                    <b:include data='{iconId: "icon_arrow_right"}' name='defaultIcons' />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </b:if>
+
+                <b:if cond='data:view.isMultipleItems and data:posts.empty and data:skin.vars.featuresCSE == "1px"'>
+                    <div class='query_empty'>
+                        <data:messages.noResultsFound />
+                    </div>
+                </b:if>
+
+                <div class='blog_posts'>
+                    <b:class cond='data:view.isMultipleItems' expr:name='data:skin.vars.indexOptionDesktopPostStyle == "2px" ? "posts_desktop_grid" : "posts_desktop_list"' />
+                    <b:if cond='data:view.search.query and data:skin.vars.featuresCSE == "2px"'>
+                        <div id="elcCSE" class='elcCSE'>
+                            <gcse:searchresults-only></gcse:searchresults-only>
+                        </div>
+
+                        <b:else />
+                        <b:loop index='i' values='data:posts' var='post'>
+                            <article class='post_outer_container' expr:data-index='data:i'>
+                                <b:class cond='data:view.isMultipleItems and data:skin.vars.indexOptionPostFade == "2px"' name='posts_fade' />
+                                <div class='post_container_start'>
+                                    <div class='post_header_start'>
+                                        <b:if cond='data:post.title != ""'>
+                                            <b:tag cond='data:post.link or (data:post.url and data:view.url != data:post.url)' name='a' expr:href='data:post.link ?: data:post.url' class='post_title'>
+                                                <h2 expr:class='data:view.isSingleItem ? "post_title" : "no_class"'>
+                                                    <data:post.title />
+                                                </h2>
+                                            </b:tag>
+                                        </b:if>
+                                    </div>
+                                </div>
+                            </article>
+                        </b:loop>
+                    </b:if>
                 </div>
             </b:if>
-            <b:eval expr='data:view.isSearchQuery'/>
         </b:includable>
     </b:widget>
 </b:section>

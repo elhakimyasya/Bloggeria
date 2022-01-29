@@ -9,6 +9,8 @@
     <Variable name="posts.text.color" description="Default Text Color" type="color" default="#212121" value="#212121" />
     <Variable name="defaultColorBorder" description="Default Border Color" type="color" default="#dadce4" value="#dadce4" />
 
+    <Variable name="defaultColorButton" description="Default Button Color" type="color" default="#1a73e8" value="#1a73e8" />
+
     <Variable name="defaultColorButtonIcon" description="Default Button Icon Color" type="color" default="#5f6368" value="#5f6368" />
     <Variable name="defaultOptionButtonIconRadius" description="Button Icon Corner Radius" type="length" default="25px" min="0px" max="25px" value="25px" />
 
@@ -56,11 +58,16 @@
 </Group>
 <Group description='Index Options'>
     <Variable name="indexOptionRecentHeadline" description="Recent Headline Title (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="indexOptionDesktopPostStyle" description="Posts Style on Desktop (List | Grid)" type="length" default="1px" min="1px" max="2px" value="1px" />
+    <Variable name="indexOptionPostFade" description="Posts Fade Animation (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px" />
+    <Variable name="indexOptionLabelIcon" description="Posts Label (Disable | Text | Icon and Text | Custom Icon and Text)" type="length" default="3px" min="1px" max="4px" value="3px" />
+    <Variable name="indexLabelDescription" description="Posts Label Description (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
 </Group>
 <Group description='Gadget Options'>
     <Variable name="gadgetColorTitle" description="Gadget Title Color" type="color" default="$(posts.text.color)" value="#202124" />
     <Variable name="gadgetColorTitleIndicator" description="Gadget Indicator Color" type="color" default="$(keycolor)" value="#1a73e8" />
     <Variable name="gadgetColorBorder" description="Gadget Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4" />
+    <Variable name="gadgetColorPostMeta" description="Gadget Post Meta Color" type="color" default="$(defaultColorMeta)" value="#5f6368" />
 </Group>
 
 <Variable hideEditor="true" name="body.text.color" description="Text Color" type="color" default="$(posts.text.color)" value="#9aa0a6" />
