@@ -22,7 +22,6 @@
             <b:defaultmarkup type='Common'>
                 <b:includable id='scriptHead'>
                     <script>@@include("../build/scripts/scripts-head.js")</script>
-                    <b:tag cond='data:skin.vars.optionFeatureAdSenseLazy == "1px" and (data:widgets.AdSense.first or data:blog.adsenseClientId)' name='script' expr:src='"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?" + data:blog.adsenseClientId' defer='' async='' crossorigin='anonymous' />
                     <script type="application/ld+json">@@include("../src/assets/schema-website.txt")</script>
                 </b:includable>
                 <b:includable id='scriptBody'>
