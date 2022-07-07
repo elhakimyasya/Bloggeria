@@ -1,14 +1,17 @@
 {
   "name": "bloggeria",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "author": {
     "name": "Yasya El Hakim",
     "email": "yasyaelhakim@gmail.com",
-    "url": "https://www.elcreativeacademy.com/"
+    "url": "https://www.elcreativeacademy.com"
   },
   "keywords": [
-    "Blogger"
+    "blogger",
+    "template",
+    "materia",
+    "x2"
   ],
   "scripts": {
     "build": "gulp build:production",
