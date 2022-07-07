@@ -1,6 +1,5 @@
 {
 	"name": "bloggeria",
-	"names": "Theme_Name",
 	"version": "2.0.0",
 	"description": "",
 	"author": {
@@ -10,11 +9,11 @@
 	},
 	"keywords": [
 		"blogger",
+		"blogspot",
 		"template",
 		"materia",
 		"x2"
 	],
-	"demo": "https://www.elcreativeacademy.com/",
 	"scripts": {
 		"build": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify && gulp build:production",
 		"tailwind-watch": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify --watch",
@@ -50,6 +49,14 @@
 		"prettier": "^2.6.2",
 		"prettier-plugin-tailwindcss": "^0.1.8",
 		"tailwindcss": "^3.0.23"
+	},
+	"names": "Theme_Name",
+	"demo": "https://www.elcreativeacademy.com/",
+	"config": {
+		"cdataStart": "<![CDATA[",
+		"cdataEnd": "]]>",
+		"cdataStart:alt": "/*<![CDATA[*/",
+		"cdataEnd:alt": "/*]]>*/"
 	},
 	"releasedDate": "July 8, 2022 - 00:37"
 }
