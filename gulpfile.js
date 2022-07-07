@@ -33,7 +33,11 @@ gulp.task("styles:autoprefixed", function () {
 gulp.task("styles:minify", function () {
     return gulp.src("./build/styles/*.css")
         .pipe(gulpCleanCSS({
-            keepSpecialComments: 0
+            level: {
+                1: {
+                    specialComments: 0
+                }
+            }
         }))
         .pipe(gulp.dest("./build/styles"))
 });
