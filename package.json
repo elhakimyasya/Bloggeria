@@ -5,8 +5,11 @@
 	"main": "gulpfile.js",
 	"scripts": {
 		"build": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify && gulp build:production",
+		"build:dev": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css && gulp build:development",
 		"tailwind:watch": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify --watch",
-		"tailwind:watch-dev": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --watch"
+		"tailwind:watch-dev": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --watch",
+		"webpack:build": "webpack --mode=production",
+		"webpack:dev": "webpack --mode=development"
 	},
 	"keywords": [
 		"elcreative",
@@ -30,11 +33,10 @@
 	"homepage": "https://github.com/elhakimyasya/Bloggeria#readme",
 	"devDependencies": {
 		"@babel/preset-env": "^7.18.10",
+		"@prettier/plugin-xml": "^2.2.0",
 		"@tailwindcss/line-clamp": "^0.4.0",
 		"autoprefixer": "^10.4.8",
-		"babel-plugin-transform-remove-console": "^6.9.4",
-		"babel-plugin-transform-remove-debugger": "^6.9.4",
-		"del": "7.0.0",
+		"del": "6.0.0",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-babel": "^8.0.0",
@@ -43,12 +45,15 @@
 		"gulp-file-include": "^2.3.0",
 		"gulp-rename": "^2.0.0",
 		"gulp-replace": "^1.1.3",
+		"gulp-strip-comments": "^2.5.2",
 		"gulp-token-replace": "^1.1.5",
 		"prettier": "^2.7.1",
 		"prettier-plugin-tailwindcss": "^0.1.13",
-		"tailwindcss": "^3.1.7"
+		"tailwindcss": "^3.1.7",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0"
 	},
-	"names": "Theme_Name",
+	"names": "Theme Name",
 	"demo": "https://www.elcreativeacademy.com/",
 	"config": {
 		"cdataStart": "<![CDATA[",
@@ -56,5 +61,5 @@
 		"cdataStart:alt": "/*<![CDATA[*/",
 		"cdataEnd:alt": "/*]]>*/"
 	},
-	"releasedDate": "August 4, 2022 - 17:34"
+	"releasedDate": "August 5, 2022 - 03:06"
 }
