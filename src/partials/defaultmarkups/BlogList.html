@@ -1,0 +1,71 @@
+<b:includable id="main">
+    <b:include name="widget-title" />
+    <b:include name="content" />
+</b:includable>
+<b:includable id="content">
+    <div class="widget-content">
+        <div class="blog-list-container" expr:id='data:widget.instanceId + "_container"'>
+            <ul expr:id='data:widget.instanceId + "_blogs"'>
+                <b:loop values="data:items" var="item">
+                    <li expr:style="data:item.displayStyle">
+                        <div class="blog-icon">
+                            <b:if cond="data:showIcon">
+                                <img expr:data-lateloadsrc="data:item.blogIconUrl" height="16" width="16" />
+                            </b:if>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-title">
+                                <a expr:href="data:item.blogUrl" target="_blank"><data:item.blogTitle /></a>
+                            </div>
+                            <div class="item-content">
+                                <b:if cond="data:showItemThumbnail and data:item.itemThumbnail">
+                                    <div class="item-thumbnail">
+                                        <a expr:href="data:item.blogUrl" target="_blank">
+                                            <img alt="" border="0" expr:height="data:item.itemThumbnail.height" expr:src="data:item.itemThumbnail.url" expr:width="data:item.itemThumbnail.width" />
+                                        </a>
+                                    </div>
+                                </b:if>
+                                <b:if cond="data:showItemTitle">
+                                    <span class="item-title">
+                                        <b:if cond='data:item.itemUrl != ""'>
+                                            <a expr:href="data:item.itemUrl" target="_blank"> <data:item.itemTitle /></a>
+                                            <b:else />
+                                            <data:item.itemTitle />
+                                        </b:if>
+                                    </span>
+                                </b:if>
+                                <b:if cond="data:showItemSnippet">
+                                    <b:if cond="data:showItemTitle"> - </b:if>
+                                    <span class="item-snippet">
+                                        <data:item.itemSnippet />
+                                    </span>
+                                </b:if>
+                                <b:if cond="data:showTimePeriodSinceLastUpdate">
+                                    <div class="item-time">
+                                        <data:item.timePeriodSinceLastUpdate />
+                                    </div>
+                                </b:if>
+                            </div>
+                        </div>
+                        <div style="clear: both" />
+                    </li>
+                </b:loop>
+            </ul>
+
+            <b:if cond="data:numItemsToShow != 0 and data:totalItems gt data:numItemsToShow">
+                <div class="show-option">
+                    <span expr:id='data:widget.instanceId + "_show-n"' style="display: none">
+                        <a href="javascript:void(0)" onclick="return false;">
+                            <data:showNText />
+                        </a>
+                    </span>
+                    <span expr:id='data:widget.instanceId + "_show-all"' style="margin-left: 5px">
+                        <a href="javascript:void(0)" onclick="return false;">
+                            <data:showAllText />
+                        </a>
+                    </span>
+                </div>
+            </b:if>
+        </div>
+    </div>
+</b:includable>
