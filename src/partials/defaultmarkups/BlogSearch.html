@@ -1,0 +1,22 @@
+<b:includable id="main">
+    <b:include name="widget-title" />
+    <b:include name="content" />
+</b:includable>
+<b:includable id="content">
+    <div class="widget-content" role="search">
+        <b:include name="searchForm" />
+    </div>
+</b:includable>
+<b:includable id="searchForm">
+    <form expr:action="data:blog.searchUrl">
+        <b:attr cond="not data:view.isPreview" name="target" value="_top" />
+        <b:include name="urlParamsAsFormInput" />
+        <div class="search-input">
+            <input autocomplete="off" expr:aria-label="data:messages.searchThisBlog" expr:placeholder="data:messages.searchThisBlog" expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name="q" />
+        </div>
+        <b:include name="searchSubmit" />
+    </form>
+</b:includable>
+<b:includable id="searchSubmit">
+    <input class="search-action" expr:value="data:messages.search.escaped" type="submit" />
+</b:includable>
