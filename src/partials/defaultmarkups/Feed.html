@@ -1,0 +1,11 @@
+<b:includable id="main">
+    <b:include name="widget-title" />
+    <b:include name="content" />
+</b:includable>
+<b:includable id="content">
+    <div class="widget-content" expr:id='data:widget.instanceId + "_feedItemListDisplay"'>
+        <span style="filter: alpha(25); opacity: 0.25">
+            <a expr:href="data:feedUrl"><data:loadingMsg /></a>
+        </span>
+    </div>
+</b:includable>
