@@ -1,37 +1,41 @@
-const gulpAutoprefixer = require("gulp-autoprefixer");
-const gulpTokenReplace = require("gulp-token-replace");
-const gulpBabelMinify = require("gulp-babel-minify");
-const gulpFileInclude = require("gulp-file-include");
-const gulpCleanCSS = require("gulp-clean-css");
-const gulpReplace = require("gulp-replace");
-const gulpRename = require("gulp-rename");
-const gulpBabel = require("gulp-babel");
-const gulp = require("gulp");
-const del = require("del");
-const fs = require("fs");
+const gulp = require('gulp');
+const gulpAutoPrefixer = require('gulp-autoprefixer');
+const gulpCleanCSS = require('gulp-clean-css');
+const gulpTokenReplace = require('gulp-token-replace');
+const gulpFileInclude = require('gulp-file-include');
+const gulpReplace = require('gulp-replace');
+const gulpRename = require('gulp-rename');
+const gulpStripComments = require('gulp-strip-comments');
+const gulpBabel = require('gulp-babel');
+const gulpBabelMinify = require('gulp-babel-minify');
+const del = require('del');
+const fs = require('fs');
 
-gulp.task("clean", function () {
-    return del(["build/**"], {
-        force: true
-    });
+const packages = './package.json';
+
+// Clean everything inside /build directory
+gulp.task('clean', function () {
+    return del(['build/**'], {
+        force: true,
+    })
 });
 
-gulp.task("styles", function () {
-    return gulp.src("./src/assets/styles/*.css")
-        // .pipe(gulpSass())
-        .pipe(gulp.dest("./build/styles"))
+// Generate Styles
+gulp.task('styles', function () {
+    return gulp.src('./src/assets/styles/*.css')
+        .pipe(gulp.dest('./build/styles'))
 });
-
-gulp.task("styles:autoprefixed", function () {
-    return gulp.src("./build/styles/*.css")
-        .pipe(gulpAutoprefixer({
+// Generate Prefixed Styles
+gulp.task('styles:prefixed', function () {
+    return gulp.src('./build/styles/*.css')
+        .pipe(gulpAutoPrefixer({
             cascade: false
         }))
-        .pipe(gulp.dest("./build/styles"))
+        .pipe(gulp.dest('./build/styles'))
 });
-
-gulp.task("styles:minify", function () {
-    return gulp.src("./build/styles/*.css")
+// Generate Minified Styles
+gulp.task('styles:minify', function () {
+    return gulp.src('./src/assets/styles/*.css')
         .pipe(gulpCleanCSS({
             level: {
                 1: {
@@ -39,17 +43,21 @@ gulp.task("styles:minify", function () {
                 }
             }
         }))
-        .pipe(gulp.dest("./build/styles"))
+        .pipe(gulp.dest('./build/styles'))
 });
 
-gulp.task("scripts", function () {
-    return gulp.src(["./src/assets/scripts/*.js", "./src/assets/scripts/libraries/*.js"])
+// Generate Scripts
+gulp.task('script', function () {
+    return gulp.src([
+        'src/assets/scripts/*.js',
+        'src/assets/scripts/libraries/*.js',
+    ])
         .pipe(gulpBabel())
-        .pipe(gulp.dest("./build/scripts"))
+        .pipe(gulp.dest('./build/scripts'))
 });
-
-gulp.task("scripts:minify", function () {
-    return gulp.src("./build/scripts/*.js")
+// Generate Minified Script
+gulp.task('script:minify', function () {
+    return gulp.src('build/scripts/*js')
         .pipe(gulpBabelMinify({
             mangle: {
                 keepClassName: false
@@ -59,77 +67,85 @@ gulp.task("scripts:minify", function () {
             removeDebugger: true,
             removeConsole: true
         }))
-        .pipe(gulp.dest("./build/scripts"))
+        .pipe(gulp.dest('./build/scripts'))
 });
 
-gulp.task("timestamp", function (done) {
-    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var date = new Date();
-    var releasedDate = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} - ${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`;
+// Generate Timestamp for /package.json
+gulp.task('timestamp', function (done) {
+    const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    const date = new Date();
+    const timestamps = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} - ${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`;
 
-    function jsonReader(filePath, cb) {
-        fs.readFile(filePath, (error, fileData) => {
-            if (error) {
-                return cb && cb(error);
-            };
+
+    !(function (filePath, response) {
+        fs.readFile(filePath, function (error, fileData) {
+            if (error) return response && response(error);
 
             try {
                 const object = JSON.parse(fileData);
-                return cb && cb(null, object);
+
+                return response && response(null, object)
             } catch (error) {
-                return cb && cb(error);
+                return response && response(error);
             }
-        });
-    };
+        })
+    })(packages, function (error, object) {
+        if (error) return console.log('Error reading file: ', error);
 
-    jsonReader("./package.json", function (error, object) {
-        if (error) {
-            console.log("Error reading file:", error);
-            return;
-        };
-
-        object.releasedDate = releasedDate;
-        fs.writeFile("./package.json", JSON.stringify(object, null, '\t'), {
-            flag: "w",
+        object.releasedDate = timestamps;
+        fs.writeFile(packages, JSON.stringify(object, null, '\t'), {
+            flag: 'w'
         }, function (error) {
-            if (error) {
-                console.log("Error writing file:", error)
-            }
-        });
+            if (error) return console.log('Error writing file: ', error)
+        })
     });
 
-    done();
+    return done()
 });
 
-gulp.task("start", function () {
-    delete require.cache[require.resolve("./package.json")];
-    var package = require("./package.json");
+// Final Tasks
+gulp.task('start', function () {
+    delete require.cache[require.resolve(packages)];
+    const tokenData = require(packages);
 
-    return gulp.src("./src/main.xml")
+    return gulp.src('src/main.html')
         .pipe(gulpTokenReplace({
-            global: package
+            global: tokenData
+        }))
+        .pipe(gulpStripComments({
+            trim: true
         }))
         .pipe(gulpFileInclude({
             indent: true,
-            basepath: "@file",
-            prefix: "@@"
+            basepath: '@@file',
+            prefix: '@@'
         }))
-        .pipe(gulpReplace("-tw", "-elcreative"))
-        .pipe(gulpReplace(/<b:comment>.*?<\/b:comment>(\n|\r|\n\r)/gm, "\r"))
+        .pipe(gulpReplace('-tw', '-elcreative'))
         .pipe(gulpRename({
-            basename: "theme",
-            extname: ".xml"
+            basename: 'theme',
+            extname: '.xml'
         }))
-        .pipe(gulp.dest("./dist"))
-});
 
-gulp.task("build:production", gulp.series(
-    "clean",
-    "timestamp",
-    "styles",
-    "styles:autoprefixed",
-    "styles:minify",
-    "scripts",
-    "scripts:minify",
-    "start"
+        .pipe(gulp.dest('./dist'))
+})
+
+// Production Mode
+gulp.task('build:production', gulp.series(
+    'clean',
+    'styles',
+    'styles:prefixed',
+    'styles:minify',
+    'script',
+    'script:minify',
+    'timestamp',
+    'start',
+));
+// Development Mode
+gulp.task('build:development', gulp.series(
+    'clean',
+    'styles',
+    'script',
+    'start',
 ));
