@@ -6,7 +6,15 @@
         <!-- prettier-ignore -->
         <b:skin>{{config.cdataStart}}/*
         @@include("../src/partials/defaultVariables.html")
+        *//*
+        Name            : {{names}}
+        Version         : {{version}}
+        Release Date    : {{releasedDate}}
+        Author          : {{author.name}}
+        Demo URL        : {{demo}}
         */
+        :root {
+        }
         {{config.cdataEnd}}</b:skin>
         <!-- prettier-ignore -->
         <b:tag name="style">@@include("../build/styles/styles.min.css")</b:tag>
