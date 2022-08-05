@@ -1,5 +1,5 @@
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" expr:content='data:skin.vars.optionFeatureViewportZooming == "2px" ? "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" : "width=device-width, initial-scale=1.0"' />
 <meta name="description" expr:content="data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped" />
 <b:with value='data:view.isSingleItem ? data:blog.pageName + " | " + data:blog.title : data:view.isHomepage or (data:view.search and !data:view.search.label and !data:view.search.query ) ? data:blog.title : data:view.search.label ? data:blog.pageTitle : data:view.search.query ? data:messages.search + " : " + data:view.search.query + " | " + data:blog.title : data:blog.title' var="blogTitle">
     <title><data:blogTitle /></title>
