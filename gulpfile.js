@@ -8,6 +8,7 @@ const gulpRename = require('gulp-rename');
 const gulpStripComments = require('gulp-strip-comments');
 const gulpBabel = require('gulp-babel');
 const gulpBabelMinify = require('gulp-babel-minify');
+const gulpSass = require('gulp-sass')(require('sass'));
 const del = require('del');
 const fs = require('fs');
 
@@ -22,12 +23,13 @@ gulp.task('clean', function () {
 
 // Generate Styles
 gulp.task('styles', function () {
-    return gulp.src('./src/assets/styles/*.css')
+    return gulp.src('./src/assets/styles/*.{css,scss}')
+        .pipe(gulpSass())
         .pipe(gulp.dest('./build/styles'))
 });
 // Generate Prefixed Styles
 gulp.task('styles:prefixed', function () {
-    return gulp.src('./build/styles/*.css')
+    return gulp.src('./build/styles/*.{css,scss}')
         .pipe(gulpAutoPrefixer({
             cascade: false
         }))
@@ -35,7 +37,7 @@ gulp.task('styles:prefixed', function () {
 });
 // Generate Minified Styles
 gulp.task('styles:minify', function () {
-    return gulp.src('./src/assets/styles/*.css')
+    return gulp.src('./src/assets/styles/*.{css,scss}')
         .pipe(gulpCleanCSS({
             level: {
                 1: {
