@@ -5,11 +5,11 @@
         <b:include data="blog" name="headContent" />
         <!-- prettier-ignore -->
         <b:skin>/*
-            * Name            : Matera X2 Exclusive Edition
-            * Version         : 3.0.0
-            * Release Date    : August 5, 2022 - 23:41
-            * Author          : Yasya El Hakim
-            * Demo URL        : https://www.elcreativeacademy.com/
+            * Name            : {{names}}
+            * Version         : {{version}}
+            * Release Date    : {{releasedDate}}
+            * Author          : {{author.name}}
+            * Demo URL        : {{demo}}
             */
             {{config.cdataStart}}/*
             @@include("../src/partials/defaultVariables.html")
@@ -17,7 +17,6 @@
             :root {
             }
         </b:skin>
-        <!-- prettier-ignore -->
         <b:tag name="style">@@include("../build/styles/styles.min.css")</b:tag>
         <b:defaultmarkups>
             <b:defaultmarkup type="Common">
