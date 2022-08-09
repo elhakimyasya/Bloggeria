@@ -1,6 +1,5 @@
 <b:includable id="defaultAdUnit">
-    <b:comment>Clear out style (needs to be a non-empty string)</b:comment>
-    <b:with value='"/* Done in css. */"' var="style">
-        <b:include name="super.defaultAdUnit" />
-    </b:with>
+    <ins class="adsbygoogle" data-ad-format="auto" expr:data-ad-client="data:adClientId ?: data:blog.adsenseClientId" expr:data-ad-host="data:blog.adsenseHostId" expr:data-analytics-uacct="data:blog.analyticsAccountNumber" expr:style='data:style ?: "display: block;"'></ins>
+    <!-- prettier-ignore -->
+    <script>(adsbygoogle = window.adsbygoogle || []).push({})</script>
 </b:includable>

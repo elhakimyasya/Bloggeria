@@ -29,6 +29,10 @@
                     @@include("../src/partials/defaultmarkups/Common/chevronUpIcon.html")
                 </b:includable>
                 <!-- prettier-ignore -->
+                <b:includable id="defaultAdUnit">
+                    @@include("../src/partials/defaultmarkups/Common/defaultAdUnit.html")
+                </b:includable>
+                <!-- prettier-ignore -->
                 <b:includable id="headContent">
                     @@include("../src/partials/defaultmarkups/Common/headContent.html")
                 </b:includable>
@@ -60,6 +64,10 @@
                 <b:includable id="scriptBody">
                     <b:tag name="script">{{config.cdataStart.alt}}@@include("../build/scripts/script.js"){{config.cdataEnd.alt}}</b:tag>
                 </b:includable>
+            </b:defaultmarkup>
+             <!-- prettier-ignore -->
+             <b:defaultmarkup type="AdSense">
+                @@include("../src/partials/defaultmarkups/AdSense.html")
             </b:defaultmarkup>
             <!-- prettier-ignore -->
             <b:defaultmarkup type="Attribution">
