@@ -63,5 +63,9 @@
 		"cdataStart:alt": "/*<![CDATA[*/",
 		"cdataEnd:alt": "/*]]>*/"
 	},
-	"releasedDate": "August 5, 2022 - 03:09"
+	"releasedDate": "August 5, 2022 - 03:09",
+	"dependencies": {
+		"D": "^1.0.0",
+		"gulp-jsonminify": "^1.1.0"
+	}
 }
