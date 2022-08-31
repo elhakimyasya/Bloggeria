@@ -22,10 +22,7 @@
 		"email": "yasyaelhakim@gmail.com",
 		"url": "https://www.elcreativeacademy.com"
 	},
-	"license": [
-		"MIT",
-		"ISC"
-	],
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/elhakimyasya/Bloggeria.git"
