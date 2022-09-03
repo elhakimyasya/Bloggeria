@@ -8,7 +8,11 @@ module.exports = {
         "./src/assets/scripts/**/*.{xml,html,js}"
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                defaultColorBackground: 'var(--defaultColorBackground)',
+            },
+        },
     },
     plugins: [
         require('tailwindcss'),
