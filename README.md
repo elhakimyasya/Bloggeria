@@ -1,7 +1,6 @@
 # Bloggeria
  
 ````
-npm install && npm update
-npm run tailwind-watch
+npm install
 npm run build
 ````
