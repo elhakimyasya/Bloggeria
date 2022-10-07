@@ -49,6 +49,7 @@
 		"gulp-sass": "^5.1.0",
 		"gulp-strip-comments": "^2.5.2",
 		"gulp-token-replace": "^1.1.5",
+		"gulp-webpack": "^1.5.0",
 		"prettier": "^2.7.1",
 		"prettier-plugin-tailwindcss": "^0.1.13",
 		"sass": "^1.54.3",

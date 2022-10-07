@@ -5,6 +5,6 @@ module.exports = {
     entry: path.resolve(__dirname, 'build/scripts/script-head.js'),
     output: {
         path: path.resolve(__dirname, 'build/scripts'),
-        filename: 'bundle.js',
+        filename: '[name].js',
     },
 };
