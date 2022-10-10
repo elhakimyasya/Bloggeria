@@ -4,7 +4,10 @@ module.exports = {
         "./src/*.{xml,html,js}",
         "./src/partials/*/*.{xml,html,js}",
         "./src/partials/*/*/*.{xml,html,js}",
-        "./src/assets/scripts/**/*.{xml,html,js}"
+        "./src/assets/scripts/**/*.{xml,html,js}",
+
+
+        "./plugins/**/*.{js}"
     ],
     theme: {
         extend: {

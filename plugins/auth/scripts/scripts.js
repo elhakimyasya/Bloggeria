@@ -1,6 +1,9 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { doc, getFirestore, onSnapshot } from 'firebase/firestore';
+import { getAuth, GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth';
+import auth from './partials/auth';
+import userProfile from './partials/userProfile';
+import '../styles/styles.scss'
 
 ((dashboardPage, options) => {
     // Check Dashboard Page
@@ -13,13 +16,26 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
         if (currentUser) {
-            console.log('user');
-            functionSnackbar('pleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewait', 5000)
+            const documentReference = doc(firestoreDatabase, `users/${currentUser.uid}`);
+            onSnapshot(documentReference, (doc) => {
+                userProfile(doc);
+            });
+
+            functionSnackbar(options.text.textPleaseWait, options.config.snackbarDuration)
         } else {
+            const authProvider = new GoogleAuthProvider;
+            auth(firebaseAuth, authProvider)
+
             console.log('notuser')
-            functionSnackbar('pleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewaitpleasewait', 5000)
+            functionSnackbar(options.text.textPleaseWait, options.config.snackbarDuration)
         }
     });
 })(authPageIndex, {
     firebaseConfig: firebaseConfig,
+    config: {
+        snackbarDuration: 3000
+    },
+    text: {
+        textPleaseWait: 'Please Wait...'
+    }
 })
