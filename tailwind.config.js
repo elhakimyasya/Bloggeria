@@ -1,13 +1,13 @@
 module.exports = {
     darkMode: "class",
     content: [
-        // "./src/*.{xml,html,js}",
-        // "./src/partials/*/*.{xml,html,js}",
-        // "./src/partials/*/*/*.{xml,html,js}",
-        // "./src/assets/scripts/**/*.{xml,html,js}",
+        "./src/*.{xml,html,js}",
+        "./src/partials/*/*.{xml,html,js}",
+        "./src/partials/*/*/*.{xml,html,js}",
+        "./src/assets/scripts/**/*.{xml,html,js}",
 
 
-        "./build/scripts/auth.js"
+        // "./build/scripts/auth.js"
     ],
     theme: {
         extend: {
