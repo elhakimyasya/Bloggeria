@@ -6,6 +6,8 @@ const userProfile = (data, container, options) => {
     const userWebURL = userData.userWebURL;
     const userBio = userData.userBio;
 
+    console.log(userWebURL)
+
     const htmlTemplate = `
         <div class='relative flex w-full flex-col items-center justify-center rounded-lg border border-colorBorder p-3 dark:border-colorColorModeDarkBorder'>
             <div class='flex w-full flex-col items-center justify-center lg:flex-row'>
@@ -23,7 +25,7 @@ const userProfile = (data, container, options) => {
                     ${userBio ? `<div class='mt-1 w-full text-center text-sm text-colorMeta dark:text-colorColorModeDarkMeta lg:text-start'>${userBio}</div>` : ''}
                 </div>
             </div>
-            <button class='elcreative_button_icon elcreative_ripple absolute top-3 text-colorMeta hover:bg-colorTextTrans1 focus:bg-colorTextTrans1 active:bg-colorTextTrans2 ltr:right-3 rtl:left-3 dark:text-colorColorModeDarkMeta' aria-label='More' title='More' aria-expanded='false' aria-haspopup='listbox' data-toggle-class-on-target='active'  data-toggle-target='#dropdown_auth_profile_more' data-toggle-escape data-toggle-outside><svg width='20' height='20' viewBox='0 0 24 24'>${options.icon.elementIconSettings}</svg></button>
+            <button class='elcreative_ripple absolute top-3 text-colorMeta ltr:right-3 rtl:left-3 dark:text-colorColorModeDarkMeta' aria-label='More' title='More' aria-expanded='false' aria-haspopup='listbox' data-toggle-class-on-target='active' data-toggle-target='#dropdown_auth_profile_more' data-toggle-escape data-toggle-outside><svg width='20' height='20' viewBox='0 0 24 24' fill='currentColor'>${options.icon.elementIconSettings}</svg></button>
         </div>
     `
 

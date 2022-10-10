@@ -47,5 +47,4 @@ module.exports = {
             template: './plugins/auth/index.html',
         }),
     ],
-    watch: true
 }

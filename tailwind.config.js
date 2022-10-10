@@ -18,11 +18,13 @@ module.exports = {
                 colorKey: 'var(--colorKey)',
                 colorBackground: 'var(--colorBackground)',
                 colorText: 'var(--colorText)',
+                colorMeta: 'var(--colorMeta)',
                 colorBorder: 'var(--colorBorder)',
                 
                 colorColorModeDarkKey: 'var(--colorKey)',
                 colorColorModeDarkBackground: 'var(--colorColorModeDarkBackground)',
                 colorColorModeDarkText: 'var(--colorColorModeDarkText)',
+                colorColorModeDarkMeta: 'var(--colorColorModeDarkMeta)',
                 colorColorModeDarkBorder: 'var(--colorColorModeDarkBorder)',
             },
         },
