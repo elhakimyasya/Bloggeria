@@ -1,10 +1,13 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'development',
-    entry: path.resolve(__dirname, 'build/scripts/script-head.js'),
-    output: {
-        path: path.resolve(__dirname, 'build/scripts'),
-        filename: '[name].js',
+    mode: 'production',
+    entry: {
+        scripts: './src/assets/scripts/scripts.js',
     },
-};
+    output: {
+        path: path.resolve(__dirname, './build/scripts'),
+        filename: '[name].js'
+    },
+    watch: false
+}

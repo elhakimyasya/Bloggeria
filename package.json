@@ -5,11 +5,7 @@
 	"main": "gulpfile.js",
 	"scripts": {
 		"build": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify && gulp build:production",
-		"build:dev": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css && gulp build:development",
-		"tailwind:watch": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify --watch",
-		"tailwind:watch-dev": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --watch",
-		"webpack:build": "webpack --mode=production",
-		"webpack:dev": "webpack --mode=development"
+		"dev": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css"
 	},
 	"keywords": [
 		"elcreative",
@@ -55,7 +51,8 @@
 		"sass": "^1.54.3",
 		"tailwindcss": "^3.1.7",
 		"webpack": "^5.74.0",
-		"webpack-cli": "^4.10.0"
+		"webpack-cli": "^4.10.0",
+		"webpack-stream": "^7.0.0"
 	},
 	"names": "Theme Name",
 	"demo": "https://www.elcreativeacademy.com/",
