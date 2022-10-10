@@ -1,13 +1,13 @@
 module.exports = {
     darkMode: "class",
     content: [
-        "./src/*.{xml,html,js}",
-        "./src/partials/*/*.{xml,html,js}",
-        "./src/partials/*/*/*.{xml,html,js}",
-        "./src/assets/scripts/**/*.{xml,html,js}",
+        // "./src/*.{xml,html,js}",
+        // "./src/partials/*/*.{xml,html,js}",
+        // "./src/partials/*/*/*.{xml,html,js}",
+        // "./src/assets/scripts/**/*.{xml,html,js}",
 
 
-        "./plugins/**/*.{js}"
+        "./build/scripts/auth.js"
     ],
     theme: {
         extend: {
@@ -15,7 +15,15 @@ module.exports = {
                 sans: ['Rubik', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
             },
             colors: {
-                defaultColorBackground: 'var(--defaultColorBackground)',
+                colorKey: 'var(--colorKey)',
+                colorBackground: 'var(--colorBackground)',
+                colorText: 'var(--colorText)',
+                colorBorder: 'var(--colorBorder)',
+                
+                colorColorModeDarkKey: 'var(--colorKey)',
+                colorColorModeDarkBackground: 'var(--colorColorModeDarkBackground)',
+                colorColorModeDarkText: 'var(--colorColorModeDarkText)',
+                colorColorModeDarkBorder: 'var(--colorColorModeDarkBorder)',
             },
         },
     },
