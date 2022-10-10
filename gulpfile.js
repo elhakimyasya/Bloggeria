@@ -71,14 +71,15 @@ gulp.task('styles:minified', () => {
 // Generate scripts (webpack)
 gulp.task('scripts:webpack', () => {
     const sources = [
-        './src/assets/scripts/*.js',
+        // './src/assets/scripts/*.js',
+        './plugins/auth/scripts/*.js',
     ];
 
     return gulp.src(sources)
         .pipe(webpackStream({
             mode: 'production',
             output: {
-                filename: 'scripts.js'
+                filename: 'bundle.js'
             },
             watch: false
         }, webpack))
@@ -223,6 +224,7 @@ gulp.task('build:production', gulp.series(
     'styles:autoprefixed',
     'styles:minified',
     'scripts:webpack',
+    'scripts:babel',
     'scripts:minified',
     // 'json:minify',
     // 'json:replace',
