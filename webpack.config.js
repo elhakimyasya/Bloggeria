@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const terserWebpackPlugin = require('terser-webpack-plugin');
 const stylesHandler = 'style-loader';
 
 module.exports = {
@@ -9,7 +10,23 @@ module.exports = {
         auth: './plugins/auth/scripts/scripts.js',
     },
     optimization: {
-        chunkIds: 'named',
+        minimize: true,
+        minimizer: [
+            new terserWebpackPlugin({
+                extractComments: false,
+                terserOptions: {
+                    mangle: true,
+                    compress: true,
+                    format: {
+                        comments: false,
+                    },
+                },
+            })
+        ],
+        // splitChunks: {
+        //     chunks: 'all',
+
+        // },
     },
     output: {
         path: path.resolve(__dirname, './build/scripts'),
