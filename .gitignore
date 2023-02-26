@@ -1,6 +1,5 @@
 /build
-/dist/theme.xml
-/src/assets/styles/styles.min.css
+/src
 
 # Logs
 logs
