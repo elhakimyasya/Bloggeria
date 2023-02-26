@@ -30,7 +30,7 @@
                     @@include("../src/partials/defaultmarkups/Common/headContent.html")
                 </b:includable>
                 <b:includable id="scriptHead">
-                    <b:tag name="script">@@include("../build/scripts/scriptsHead.min.js")</b:tag>
+                    <b:tag name="script">@@include("../build/scripts/scripts-head.js")</b:tag>
                     <b:tag cond='data:skin.vars.optionFeatureAdSenseLazy == "1px" and (data:widgets.AdSense.first or data:blog.adsenseClientId)' name="script" expr:src='"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?" + data:blog.adsenseClientId' defer="" async="" crossorigin="anonymous" />
                     <!-- prettier-ignore -->
                     <script type="application/ld+json">@@include("../build/scripts/json/WebSite.json")</script>

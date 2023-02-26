@@ -7,7 +7,7 @@
             <b:skin><![CDATA[/*
             * Name : Theme Name
             * Version : 2.0.0
-            * Updated Date : February 27, 2023 - 02:36 AM
+            * Updated Date : February 27, 2023 - 02:39 AM
             * Author : Yasya El Hakim
             * Demo URL : https://www.elcreativeacademy.com/
             *//*
@@ -81,7 +81,6 @@
                         <link expr:href="data:link" rel="dns-prefetch preconnect" />
                     </b:loop>
                     <data:blog.feedLinks />
-
                 </b:includable>
                 <b:includable id="scriptHead">
                     <b:tag name="script"></b:tag>

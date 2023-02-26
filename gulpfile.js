@@ -113,7 +113,7 @@ gulp.task('styles:minified', () => {
 gulp.task('scripts:webpack', () => {
     const sources = {
         scripts: './src/assets/scripts/scripts.js',
-        scriptsHead: './src/assets/scripts/scripts-head.js'
+        // scriptsHead: './src/assets/scripts/scripts-head.js'
     };
     const webpackConfig = {
         mode: 'production',
@@ -164,9 +164,9 @@ gulp.task('scripts:webpack', () => {
                     },
                 })
             ],
-            // splitChunks: {
-            //     chunks: 'all',
-            // },
+            splitChunks: {
+                chunks: 'all',
+            },
         },
         watch: false
     };
@@ -188,7 +188,8 @@ gulp.task('scripts:babel', () => {
 // Generate minified scripts
 gulp.task('scripts:minified', () => {
     const sources = [
-        './build/scripts/*.js'
+        './build/scripts/*.js',
+        './src/assets/scripts/scripts-head.js',
     ];
 
     return gulp.src(sources)

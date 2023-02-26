@@ -4,8 +4,7 @@
 	"description": "No Description Found!",
 	"main": "gulpfile.js",
 	"scripts": {
-		"build": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify && gulp build:production",
-		"commit": "npm run build && gulp build:commit"
+		"build": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify && gulp build:production"
 	},
 	"keywords": [
 		"elcreative",
@@ -58,7 +57,7 @@
 	},
 	"names": "Theme Name",
 	"demo": "https://www.elcreativeacademy.com/",
-	"releasedDate": "February 27, 2023 - 02:39 AM",
+	"releasedDate": "February 27, 2023 - 05:42 AM",
 	"config": {
 		"cdataStart": "<![CDATA[",
 		"cdataEnd": "]]>",
