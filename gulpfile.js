@@ -313,6 +313,6 @@ gulp.task('build:commit', () => {
 
     return gulp.src(sources)
         .pipe(gulpGit.add())
-        .pipe(gulpGit.commit(`[build]: for production (${packages.version})`))
-        .pipe(gulpGit.push('origin', 'origin/assets'))
+        .pipe(gulpGit.commit(`[build]: for production`))
+        .pipe(gulpGit.push('origin', 'assets'))
 });
