@@ -16,7 +16,6 @@ const gulpRename = require('gulp-rename');
 const gulpStripComments = require('gulp-strip-comments');
 const fs = require('fs');
 const gulpBabel = require('gulp-babel');
-const gulpGit = require('gulp-git');
 
 const generateTimestamp = () => {
     const monthNames = [
@@ -303,16 +302,3 @@ gulp.task('build:production', gulp.series(
     'start',
     'comments'
 ));
-
-// Build Assets task: Production Mode
-gulp.task('build:commit', () => {
-    const sources = [
-        './build/scripts/*.js',
-        './build/styles/*.css'
-    ];
-
-    return gulp.src(sources)
-        .pipe(gulpGit.add())
-        .pipe(gulpGit.commit(`[build]: for production`))
-        .pipe(gulpGit.push('origin', 'assets'))
-});
