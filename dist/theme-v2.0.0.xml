@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html b:css="false" b:defaultwidgetversion="2" b:js="true" b:layoutsVersion="3" b:responsive="true" b:templateVersion="2.0.0" expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale">
+    <head>
+        <b:include data="blog" name="headContent" />
+        <b:if cond="!data:view.isLayoutMode">
+            <b:skin><![CDATA[/*
+            * Name : Theme Name
+            * Version : 2.0.0
+            * Updated Date : February 27, 2023 - 01:44 AM
+            * Author : Yasya El Hakim
+            * Demo URL : https://www.elcreativeacademy.com/
+            *//*
+            <Variable name="body.background" description="Body Background" type="background" color="#ffffff" default="#ffffff url(//1.bp.blogspot.com/-3fxYMPSkglE/XXEqoYT86tI/AAAAAAAAGgQ/W4qTmxfWsg8fBXr26HNPhCFFeadM9_xgACPcBGAYYCw/ELC.jpg) repeat scroll top left" value="#ffffff url(//1.bp.blogspot.com/-3fxYMPSkglE/XXEqoYT86tI/AAAAAAAAGgQ/W4qTmxfWsg8fBXr26HNPhCFFeadM9_xgACPcBGAYYCw/ELC.jpg) repeat scroll top left" />
+
+            <Group description="Default Options">
+                <Variable name="optionDefaultViewportZooming" description="Viewport Zooming (Disable | Enable)" type="length" default="1px" min="1px" max="2px" value="1px" />
+                <Variable name="keycolor" description="Key Color" type="color" default="#590de6" value="#590de6" />
+            </Group>
+
+            */]]>
+            :root {
+
+            }
+        </b:skin>
+            <b:tag name="style">*,:after,:before{-webkit-box-sizing:border-box;box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--elcreative-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;-webkit-font-feature-settings:normal;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:initial}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:initial;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:initial}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{opacity:1;color:#9ca3af}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input:-ms-input-placeholder,textarea:-ms-input-placeholder{opacity:1;color:#9ca3af}input::-ms-input-placeholder,textarea::-ms-input-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*,:after,:before{--elcreative-border-spacing-x:0;--elcreative-border-spacing-y:0;--elcreative-translate-x:0;--elcreative-translate-y:0;--elcreative-rotate:0;--elcreative-skew-x:0;--elcreative-skew-y:0;--elcreative-scale-x:1;--elcreative-scale-y:1;--elcreative-scroll-snap-strictness:proximity;--elcreative-ring-offset-width:0px;--elcreative-ring-offset-color:#fff;--elcreative-ring-color:#3b82f680;--elcreative-ring-offset-shadow:0 0 #0000;--elcreative-ring-shadow:0 0 #0000;--elcreative-shadow:0 0 #0000;--elcreative-shadow-colored:0 0 #0000}::-webkit-backdrop{--elcreative-border-spacing-x:0;--elcreative-border-spacing-y:0;--elcreative-translate-x:0;--elcreative-translate-y:0;--elcreative-rotate:0;--elcreative-skew-x:0;--elcreative-skew-y:0;--elcreative-scale-x:1;--elcreative-scale-y:1;--elcreative-scroll-snap-strictness:proximity;--elcreative-ring-offset-width:0px;--elcreative-ring-offset-color:#fff;--elcreative-ring-color:#3b82f680;--elcreative-ring-offset-shadow:0 0 #0000;--elcreative-ring-shadow:0 0 #0000;--elcreative-shadow:0 0 #0000;--elcreative-shadow-colored:0 0 #0000}::backdrop{--elcreative-border-spacing-x:0;--elcreative-border-spacing-y:0;--elcreative-translate-x:0;--elcreative-translate-y:0;--elcreative-rotate:0;--elcreative-skew-x:0;--elcreative-skew-y:0;--elcreative-scale-x:1;--elcreative-scale-y:1;--elcreative-scroll-snap-strictness:proximity;--elcreative-ring-offset-width:0px;--elcreative-ring-offset-color:#fff;--elcreative-ring-color:#3b82f680;--elcreative-ring-offset-shadow:0 0 #0000;--elcreative-ring-shadow:0 0 #0000;--elcreative-shadow:0 0 #0000;--elcreative-shadow-colored:0 0 #0000}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.visible{visibility:visible}.static{position:static}.box-border{-webkit-box-sizing:border-box;box-sizing:border-box}.block{display:block}.hidden{display:none}.w-full{width:100%}.border{border-width:1px}.filter{-webkit-filter:var(--elcreative-blur) var(--elcreative-brightness) var(--elcreative-contrast) var(--elcreative-grayscale) var(--elcreative-hue-rotate) var(--elcreative-invert) var(--elcreative-saturate) var(--elcreative-sepia) var(--elcreative-drop-shadow);filter:var(--elcreative-blur) var(--elcreative-brightness) var(--elcreative-contrast) var(--elcreative-grayscale) var(--elcreative-hue-rotate) var(--elcreative-invert) var(--elcreative-saturate) var(--elcreative-sepia) var(--elcreative-drop-shadow)}*{-webkit-tap-highlight-color:transparent}:focus-visible{outline:0}</b:tag>
+            <b:else />
+            <b:template-skin>body#layout{background-color:#fff;border:none}body#layout::before{content:var(--version);font-family:Roboto,sans-serif;font-size:20px;margin-bottom:24px;display:block}body#layout .app{margin:0 auto;max-width:820px}body#layout .app .elcreative_container{overflow:hidden;position:relative}body#layout .app .elcreative_container main{max-width:58.5%;float:left;width:100%}body#layout .app .elcreative_container aside{max-width:40%;float:right;width:100%}body#layout .app .section{max-width:980px;margin:0 auto;background-color:transparent;border-radius:8px;margin-bottom:12px;border-color:#dadce4;overflow:hidden;position:relative}body#layout .app .section#hidden h4::after{content:"It won't appear anywhere. It's hidden by default, but you can still add hidden gadgets in it."}body#layout .app .section.elcreative_panel_top{border-color:#2e7d32;background-color:rgba(46,125,50,.1215686275)}body#layout .app .section.elcreative_panel_top h4::after{content:"Please dont include anything other than what is in the documentation."}body#layout .app .section.elcreative_panel_bottom{border-color:#2e7d32;background-color:rgba(46,125,50,.1215686275)}body#layout .app .section.elcreative_panel_bottom h4::after{content:"Please dont include anything other than what is in the documentation."}body#layout .app .section.section_main_top_widget h4::after{content:"It will only appear on the Homepage."}body#layout .app .section.section_main_bottom_widget h4::after{content:"It will only appear on the Homepage."}body#layout .app .section h4{font-weight:500;margin:0 0 12px;font-size:18px;text-align:center}body#layout .app .section h4::after{display:block;font-size:12px;color:#757575;line-height:1.25em;margin-top:4px}body#layout .app .section .widget#HTML998{max-width:49.3%;float:left;width:100%}body#layout .app .section .widget#HTML999{max-width:49.3%;float:right;width:100%}body#layout .app .section .widget#LinkList995{max-width:49.3%;float:left;width:100%}body#layout .app .section .widget#LinkList996{max-width:49.3%;float:right;width:100%}body#layout .app .section .widget#PageList999{max-width:49.3%;float:right;width:100%}body#layout .app .section .widget#LinkList998{max-width:49.3%;float:left;width:100%}body#layout .app .section .widget#LinkList999{max-width:49.3%;float:left;width:100%}body#layout .app .section .widget.Attribution .widget-wrap2{background-color:#bbb}body#layout .app .section .widget.Attribution .widget-content .layout-title{color:#bbb}body#layout .app .section .widget.Attribution .widget-content .layout-widget-description{color:#bbb}body#layout .app .section .widget.BloggerButton .widget-wrap2{background-color:#bbb}body#layout .app .section .widget.BloggerButton .widget-content .layout-title{color:#bbb}body#layout .app .section .widget.BloggerButton .widget-content .layout-widget-description{color:#bbb}body#layout .app .section .widget.BlogSearch .widget-wrap2{background-color:#bbb}body#layout .app .section .widget.BlogSearch .widget-content .layout-title{color:#bbb}body#layout .app .section .widget.BlogSearch .widget-content .layout-widget-description{color:#bbb}body#layout .app .section .widget.Followers .widget-wrap2{background-color:#bbb}body#layout .app .section .widget.Followers .widget-content .layout-title{color:#bbb}body#layout .app .section .widget.Followers .widget-content .layout-widget-description{color:#bbb}body#layout .app .section .widget.Header:not(#Header1) .widget-wrap2{background-color:#bbb}body#layout .app .section .widget.Header:not(#Header1) .widget-content .layout-title{color:#bbb}body#layout .app .section .widget.Header:not(#Header1) .widget-content .layout-widget-description{color:#bbb}body#layout .app .section .widget.draggable-widget .widget-wrap2{border-top-left-radius:8px;border-bottom-left-radius:8px;background-color:#2e7d32}body#layout .app .section .widget.draggable-widget .widget-content{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:8px;border-bottom-right-radius:8px}body#layout .app .section .widget.locked-widget .widget-content{border-radius:8px}body#layout .app .section .widget .widget-content .editlink{background-size:18px;border:1px solid #dadce4;border-radius:8px;box-sizing:content-box}body#layout .app .section .widget .widget-content .editlink:hover{background-color:#ebeced}body#layout .app .section .widget .widget-content .layout-title{color:#202124}body#layout .app .section .widget .widget-content .layout-widget-description{font-size:12px;color:#5f6368;font-style:italic}body#layout .app .section .add_widget{border-radius:8px}body#layout .app .section .add_widget a{color:#2e7d32}</b:template-skin>
+        </b:if>
+        <b:defaultmarkups>
+            <b:defaultmarkup type="Common">
+                <b:includable id='headContent'>
+                    <meta charset="UTF-8" />
+                    <meta name="viewport" expr:content='data:skin.vars.optionFeatureViewportZooming == "2px" ? "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" : "width=device-width, initial-scale=1.0"' />
+                    <meta name="description" expr:content="data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped" />
+                    <b:with value='data:view.isSingleItem ? data:blog.pageName + " | " + data:blog.title : data:view.isHomepage or (data:view.search and !data:view.search.label and !data:view.search.query ) ? data:blog.title : data:view.search.label ? data:blog.pageTitle : data:view.search.query ? data:messages.search + " : " + data:view.search.query + " | " + data:blog.title : data:blog.title' var="blogTitle">
+                        <title><data:blogTitle /></title>
+                    </b:with>
+                    <meta name="keywords" expr:content='data:blog.title + ", " + data:blog.pageName' />
+                    <meta name="news_keywords" expr:content='data:blog.title + ", " + data:blog.pageName' />
+                    <meta name="author" expr:content="data:blog.title" />
+                    <meta name="copyright" expr:content="data:blog.title" />
+                    <meta name="language" expr:content="data:blog.locale.language" />
+                    <meta name="url" expr:content="data:blog.url.canonical" />
+                    <meta name="distribution" content="Global" />
+                    <meta name="target" content="all" />
+                    <meta name="rating" expr:content='data:blog.adultContent ? "adult" : "general"' />
+                    <meta name="theme-color" expr:content="data:skin.vars.keycolor" />
+                    <b:if cond='data:blog.pageType in {"archive"} or data:blog.searchLabel or data:blog.searchQuery'>
+                        <meta name="robots" content="noindex, nofollow" />
+                        <b:elseif cond="data:view.isSingleItem or data:view.isHomepage" />
+                        <b:loop values='{"robots", "googlebot", "googlemediabot", "gulliver", "slurp", "fast", "scooter", "vscooter", "ia_archiver", "FAST-WebCrawler", "teoma", "Baiduspider", "AlexaBot", "Yandex", "JikeSpider", "naverbot", "yeti", "SurveyBot", "ZyBorg", "ArchitextSpider", "msnbot-media/1.0", "MSNPTC", "MSNBot", "bingbot", "coccoc", "Linespider"}' var="link">
+                            <meta expr:name="data:link" content="index, follow" />
+                        </b:loop>
+                    </b:if>
+                    <meta property="article:tag" expr:content='data:blog.title + ", " + data:blog.pageName' />
+                    <meta name="apple-mobile-web-app-title" expr:content="data:blog.title.escaped" />
+                    <meta name="apple-mobile-web-app-capable" content="yes" />
+                    <meta name="apple-touch-fullscreen" content="yes" />
+                    <meta name="apple-mobile-web-app-status-bar-style" expr:content="data:skin.vars.keycolor" />
+                    <meta name="msapplication-navbutton-color" expr:content="data:skin.vars.keycolor" />
+                    <meta property="og:site_name" expr:content="data:blog.title.escaped" />
+                    <meta property="og:url" expr:content="data:blog.url.canonical" />
+                    <meta property="og:locale" expr:content="data:blog.locale.language" />
+                    <meta property="og:title" expr:content="data:view.isMultipleItems ? data:blog.title.escaped : data:blog.pageName" />
+                    <meta property="og:type" expr:content='data:view.isMultipleItems ? "website" : "article"' />
+                    <meta property="og:image" expr:content="data:view.featuredImage ? data:widgets.Blog.first.posts[0].featuredImage : data:skin.vars.body_background.image" />
+                    <meta property="og:description" expr:content="data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped" />
+                    <meta name="twitter:title" expr:content="data:view.isMultipleItems ? data:blog.title.escaped : data:blog.pageName" />
+                    <meta name="twitter:description" expr:content="data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped" />
+                    <meta name="twitter:url" expr:content="data:blog.url.canonical" />
+                    <meta name="twitter:image" expr:content="data:view.featuredImage ? data:widgets.Blog.first.posts[0].featuredImage : data:skin.vars.body_background.image" />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <link expr:href="data:blog.url" rel="canonical" />
+                    <link expr:href='resizeImage(data:blog.blogspotFaviconUrl, "16", "1:1")' rel="icon" type="image/x-icon" />
+                    <link expr:href='resizeImage(data:blog.blogspotFaviconUrl, "16", "1:1")' rel="shortcut" type="image/icon" />
+                    <link expr:href='resizeImage(data:blog.blogspotFaviconUrl, "16", "1:1")' rel="apple-touch-startup-image" />
+                    <link expr:href='resizeImage(data:blog.blogspotFaviconUrl, "16", "1:1")' rel="apple-touch-icon" />
+                    <b:tag name="link" expr:href="data:view.isSingleItem ? data:widgets.Blog.first.posts[0].featuredImage : data:skin.vars.body_background.image" rel="image_src" />
+                    <b:loop values='{"//1.bp.blogspot.com", "//2.bp.blogspot.com", "//3.bp.blogspot.com", "//4.bp.blogspot.com", "//lh3.googleusercontent.com", "//www.blogger.com", "//fonts.googleapis.com", "//fonts.gstatic.com", "//resources.blogblog.com", "//www.facebook.com", "//twitter.com", "//www.youtube.com", "//www.pinterest.com", "//www.linkedin.com", "//www.behance.net", "//feeds.feedburner.com", "//github.com", "//apis.google.com", "//connect.facebook.net", "//cdnjs.cloudflare.com", "//www.google-analytics.com", "//pagead2.googlesyndication.com", "//googleads.g.doubleclick.net", "//www.gstatic.com", "//www.googletagservices.com", "//static.xx.fbcdn.net", "//tpc.googlesyndication.com", "//syndication.twitter.com", "//syndication.twitter.com"}' var="link">
+                        <link expr:href="data:link" rel="dns-prefetch preconnect" />
+                    </b:loop>
+                    <data:blog.feedLinks />
+
+                </b:includable>
+                <b:includable id="scriptHead">
+                    <b:tag name="script"></b:tag>
+                    <b:tag cond='data:skin.vars.optionFeatureAdSenseLazy == "1px" and (data:widgets.AdSense.first or data:blog.adsenseClientId)' name="script" expr:src='"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?" + data:blog.adsenseClientId' defer="" async="" crossorigin="anonymous" />
+                    <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","name":"<data:blog.title.jsonEscaped/>","url":"<data:blog.homepageUrl.jsonEscaped/>","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"<data:blog.searchUrl.jsonEscaped/>?q={search_term_string}"},"query-input":"required name=search_term_string"}]}</script>
+                </b:includable>
+                <b:includable id="scriptBody">
+                    <b:tag name="script">/*<![CDATA[*//*]]>*/</b:tag>
+                </b:includable>
+            </b:defaultmarkup>
+        </b:defaultmarkups>
+        <b:include data="blog" name="scriptHead" />
+    </head>
+    <body>
+        <b:class expr:name="data:blog.pageType" />
+        <div id="app" class="app">
+            <b:section id="hidden" name="Hidden Section"></b:section>
+        </div>
+        <b:if cond="!data:view.isPage">&lt;textarea class=&quot;hidden&quot; disabled readonly hidden&gt;</b:if>
+        <b:include cond="data:view.isPage" name="scriptBody" />
+    </body>
+    <b:if cond="!data:view.isPage">&lt;/textarea&gt;<b:include name="scriptBody"></b:include>&lt;/body&gt;</b:if>
+</html>
