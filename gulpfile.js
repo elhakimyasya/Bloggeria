@@ -1,22 +1,62 @@
-const del = require("del");
-const fs = require("fs");
-const gulp = require("gulp");
+const gulp = require('gulp');
+const del = require('del');
+const gulpSass = require('gulp-sass')(require('sass'));
 const gulpAutoPrefixer = require('gulp-autoprefixer');
-const gulpBabelMinify = require('gulp-babel-minify');
 const gulpCleanCSS = require('gulp-clean-css');
+const webpackStream = require('webpack-stream');
+const terserWebpackPlugin = require('terser-webpack-plugin');
+const webpack = require('webpack');
+const gulpBabelMinify = require('gulp-babel-minify');
+const gulpJsonMinify = require('gulp-jsonminify');
+const gulpReplace = require('gulp-replace');
+const gulpTokenReplace = require('gulp-token-replace');
+const packages = require('./package.json');
 const gulpFileInclude = require('gulp-file-include');
 const gulpRename = require('gulp-rename');
-const gulpReplace = require('gulp-replace');
-const gulpSass = require('gulp-sass')(require('sass'));
 const gulpStripComments = require('gulp-strip-comments');
-const gulpTokenReplace = require('gulp-token-replace');
-const webpack = require('webpack');
-const webpackStream = require('webpack-stream');
-
+const fs = require('fs');
 const gulpBabel = require('gulp-babel');
-const gulpJsonMinify = require('gulp-jsonminify')
 
-const packages = './package.json';
+const generateTimestamp = () => {
+    const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const date = new Date();
+    const monthName = monthNames[date.getMonth()];
+    const day = date.getDate();
+    const year = date.getFullYear();
+    // const hours =  ("0" + date.getHours()).slice(-2);
+    const hours = ("0" + ((date.getHours() + 11) % 12 + 1)).slice(-2);
+    const minutes = ("0" + date.getMinutes()).slice(-2);
+
+    return `${monthName} ${day}, ${year} - ${hours}:${minutes} ${hours < 12 ? 'AM' : 'PM'}`;
+};
+const updatePackageTimestamp = () => {
+    const packagesFile = './package.json';
+    const timestamp = generateTimestamp();
+
+    fs.readFile(packagesFile, (error, fileData) => {
+        if (error) {
+            console.log('Error reading file:', error);
+
+            return
+        };
+
+        try {
+            const packages = JSON.parse(fileData);
+            packages.releasedDate = timestamp;
+
+            fs.writeFile(packagesFile, JSON.stringify(packages, null, '\t'), (error) => {
+                if (error) {
+                    console.log('Error writing file:', error)
+                }
+            })
+        } catch (error) {
+            console.log('Error parsing JSON:', error);
+        }
+    })
+};
 
 // Clean everything inside ./build directory
 gulp.task('clean', () => {
@@ -32,7 +72,8 @@ gulp.task('clean', () => {
 // Generate styles
 gulp.task('styles', () => {
     const sources = [
-        './src/assets/styles/*.{css,scss}'
+        './src/assets/styles/*.{css,scss}',
+        '!./src/assets/styles/tailwind.css'
     ];
 
     return gulp.src(sources)
@@ -70,26 +111,74 @@ gulp.task('styles:minified', () => {
 
 // Generate scripts (webpack)
 gulp.task('scripts:webpack', () => {
-    const sources = [
-        // './src/assets/scripts/*.js',
-        './plugins/auth/scripts/*.js',
-    ];
+    const sources = {
+        scripts: './src/assets/scripts/scripts.js',
+        scriptsHead: './src/assets/scripts/scripts-head.js'
+    };
+    const webpackConfig = {
+        mode: 'production',
+        entry: sources,
+        output: {
+            filename: '[name].min.js'
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: [
+                        {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: [
+                                    [
+                                        '@babel/preset-env',
+                                        {
+                                            targets: '> 0.25%, not dead',
+                                        },
+                                    ],
+                                ],
+                                plugins: [
+                                    // your plugins here
+                                ],
+                                // add the terserOptions here
+                                compact: true,
+                                comments: false
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        optimization: {
+            minimize: true,
+            minimizer: [
+                new terserWebpackPlugin({
+                    extractComments: false,
+                    terserOptions: {
+                        mangle: false,
+                        compress: true,
+                        format: {
+                            comments: false,
+                        },
+                    },
+                })
+            ],
+            // splitChunks: {
+            //     chunks: 'all',
+            // },
+        },
+        watch: false
+    };
 
-    return gulp.src(sources)
-        .pipe(webpackStream({
-            mode: 'production',
-            output: {
-                filename: 'bundle.js'
-            },
-            watch: false
-        }, webpack))
+    return gulp.src(sources.scripts)
+        .pipe(webpackStream(webpackConfig, webpack))
         .pipe(gulp.dest('./build/scripts'))
 });
 // Generate scripts (babel)
 gulp.task('scripts:babel', () => {
     const sources = [
-        './src/assets/scripts/*.js',
-        './src/assets/scripts/libraries/*.js',
+        './build/scripts/*.js'
     ];
 
     return gulp.src(sources)
@@ -105,7 +194,7 @@ gulp.task('scripts:minified', () => {
     return gulp.src(sources)
         .pipe(gulpBabelMinify({
             mangle: {
-                keepClassName: false
+                keepClassName: true
             },
             evaluate: false,
             builtIns: false,
@@ -116,17 +205,27 @@ gulp.task('scripts:minified', () => {
 });
 
 // Generate JSON (Schema)
-gulp.task('json:minify', function () {
-    return gulp.src('./src/assets/scripts/json/*.json')
+gulp.task('json:minify', () => {
+    const sources = [
+        './src/assets/scripts/json/*.json'
+    ];
+
+    return gulp.src(sources)
         .pipe(gulpJsonMinify())
         .pipe(gulp.dest('./build/scripts/json'))
 });
 // Generate Replaced JSON Data
-gulp.task('json:replace', function () {
-    return gulp.src('./build/scripts/json/*.json')
+gulp.task('json:replace', () => {
+    const sources = [
+        './build/scripts/json/*.json'
+    ];
+
+    return gulp.src(sources)
         .pipe(gulpReplace('dataBlogTitle', '<data:blog.title.jsonEscaped/>'))
         .pipe(gulpReplace('dataBlogHomepageUrl', '<data:blog.homepageUrl.jsonEscaped/>'))
         .pipe(gulpReplace('dataBlogSearchUrl', '<data:blog.searchUrl.jsonEscaped/>'))
+        .pipe(gulpReplace('dataBlogLocale', '<data:blog.locale/>'))
+        .pipe(gulpReplace('dataBlogMetaDescription', "<b:eval expr='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped'/>"))
         .pipe(gulpReplace('dataPostUrlCanonical', '<data:post.url.canonical.jsonEscaped/>'))
         .pipe(gulpReplace('dataPostTitle', '<data:post.title.jsonEscaped/>'))
         .pipe(gulpReplace('dataPostBodySnippet', "<b:eval expr='(data:post.body snippet {length: 150, links: false, linebreaks: false, ellipsis: true}).jsonEscaped'/>"))
@@ -138,46 +237,6 @@ gulp.task('json:replace', function () {
         .pipe(gulpReplace('dataPostLabelsFirstName', '<b:eval expr="data:post.labels ? data:post.labels.first.name : data:messages.home" />'))
         .pipe(gulpReplace('dataPostLabelsFirstUrlCanonical', '<b:eval expr="data:post.labels ? data:post.labels.first.url.canonical : data:blog.homepageUrl.canonical" />'))
         .pipe(gulp.dest('./build/scripts/json'))
-});
-
-// Generate Timestamp
-gulp.task('timestamp', (done) => {
-    const monthNames = [
-        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-    const date = new Date();
-    const timestamps = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} - ${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`;
-
-    !((filePath, results) => {
-        fs.readFile(filePath, (error, fileData) => {
-            if (error) {
-                return results && results(error)
-            } else {
-                try {
-                    const object = JSON.parse(fileData);
-
-                    return results && results(null, object);
-                } catch (errors) {
-                    return results && results(errors)
-                }
-            }
-        })
-    })(packages, (error, object) => {
-        if (error) {
-            return console.log("Error Reading File: ", error)
-        } else {
-            object.releasedDate = timestamps;
-            fs.writeFile(packages, JSON.stringify(object, null, '\t'), {
-                flag: 'w'
-            }, (errors) => {
-                if (errors) {
-                    console.log("Error Writting File: ", errors)
-                }
-            })
-        }
-    })
-
-    return done()
 });
 
 // Remove all comments
@@ -193,16 +252,21 @@ gulp.task('comments', () => {
         .pipe(gulp.dest('./dist'))
 });
 
+// Generate Timestamp
+gulp.task('timestamp', (results) => {
+    updatePackageTimestamp();
+    results()
+});
+
 // Final Tasks
 gulp.task('start', () => {
-    const tokenData = require(packages);
     const sources = [
-        './src/index.html'
+        './src/main.html'
     ];
 
     return gulp.src(sources)
         .pipe(gulpTokenReplace({
-            global: tokenData
+            global: packages
         }))
         .pipe(gulpFileInclude({
             indent: true,
@@ -211,31 +275,30 @@ gulp.task('start', () => {
         }))
         .pipe(gulpReplace('-tw', '-elcreative'))
         .pipe(gulpRename({
-            basename: 'theme',
+            basename: `theme-v${packages.version}`,
+            // basename: `${packages.names.replace(/\s/g, '-')}-v${packages.version}`,
             extname: '.xml'
         }))
         .pipe(gulp.dest('./dist'))
-});
+})
 
 // Build task: Production Mode
 gulp.task('build:production', gulp.series(
     'clean',
+
     'styles',
     'styles:autoprefixed',
     'styles:minified',
-    // 'scripts:webpack',
-    'scripts:babel',
-    // 'scripts:minified',
-    // 'json:minify',
-    // 'json:replace',
+
+    'scripts:webpack',
+    // 'scripts:babel',
+    'scripts:minified',
+
+    'json:minify',
+    'json:replace',
+
     'timestamp',
+
     'start',
     'comments'
-));
-// Build task: Development Mode
-gulp.task('build:development', gulp.series(
-    'clean',
-    'styles',
-    'scripts:babel',
-    'start'
 ));
