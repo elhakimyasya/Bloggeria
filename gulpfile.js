@@ -16,6 +16,7 @@ const gulpRename = require('gulp-rename');
 const gulpStripComments = require('gulp-strip-comments');
 const fs = require('fs');
 const gulpBabel = require('gulp-babel');
+const gulpHTMLMin = require('gulp-htmlmin');
 
 const generateTimestamp = () => {
     const monthNames = [
@@ -259,6 +260,23 @@ gulp.task('timestamp', (results) => {
     results()
 });
 
+// Minify HTML
+gulp.task('html:minify', () => {
+    const sources = [
+        // './src/partials/defaultmarkups/Common/defaultIcons.html',
+        // './src/partials/widgets/LinkList995.html',
+    ];
+
+    return gulp.src(sources)
+        .pipe(gulpHTMLMin({
+            collapseWhitespace: true,
+            // collapseBooleanAttributes: true, // collapse boolean attributes to a single value
+            removeComments: true,
+            ignoreCustomFragments: [/<[^>]+\/>/, /<[^>]+><\/[^>]+>/], // ignore self-closing tags and empty tags
+        }))
+        .pipe(gulp.dest('./build/html'))
+})
+
 // Final Tasks
 gulp.task('start', () => {
     const sources = [
@@ -297,6 +315,8 @@ gulp.task('build:production', gulp.series(
 
     'json:minify',
     'json:replace',
+
+    'html:minify',
 
     'timestamp',
 
