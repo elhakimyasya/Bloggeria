@@ -10,8 +10,6 @@ module.exports = {
         extend: {}
     },
     plugins: [
-        require('tailwindcss'),
         require('@tailwindcss/line-clamp'),
-        require('autoprefixer'),
     ],
 }
