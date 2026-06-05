@@ -1,23 +1,24 @@
 <?xml version='1.0' encoding='UTF-8' ?>
+<!-- prettier-ignore -->
 <!DOCTYPE html>
-<html b:css="false" b:defaultwidgetversion="2" b:js="true" b:layoutsVersion="3" b:responsive="true" b:templateVersion="{{version}}" expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale">
+<html b:css="false" b:defaultwidgetversion="2" b:js="true" b:layoutsVersion="3" b:responsive="true" expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale" b:templateVersion="{{version}}">
     <head>
         <b:include data="blog" name="headContent" />
         <b:if cond="!data:view.isLayoutMode">
             <!-- prettier-ignore -->
             <b:skin>{{config.cdataStart}}/*
-            * Name : {{names}}
-            * Version : {{version}}
-            * Updated Date : {{releasedDate}}
-            * Author : {{author.name}}
-            * Demo URL : {{demo}}
+            * Name          : {{names}}
+            * Version       : {{version}}
+            * Updated Date  : {{releasedDate}}
+            * Author        : {{author.name}}
+            * Demo URL      : {{demo}}
             *//*
             @@include("../src/partials/defaultVariables.html")
             */{{config.cdataEnd}}
             :root {
 
             }
-        </b:skin>
+            </b:skin>
             <b:tag name="style">@@include("../build/styles/styles.min.css")</b:tag>
             <b:else />
             <!-- prettier-ignore -->
